@@ -1,0 +1,532 @@
+<body>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+<!-- Right Panel -->
+  
+
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+
+<style>
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+.nextprevBtn {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+.nextprevBtn:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+.modal_add {
+    background-color: aliceblue;
+}
+.createquizbg {
+    background-color: antiquewhite;
+    color: black;
+}
+</style>
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>Spikelet</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+                          <li class="breadcrumb-item" aria-current="page">Spikelet</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+<div class="row">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body">
+<div class="default-tab">
+<nav>
+<div class="nav nav-tabs" id="nav-tab" role="tablist">
+<a class="nav-item nav-link  active show" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Search Criteria</a>
+<a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false">Create Quiz</a>
+
+</div>
+</nav>
+ <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+<div class="tab-pane fade active show" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body card-block search_criteria_body">
+<form method="post"  id="quiz_search_criteria_form" >
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Topic</label>
+<select name="select" id="select" class="form-control form-control-sm">
+<option value="0">--Select--</option>
+<option value="1">Topic 1</option>
+<option value="2">Topic 2</option>
+<option value="3">Topic 3</option>
+</select>
+</div>
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Sub Topic</label>
+<select name="select" id="select" class="form-control form-control-sm">
+<option value="0">--Select--</option>
+<option value="1">Sub Topic 1</option>
+<option value="2">Sub Topic 2</option>
+<option value="3">Sub Topic 3</option>
+</select>
+</div>
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Quiz Name</label>
+<input type="text" id="inputSuccess2i" class="form-control-success form-control form-control-sm" placeholder="Please Search Quiz Name">
+</div>
+
+<div class="form-actions form-group" style="text-align:center;">
+<button type="submit" class="btn btn-primary btn-sm">Search</button>&nbsp;
+<button type="reset" class="btn btn-primary btn-sm quiz_removelist" style="background: #c50f1f;">Reset</button>
+</div>
+
+</form>  
+</div>
+</div>
+<div class="col-md-12 quiz_search_criteria_list" style="display:none;">
+  <span><b>Quiz List</b></span>
+  <div class="table-responsive">
+<table id="mytable" class="table table-bordred table-striped">
+<thead class="table_header" style="background-color: #c0ebf9;"> 
+<tr><th>Actions</th>
+<th>Quiz Number</th>
+<th>Topic</th>
+<th>Sub Topic</th>
+<th>Quiz Name</th>
+<th>Number Of Questions</th>
+</tr></thead>
+<tbody class="table_body" style="background-color:#fffff3">
+
+<tr>
+
+<td>
+<a href="/spikelet/questionlist" target="_blank" title="Question List">
+<i class="fa fa-database" style="font-size: 20px;color: #d05f5f;"></i>
+</a>&nbsp;
+<i class="fa fa-edit" data-toggle="modal" data-target="#editquizModal" style="cursor:pointer;font-size: 20px;color: darkcyan;"></i>
+&nbsp;
+<i class="fa fa-remove" title="close" data-toggle="modal" data-target="#delete" style="cursor:pointer;font-size: 20px;color: red;"></i>
+</td>
+<td>QN00001</td>
+<td>Topic 1</td>
+<td>Sub Topic 1</td>
+<td>Computer Awareness</td>
+<td><a href="#" class="quwstion_count">20</a></td>
+</tr><tr>
+<td>
+<a href="/spikelet/questionlist" target="_blank" title="Question List">
+<i class="fa fa-database" style="font-size: 20px;color: #d05f5f;"></i>
+</a>&nbsp;
+<i class="fa fa-edit" data-toggle="modal" data-target="#editquizModal" style="cursor:pointer;font-size: 20px;color: darkcyan;"></i>
+&nbsp;
+<i class="fa fa-remove" title="close" data-toggle="modal" data-target="#delete" style="cursor:pointer;font-size: 20px;color: red;"></i>
+</td>
+<td>QN00002</td>
+<td>Topic 2</td>
+<td>Sub Topic 2</td>
+<td>General Awareness</td>
+<td>30</td>
+</tr><tr>
+<td>
+<a href="/spikelet/questionlist" target="_blank" title="Question List">
+<i class="fa fa-database" style="font-size: 20px;color: #d05f5f;"></i>
+</a>&nbsp;
+<i class="fa fa-edit" data-toggle="modal" data-target="#editquizModal" style="cursor:pointer;font-size: 20px;color: darkcyan;"></i>
+&nbsp;
+<i class="fa fa-remove" title="close" data-toggle="modal" data-target="#delete" style="cursor:pointer;font-size: 20px;color: red;"></i>
+</td>
+<td>QN00003</td>
+<td>Topic 1</td>
+<td>Sub Topic 1</td>
+<td>Indian Geography</td>
+<td>20</td>
+</tr><tr>
+<td>
+<a href="/spikelet/questionlist" target="_blank" title="Question List">
+<i class="fa fa-database" style="font-size: 20px;color: #d05f5f;"></i>
+</a>&nbsp;
+<i class="fa fa-edit" data-toggle="modal" data-target="#editquizModal" style="cursor:pointer;font-size: 20px;color: darkcyan;"></i>
+&nbsp;
+<i class="fa fa-remove" title="close" data-toggle="modal" data-target="#delete" style="cursor:pointer;font-size: 20px;color: red;"></i>
+</td>
+<td>QN00004</td>
+<td>Topic 3</td>
+<td>Sub Topic 3</td>
+<td>Indian History</td>
+<td>10</td>
+</tr><tr>
+<td>
+<a href="/spikelet/questionlist" target="_blank" title="Question List">
+<i class="fa fa-database" style="font-size: 20px;color: #d05f5f;"></i>
+</a>&nbsp;
+<i class="fa fa-edit" data-toggle="modal" data-target="#editquizModal" style="cursor:pointer;font-size: 20px;color: darkcyan;"></i>
+&nbsp;
+<i class="fa fa-remove" title="close" data-toggle="modal" data-target="#delete" style="cursor:pointer;font-size: 20px;color: red;"></i>
+</td>
+<td>QN00005</td>
+<td>Topic 2</td>
+<td>Sub Topic 2</td>
+<td>Indain Polity And Constitution</td>
+<td>25</td>
+</tr></tbody>
+
+</table>
+
+<div class="clearfix"></div>
+
+</div>
+</div>  
+</div>
+</div>
+<div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+<form id="formcreatequiz" method="post" action="reviewquestions.php">
+<div class="col-lg-12 createquizbg" >
+<div class="row">
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Topic</label>
+<select name="select" id="select" class="form-control form-control-sm">
+<option value="0">--Select--</option>
+<option value="1">Topic 1</option>
+<option value="2">Topic 2</option>
+<option value="3">Topic 3</option>
+</select>
+</div>
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Sub Topic</label>
+<select name="select" id="select" class="form-control form-control-sm">
+<option value="0">--Select--</option>
+<option value="1">Sub Topic 1</option>
+<option value="2">Sub Topic 2</option>
+<option value="3">Sub Topic 3</option>
+</select>
+</div>
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class="form-control-label selectquiz_hide">Select Quiz</label>
+<select name="select" id="selctQuiz" class="form-control-sm selectquiz_hide form-control">
+<option value="0" >--Select--</option>
+<option value="cqa" style="background-color: indianred;color: white;cursor: pointer;">--Create Quiz Name--</option>
+<option value="1">Unit Test 1</option>
+<option value="2">Unit Test 2</option>
+<option value="3">Unit Test 3</option>
+</select>
+
+<label for="inputSuccess2i" class="form-control-label quizname_show">Quiz Name <span class="selectquizenable" style="cursor: pointer;background-color: #e6ff16;">(selected Quiz)</span></label>
+<input type="text" id="inputSuccess2i" class="form-control-sm form-control-success form-control quizname_show" placeholder="Please Enter QuizName">
+
+</div>
+
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Number Of Questions Limit</label>
+<input type="text" id="inputSuccess2i" class="form-control-sm form-control-success form-control" placeholder="Number Of Question Limit">
+</div>
+<div class="col-lg-4 form-group">
+<div class="row form-group">
+<div class="col col-md-5"><label class=" form-control-label">Choose Option</label></div>
+<div class="col col-md-7">
+<div class="form-check">
+<div class="radio">
+<label for="radio1" class="form-check-label ">
+<input type="radio"  name="selectedradio" value="none" class="form-check-input selectedradio" checked>None
+</label>
+</div>
+<div class="radio">
+<label for="radio2" class="form-check-label ">
+<input type="radio"  name="selectedradio" value="addquestion" class="form-check-input selectedradio">Add Question
+</label>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+ <div class="col-lg-12 showdivforaddquestion" style="display:none;border-style: solid;border-color: #afa39f;">
+  <span style="text-align:center;">Unit test 1</span>
+  <div class="row">
+<div class="tab">
+<div class="col-lg-12 form-group">
+<div class="col col-md-2"><label for="textarea-input" class=" form-control-label">Question 1</label></div>
+<div class="col-12 col-md-10"><textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea></div>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 1</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 2</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 3</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 4</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Correct Answer</label>
+<input type="text" id="inputSuccess2i" class="form-control-success form-control" placeholder="Number Of Question Limit">
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Hinit</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+</div>
+
+<div class="tab">
+<div class="col-lg-12 form-group">
+<div class="col col-md-2"><label for="textarea-input" class=" form-control-label">Question 2</label></div>
+<div class="col-12 col-md-10"><textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea></div>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 1</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 2</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 3</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 4</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Correct Answer</label>
+<input type="text" id="inputSuccess2i" class="form-control-success form-control" placeholder="Number Of Question Limit">
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Hinit</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+</div>
+
+<div class="tab">
+<div class="col-lg-12 form-group">
+<div class="col col-md-2"><label for="textarea-input" class=" form-control-label">Question 3</label></div>
+<div class="col-12 col-md-10"><textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea></div>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 1</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 2</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 3</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 4</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Correct Answer</label>
+<input type="text" id="inputSuccess2i" class="form-control-success form-control" placeholder="Number Of Question Limit">
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Hinit</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+</div>
+
+<div class="tab">
+<div class="col-lg-12 form-group">
+<div class="col col-md-2"><label for="textarea-input" class=" form-control-label">Question 4</label></div>
+<div class="col-12 col-md-10"><textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea></div>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 1</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 2</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 3</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Option 4</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Correct Answer</label>
+<input type="text" id="inputSuccess2i" class="form-control-success form-control" placeholder="Number Of Question Limit">
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Hinit</label>
+<textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control" style="height: 85px;"></textarea>
+</div>
+</div>
+</div>
+<div style="overflow:auto;">
+<div style="float:right;">
+<button type="button" class="nextprevBtn" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+<button type="button" class="nextprevBtn" id="nextBtn" onclick="nextPrev(1)">Next</button>
+</div>
+</div>
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;">
+<span class="step"></span>
+<span class="step"></span>
+<span class="step"></span>
+<span class="step"></span>
+</div>
+ </div> 
+</div>
+
+</form> 
+<div class="form-actions form-group " style="text-align:center;">
+<a [routerLink]="['/spikelet/reviewquestions']">
+<button type="submit" class="btn btn-primary btn-sm">Create</button></a>&nbsp;
+<button type="reset" class="btn btn-primary btn-sm quiz_removelist" style="background: #c50f1f;">Reset</button>
+</div> 
+ </div>   
+ </div> 
+</div>
+</div>
+</div>
+</div>
+</div>  
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-body popupboxmodal">
+<span>
+Are you sure you want to close Quiz?
+</span>
+</div>
+<div class="modal-footer popupboxmodal">
+<button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+</div>
+</div>
+<!-- /.modal-content --> 
+</div>
+<!-- /.modal-dialog --> 
+</div>
+
+<div class="modal fade" id="editquizModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="largeModalLabel">Update Quiz</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body modal_add">
+<div class="col-lg-12">
+
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Topic</label>
+<select name="select" id="select" class="form-control form-control-sm">
+<option value="0">--Select--</option>
+<option value="1" slected>Topic 1</option>
+<option value="2">Topic 2</option>
+<option value="3">Topic 3</option>
+</select>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Sub Topic</label>
+<select name="select" id="select" class="form-control form-control-sm">
+<option value="0">--Select--</option>
+<option value="1" slected>Sub Topic 1</option>
+<option value="2">Sub Topic 2</option>
+<option value="3">Sub Topic 3</option>
+</select>
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Quiz name</label>
+<input type="text" id="inputSuccess2i" class="form-control-success form-control form-control-sm" placeholder="Please Search Quiz Name" value="Computer Awareness">
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Number Of Questions Limit</label>
+<input type="text" id="inputSuccess2i" class="form-control-success form-control form-control-sm" placeholder="Number Of Question Limit" value="20">
+</div>
+
+</div>
+</div>
+<div class="modal-footer modal_add" style="text-align:center;">
+<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+<button type="button" class="btn btn-primary btn-sm">Update</button>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

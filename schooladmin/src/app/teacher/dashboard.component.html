@@ -1,0 +1,725 @@
+<body>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+<style type="text/css">
+    .right-panel{
+    background-color: darkgray;  
+    }
+    .search_criteria_body{
+    background-color: antiquewhite;
+    }
+    .search_criteria_header{
+    background-color: bisque;
+    }
+    .table_header{
+background-color: bisque;
+}
+.table_body{
+background-color: bisque;
+}
+.modal_add{
+background-color: aliceblue;
+}
+.popupboxmodal{
+background-color: ghostwhite;
+}
+.createquizbg{
+background-color: antiquewhite;
+color: black;
+}
+.chzn-select-deselect{
+display: block;
+}
+.form-style-9{
+  background: #FAFAFA;
+  padding: 30px;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 6px solid #305A72;
+  width:100%;
+}
+.addexambutton {
+  -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
+  box-shadow: inset 0px 1px 0px 0px #3985B1;
+  background-color: #216288;
+  border: 1px solid #17445E;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  padding: 8px 18px;
+  text-decoration: none;
+  font: 12px Arial, Helvetica, sans-serif;
+}
+.addexambutton:hover {
+  background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+  background-color: #28739E;
+}
+</style>    
+
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <div class="page-header float-left">
+            <div class="page-title breadcrumb" >
+                <span >Dashboard</span>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="content mt-3" *ngIf="router.url === '/student/dashboard'">
+  <div class="col-lg-12 dashboard_menu" >
+
+      <!--/.col-->
+        <div class="col-sm-6 col-lg-3">
+          <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #c14fc3;">
+              <div class="card-body pb-0">
+                  <h4 class="mb-0">
+                     <i class="fa fa-search" style="font-size: 50px;"></i>
+                  </h4>
+                  <a [routerLink]="['/student/zoom']"><p class="text-light" style="margin-top: 10px;">Zoom</p></a>
+      
+                  
+      
+              </div>
+          </div>
+      </div>
+      
+      <!--/.col-->
+        <div class="col-sm-6 col-lg-3">
+          <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #4f93c3;">
+              <div class="card-body pb-0">
+                  <h4 class="mb-0">
+                     <i class="fa fa-microphone" style="font-size: 50px;"></i>
+                  </h4>
+                  <a [routerLink]="['/student/spikelet']"><p class="text-light" style="margin-top: 10px;">Spikelet</p></a>
+      
+                  
+      
+              </div>
+          </div>
+      </div>
+      
+      
+      
+        <!-- <div class="col-sm-6 col-lg-3">
+          <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #fc4600;">
+              <div class="card-body pb-0">
+                  <h4 class="mb-0">
+                     <i class="fa fa-pencil-square-o" style="font-size: 50px;"></i>
+                  </h4>
+                  <a href="assignment.php"><p class="text-light" style="margin-top: 10px;">Assignment</p></a>
+      
+                  
+      
+              </div>
+          </div>
+      </div> -->
+      
+            <div class="col-sm-6 col-lg-3">
+          <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #fc4600;">
+              <div class="card-body pb-0">
+                  <h4 class="mb-0">
+                     <i class="fa fa-pencil-square-o" style="font-size: 50px;"></i>
+                  </h4>
+                  <a  [routerLink]="['/student/myclasswork']"><p class="text-light" style="margin-top: 10px;">My Class Work</p></a>
+      
+                  
+      
+              </div>
+          </div>
+      </div>
+      <!--/.col-->
+      
+       <div class="col-sm-6 col-lg-3">
+          <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #d39e00;">
+              <div class="card-body pb-0">
+                  <h4 class="mb-0">
+                     <i class="fa fa-cloud-upload" style="font-size: 50px;"></i>
+                  </h4>
+                  <a [routerLink]="['/student/videos']" ><p class="text-light" style="margin-top: 10px;">Youtube Videos</p></a>
+      
+                  
+      
+              </div>
+          </div>
+      </div>
+      
+      </div>
+
+</div>
+
+<div class="content mt-3" *ngIf="router.url === '/dashboard'">
+<div class="col-lg-12" style="background-color:white;">
+<div class="col-lg-12" style="text-align:center;">
+&nbsp;
+</div> 
+<div class="col-lg-4">
+<h6  style="background-color: gray;color: white;text-align: center;">Grade Weightage</h6>  
+<div class="flot-container">
+<div id="flot-pie" class="flot-pie-container"></div>
+</div>
+</div>
+<div class="col-lg-8">
+<div class="form-group" style="text-align:center;margin-bottom: -2rem;">
+<label for="cc-payment" class="control-label mb-1"><b>Exam Type :</b>&nbsp;</label>
+<select  style="height: 25px;">
+<option>Exam</option>
+<option>Home Work</option>
+<option>Quiz</option>
+<option>Projects</option>
+</select>
+</div>
+<div class="form-group">
+<label for="cc-payment" class="control-label mb-1"></label>
+<table style="width: 100%;font-size: 10px;">
+<tbody>
+
+<tr>
+<td style="text-align: center;"><span class="fa fa-edit edit_icon" style="display:none;font-size: 15px;color: #1360a0;cursor:pointer;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span><br>05/06/2019 <br>
+Exam1  <br>
+
+
+<img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;">
+</td>
+<td style="text-align: center;"><span class="fa fa-edit edit_icon" style="cursor:pointer;display:none;font-size: 15px;color: #1360a0;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span><br>05/08/2019 <br>Exam2<br>
+
+<img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;"></td>
+<td style="text-align: center;"><span class="fa fa-edit edit_icon" style="cursor:pointer;display:none;font-size: 15px;color: #1360a0;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span>
+<br>05/11/2019 <br>Exam3<br>
+
+<img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;"></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" style="width: 100%;background: #74a7d2;border-style: dotted;border-collapse: collapse !important;border: none !important;">
+<tbody>
+
+<tr>
+<td style="text-align: center;color: white;">Jan</td>
+<td style="text-align: center;color: white;">Feb</td>
+<td style="text-align: center;color: white;">Mar</td>
+<td style="text-align: center;color: white;">Apr</td>
+<td style="text-align: center;color: white;">May</td>
+<td style="text-align: center;color: white;">June</td>
+<td style="text-align: center;color: white;">July</td>
+<td style="text-align: center;color: white;">Aug</td>
+<td style="text-align: center;color: white;">Sept</td>
+<td style="text-align: center;color: white;">Oct</td>
+<td style="text-align: center;color: white;">Nov</td>
+<td style="text-align: center;color: white;">Dec</td>
+</tr>
+<!-- <tr>
+<td style="text-align: center;color: white;">Term 1</td>
+<td style="text-align: center;color: white;">Term 2</td>
+<td style="text-align: center;color: white;">Term 3</td>
+<td style="text-align: center;color: white;">Term 4</td>
+</tr> -->
+</tbody>
+</table>
+
+<table style="width: 100%;font-size: 10px;">
+<tbody>
+
+<tr>
+<td style="text-align: center;"><img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;"><br>
+05/06/2019 <br>
+Quiz <br>
+<span class="fa fa-edit edit_icon" style="cursor:pointer;display:none;font-size: 15px;color: #1360a0;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span>
+
+</td>
+
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td style="text-align: center;">
+<img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;"><br>05/08/2019 <br>Exam2<br>
+<span class="fa fa-edit edit_icon" style="cursor:pointer;display:none;font-size: 15px;color: #1360a0;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span>
+</td>
+<td style="text-align: center;">
+<img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;">
+<br>
+05/11/2019 <br>Home Work<br>
+<span class="fa fa-edit edit_icon" style="cursor:pointer;display:none;font-size: 15px;color: #1360a0;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>   
+<div class="form-group" style="margin-bottom: -1rem;">
+<div id="alternating-slider" style="background: #5d86fb;"></div>
+</div>  
+<div class="col-lg-12" style="text-align:right;">
+<button type="button" class="btn btn-outline-secondary btn-sm add_exam"> 
+<i class="fa fa-arrows" aria-hidden="true" title="exam"></i>&nbsp; Academic Calendar</button>
+<input type="hidden" name="getdays_hidden" value="0" id="getdays_hidden">
+</div>
+</div>
+ &nbsp;
+<div class="col-lg-12 addexam_hide" style="display:none;">
+<div class="col-lg-12" style="margin-top: 5px;">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true" style="font-size: 25px;">×</span>
+</button>
+</div>
+<form class="form-style-9">
+<div class="row form-group">
+<div class="col-md-12">
+<div class="col-md-4">
+<label for="selectSm" class=" form-control-label"><b>Course Duration </b></label>
+<select name="selectSm" id="SelectLm" class="form-control-sm form-control">
+<option value="Yearly">Yearly</option>
+<option value="Semester">Semester</option>
+</select>
+</div>
+<div class="col-md-4">
+<label for="selectSm" class=" form-control-label"><b>From Date </b></label>
+<input type="text" id="from_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+</div>
+
+<div class="col-md-4">
+<label for="selectSm" class=" form-control-label"><b>End Date </b></label>
+<input type="text" id="end_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+</div>
+
+</div> 
+<div class="col-md-12"> &nbsp;
+</div>
+<div class="col-md-12" style="border-radius: 10px; border: 6px solid #ffd6eb;">
+<div class="col-md-12" style="text-align: center;">
+<b><!--  Grade Weightage --> </b>
+</div>
+<div class="col-md-4">
+</div>
+<div class="col-md-8">
+<div class="row form-group">
+<div class="col col-md-3" style="text-align:right;">
+<label for="text-input" class=" form-control-label">Exam </label>
+</div>
+<div class="col-12 col-md-2">
+<input type="text" id="exam_percentage" name="exam_percentage" placeholder="%" class="form-control-sm form-control">
+</div>
+</div>
+</div>
+<div class="col-md-4">
+</div>
+<div class="col-md-8">
+<div class="row form-group">
+<div class="col col-md-3" style="text-align:right;">
+<label for="text-input" class=" form-control-label">Quiz </label>
+</div>
+<div class="col-12 col-md-2">
+<input type="text" id="quiz_percentage" name="quiz_percentage" placeholder="%" class="form-control-sm form-control">
+</div>
+</div>
+</div>
+<div class="col-md-4">
+</div>
+<div class="col-md-8">
+<div class="row form-group">
+<div class="col col-md-3" style="text-align:right;">
+<label for="text-input" class=" form-control-label">Home Work </label>
+</div>
+<div class="col-12 col-md-2">
+<input type="text" id="homework_percentage" name="homework_percentage" placeholder="%" class="form-control-sm form-control">
+</div>
+</div>
+</div>
+<div class="col-md-4">
+</div>
+<div class="col-md-8">
+<div class="row form-group">
+<div class="col col-md-3" style="text-align:right;">
+<label for="text-input" class=" form-control-label">Projects </label>
+</div>
+<div class="col-12 col-md-2">
+<input type="text" id="project_percentage" name="project_percentage" placeholder="%" class="form-control-sm form-control">
+</div>
+</div>
+</div>
+<div class="col-md-4">
+</div>
+<div class="col-md-8">
+<div class="row form-group">
+<div class="col col-md-3" style="text-align:right;">
+<label for="text-input" class=" form-control-label"><b>Total Weightage </b></label>
+</div>
+<div class="col-12 col-md-2">
+<input type="text" id="total_percentage" name="project_percentage" placeholder="%" readonly class="form-control-sm form-control">
+</div>
+</div>
+</div>
+
+</div>  
+
+<div class="col-md-12">
+&nbsp;
+</div>  
+<div class="col-md-12">
+<div class="col-md-12">
+<label for="selectSm" class=" form-control-label" style="color:red;"><b>Appear on the graph (Yes/No)?</b></label><br>
+<div class="col-md-2">
+<input type="checkbox" >&nbsp;<b>Exam</b>
+</div> 
+<div class="col-md-2">
+<input type="checkbox" >&nbsp;<b>Homework</b>
+</div>
+<div class="col-md-2">
+<input type="checkbox" >&nbsp;<b>Quiz</b>
+</div>
+<div class="col-md-2">
+<input type="checkbox" >&nbsp;<b>Project</b>
+</div>
+</div> 
+</div> 
+<div class="col-md-12">
+<div class="col-md-4">
+<label for="selectSm" class=" form-control-label"><b>Exam Name </b></label>
+<div class="input-group">
+<div class="form-control-sm input-group-addon">
+<i class="fa fa-plus-square" style="color:red;cursor:pointer;"></i>
+</div>
+<input type="text" class="form-control-sm form-control" placeholder="Exam Name">
+</div>
+</div>
+<div class="col-md-3">
+<label for="selectSm" class=" form-control-label"><b>Exam Date </b></label>
+<input type="text" id="exam_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+</div>
+<div class="col-md-5">
+</div>
+
+</div>
+
+<div class="col-md-12">
+<div class="col-md-4">
+<label for="selectSm" class=" form-control-label"><b>Homework Name </b></label>
+<div class="input-group">
+<div class="form-control-sm input-group-addon">
+<i class="fa fa-plus-square" style="color:red;cursor:pointer;"></i>
+</div>
+<input type="text" class="form-control-sm form-control" placeholder="Homework Name">
+</div>
+</div>
+<div class="col-md-3">
+<label for="selectSm" class=" form-control-label"><b>Homework Date </b></label>
+<input type="text" id="homework_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+</div>
+<div class="col-md-5">
+
+</div>
+</div>
+<div class="col-md-12">
+<div class="col-md-4">
+<label for="selectSm" class=" form-control-label"><b>Quiz Name </b></label>
+<div class="input-group">
+<div class="form-control-sm input-group-addon">
+<i class="fa fa-plus-square" style="color:red;cursor:pointer;"></i>
+</div>
+<input type="text" class="form-control-sm form-control" placeholder="Quiz Name">
+</div>
+</div>
+<div class="col-md-3">
+<label for="selectSm" class=" form-control-label"><b>Quiz Date </b></label>
+<input type="text" id="quiz_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+</div>
+<div class="col-md-5">
+</div>
+</div>
+<div class="col-md-12">
+<div class="col-md-4">
+<label for="selectSm" class=" form-control-label"><b>Project Name </b></label>
+<div class="input-group">
+<div class="form-control-sm input-group-addon">
+<i class="fa fa-plus-square" style="color:red;cursor:pointer;"></i>
+</div>
+<input type="text" class="form-control-sm form-control" placeholder="Project Name">
+</div>
+</div>
+<div class="col-md-3">
+<label for="selectSm" class=" form-control-label"><b>Project Date </b></label>
+<input type="text" id="project_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+</div>
+
+<div class="col-md-5">
+
+</div>
+</div>
+<div class="col-md-12">&nbsp;
+</div>
+
+<div class="col-md-12" style="text-align:center;">
+<input type="button" class="btn btn-sm addexambutton"  value="Save" />
+</div> 
+
+</div> 
+</form>
+</div> 
+&nbsp;
+<!-- endofthediv -->      
+</div>    
+<div class="col-lg-12" style="text-align:center;">
+&nbsp;
+</div>   
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-3" style="height: 130px;background-color: blue;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-group" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/discussionboard']" > <p class="text-light" style="margin-top: 10px;">Discussion</p></a>
+
+</div>
+
+<div class="chart-wrapper px-0" style="height:70px;" height="70">
+<canvas id="widgetChart3"></canvas>
+</div>
+</div>
+</div>
+<!--/.col-->
+
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: deeppink;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-clipboard" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/syllabusposting']" ><p class="text-light" style="margin-top: 10px;">Syllabus</p></a>
+
+
+
+</div>
+</div>
+</div>
+<!--/.col-->
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: darkorchid;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-graduation-cap" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/grade']"  ><p class="text-light" style="margin-top: 10px;">Grades</p></a>
+
+
+
+</div>
+</div>
+</div>
+<!--/.col-->
+
+
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: mediumaquamarine;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-calendar" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/calendar']"  ><p class="text-light" style="margin-top: 10px;"> Calendar</p></a>
+</div>
+</div>
+</div>
+<!--/.col-->
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #c14fc3;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-search" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/Zoom']"><p class="text-light" style="margin-top: 10px;">Zoom</p></a>
+
+
+
+</div>
+</div>
+</div>
+
+<!--/.col-->
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #4f93c3;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-microphone" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/spikelet']" ><p class="text-light" style="margin-top: 10px;">Spikelet</p></a>
+
+
+
+</div>
+</div>
+</div>
+
+
+
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #fc4600;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-pencil-square-o" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/posthomework']"  ><p class="text-light" style="margin-top: 10px;">Post Homework</p></a>
+
+
+
+</div>
+</div>
+</div>
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: mediumvioletred;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-question" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/posthomework']"   ><p class="text-light" style="margin-top: 10px;">Post Quiz</p></a>
+
+
+
+</div>
+</div>
+</div>
+<!--/.col-->
+
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #d39e00;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-cloud-upload" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/postyoutubevideos']"   ><p class="text-light" style="margin-top: 10px;">Upload Youtube Videos</p></a>
+
+
+
+</div>
+</div>
+</div>
+
+
+<!--/.col-->
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #487896;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-columns" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/teacherpostforallstudents']"   ><p class="text-light" style="margin-top: 10px;"> Community Assignment</p></a>
+
+
+
+</div>
+</div>
+</div>
+<!--/.col-->
+
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #d46c6c;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-file-audio-o" style="font-size: 50px;"></i>
+</h4>
+<!--audiofiles-->
+<a href="#"><p class="text-light" style="margin-top: 10px;">  Audio files</p></a>
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: slateblue;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-external-link-square" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/postclassbehaviour']"   ><p class="text-light" style="margin-top: 10px;">Post Class Behaviour</p></a>
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: seagreen;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-child" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/studentperformance']"    ><p class="text-light" style="margin-top: 10px;">Student Performance</p></a>
+
+
+
+</div>
+</div>
+</div>
+
+
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: blue;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-tasks" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/vacancyschedule']"    ><p class="text-light" style="margin-top: 10px;">Vacancy Schedule</p></a>
+
+
+
+</div>
+</div>
+</div>
+
+<div class="col-sm-6 col-lg-3">
+<div class="card text-white bg-flat-color-4" style="height: 130px;background-color: yellowgreen;">
+<div class="card-body pb-0">
+<h4 class="mb-0">
+<i class="fa fa-file-pdf-o" style="font-size: 50px;"></i>
+</h4>
+<a [routerLink]="['/postlecturematerial']"    ><p class="text-light" style="margin-top: 10px;">Post Lecture Material.</p></a>
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

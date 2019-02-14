@@ -1,0 +1,143 @@
+<body>
+    <aside id="left-panel" class="left-panel">
+     <nav class="navbar navbar-expand-sm navbar-default"> 
+    <app-sidebarheader></app-sidebarheader>
+    <!-- /.navbar-collapse -->
+    </nav>
+    </aside><!-- /#left-panel -->
+    <!-- Right Panel -->
+    
+    
+    <div id="right-panel" class="right-panel" style="background-color: white;">
+      <!-- Header-->
+    <header id="header" class="header">
+    <div class="header-menu">
+    <app-header></app-header>
+    </div>
+    </header><!-- /header -->
+    
+    <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>Youtube Links</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active"><a [routerLink]="['/student/dashboard']">Dashboard</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Youtube Links</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>  
+<div class="content mt-3">
+<style type="text/css">
+.tab {
+    overflow: hidden;
+
+}
+.tab button:hover {
+    background-color:tomato;
+    cursor:pointer;
+}
+
+.tablinks{
+    width: 100px;
+    text-align: left;
+    color: white;
+    background: #00aced;
+    border-radius: 7px;
+}
+.tab button.active {
+    background-color: #b13b3bba;
+}
+.checked-star {
+    color: orange;
+}
+
+</style>
+<div class="col-lg-12 tab" style="padding-left: 0px;">
+<button class="tablinks active" id="english" onclick="subjectwisefunction(event, 'english')" >English
+
+</button>
+<button class="tablinks" id="spanish"  onclick="subjectwisefunction(event, 'spanish')"  >Spanish</button>
+<button class="tablinks" id="math"  onclick="subjectwisefunction(event, 'math')"  >Math</button>
+<button class="tablinks" id="science"  onclick="subjectwisefunction(event, 'science')"  >Science</button>
+<button class="tablinks" id="social"  onclick="subjectwisefunction(event, 'social')" >Social</button>
+
+</div>
+<div class="col-lg-12">&nbsp;</div>
+<div class="col-md-12 search_criteria_list" >
+<div class="table-responsive">
+<table id="mytable" class="table table-bordred table-striped">
+<thead class="table_header" style="background-color: #c0ebf9;"> 
+<tr>
+<th>S.No</th>
+<th>Youtube Link</th>
+<th>Link Description</th>
+<th>Received Date</th>
+</tr></thead>
+<tbody class="table_body" style="background-color:#fffff3">
+<tr>
+<td>
+1
+</td>
+<td><iframe  height="150" 
+src="https://www.youtube.com/embed/TiZ8iWqEvKE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+<td><a href="#" data-toggle="modal" data-target="#smallmodal">The one area of your ...</a></td>
+<td><span >2012-12-19 03:14:07</span></td>
+
+</tr><tr>
+<td>
+2
+</td>
+<td><iframe  height="150" 
+src="https://www.youtube.com/embed/pvXO4FqcDbo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+<td><a href="#" data-toggle="modal" data-target="#smallmodal">They either focus entirely ..</a></td>
+<td><span >2012-12-19 03:14:07</span></td>
+</tr><tr>
+<td>
+3
+</td>
+<td><iframe  height="150" 
+src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG"
+frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td>
+<td><a href="#" data-toggle="modal" data-target="#smallmodal">Would your delivery be stiff and academic..</a></td>
+<td><span >2012-12-19 03:14:07</span></td>
+</tr><tr>
+<td>
+4 
+</td>
+<td> <iframe  height="150" 
+src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG"
+frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td>
+<td><a href="#" data-toggle="modal" data-target="#smallmodal">They either focus entirely on the ..</a></td>
+<td><span >2012-12-19 03:14:07</span></td>
+</tr><tr>
+<td>
+5
+</td>
+<td><iframe  height="150" 
+src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG"
+frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td>
+<td><a href="#" data-toggle="modal" data-target="#smallmodal">Would your delivery..</a></td>
+<td><span >2012-12-19 03:14:07</span></td>
+</tr>
+</tbody>
+
+</table>
+
+<div class="clearfix"></div>
+
+</div>
+</div>
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+    
+    </body>

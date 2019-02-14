@@ -1,0 +1,76 @@
+<div class="navbar-header">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+<i class="fa fa-bars"></i>
+</button>
+</div>
+<div id="main-menu" class="main-menu collapse navbar-collapse" *ngIf="logdetails != 'STUDENT_ACCESS_TOKEN';">
+<ul class="nav navbar-nav">
+<li class="active">
+    <a [routerLink]="['/dashboard']" > <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+</li>
+ <li class="active">
+    <a [routerLink]="['/discussionboard']" > <i class="menu-icon fa fa-graduation-cap"></i>Discussion </a>
+</li>
+  <li class="active">
+    <a [routerLink]="['/syllabusposting']"  > <i class="menu-icon fa fa-clipboard"></i>Syllabus </a>
+</li>
+  <li class="active">
+    <a [routerLink]="['/grade']" > <i class="menu-icon fa fa-graduation-cap"></i>Grade </a>
+</li>
+  <li class="active">
+    <a [routerLink]="['/calendar']"  > <i class="menu-icon fa fa-calendar"></i>Calendar </a>
+</li>
+  <li class="active">
+    <a [routerLink]="['/zoom']"> <i class="menu-icon fa fa-search"></i>Zoom </a>
+</li>
+  <li class="active">
+    <a [routerLink]="['/spikelet']" > <i class="menu-icon fa fa-microphone"></i>Spikelet </a>
+</li>
+<!--  <li class="active">
+    <a href="composequestion"> <i class="menu-icon fa fa-question-circle-o"></i>Compose Question </a>
+</li> -->
+ <li class="active">
+    <a [routerLink]="['/posthomework']"  > <i class="menu-icon fa fa-pencil-square-o"></i>Post Homework </a>
+</li>
+<li class="active">
+    <a [routerLink]="['/postyoutubevideos']"  > <i class="menu-icon fa fa-cloud-upload"></i>Upload Youtube Videos </a>
+</li>
+<li class="active">
+    <a   [routerLink]="['/communityassignment']" > <i class="menu-icon fa fa-columns"></i>Community Assignment </a>
+</li>
+<li class="active">
+    <a [routerLink]="['/audiofiles']" > <i class="menu-icon fa fa-file-audio-o"></i> Audio files </a>
+</li>
+<li class="active">
+    <a [routerLink]="['/postclassbehaviour']"  > <i class="menu-icon fa fa-external-link-square"></i> Post Class Behaviour </a>
+</li>
+
+</ul>
+</div>
+
+
+<div id="main-menu" class="main-menu collapse navbar-collapse" *ngIf="logdetails == 'STUDENT_ACCESS_TOKEN';">
+<ul class="nav navbar-nav">
+
+<li class="active">
+<a [routerLink]="['/student/dashboard']"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+</li>
+<li class="active">
+<a [routerLink]="['/student/zoom']" > <i class="menu-icon fa fa-search"></i>Zoom </a>
+</li>
+<li class="active">
+<a [routerLink]="['/student/spikelet']" > <i class="menu-icon fa fa-microphone"></i>Spikelet </a>
+</li>
+<li class="active">
+<a  [routerLink]="['/student/myclasshomework']" > <i class="menu-icon fa fa-pencil-square-o"></i>My Class Work</a>
+</li>
+<li class="active">
+<a  [routerLink]="['/student/videos']"  > <i class="menu-icon fa fa-cloud-upload"></i>Youtube Videos </a>
+</li>
+
+    
+    </ul>
+    </div>
+
+
+
