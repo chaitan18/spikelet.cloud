@@ -1,0 +1,102 @@
+<style>
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  /* border-right:1px solid #bbb; */
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  color: rgba(0,0,0,0.45);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+        color: #967e7e;
+}
+
+.active {
+        color: black;
+}
+
+</style>
+
+<div class="col-sm-2" style="text-align: right;">
+<a [routerLink]="['/spikelethome']" style="color:white;cursor: pointer;">
+<h4 style="margin: 6px;">SPIKELET</h4></a> 
+</div>
+
+    
+<div class="col-sm-10">
+<div class="col-sm-6">        
+<ul style="margin: 8px;">
+<li><a class="active sptxt-white" style="color:white;cursor: pointer;">Home</a></li>
+<li><a class="sptxt-white" style="color:white;cursor: pointer;">Support</a></li>
+<li><a class="sptxt-white" style="color:white;cursor: pointer;">Community</a></li>
+<li><a class="sptxt-white" style="color:white;cursor: pointer;">Company</a></li>
+<li><a class="sptxt-white" style="color:white;cursor: pointer;">English</a></li>
+<!-- <li style="float:right"><a href="#about">About</a></li> -->
+</ul>   
+</div>
+<div class="col-sm-4">
+<div class="input-group">
+<input class="form-control-sm form-control py-2 border-right-0 border" type="search"  id="example-search-input" placeholder="search"> 
+<span class="input-group-append">
+<button class="btn btn-outline-secondary border-left-0 border" type="button">
+<i class="fa fa-search sptxt-white"></i>
+</button>
+</span>
+</div>  
+</div>
+<div class="col-sm-2"></div>
+</div>
+    
+<!-- <div class="col-sm-4" >
+<div class="user-area dropdown float-right">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+<img class="user-avatar rounded-circle" src="assets/images/admin.jpg" alt="User Avatar">
+</a>
+
+<div class="user-menu dropdown-menu">
+<a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+<a class="nav-link" [routerLink]="['/appsupload']"><i class="fa fa-user"></i> Upload Video</a>
+<a class="nav-link" ><i class="fa fa-cog"></i> Settings</a>
+
+<a [routerLink]="['/']"><i class="fa fa-power-off"></i> Logout</a>
+
+</div>
+</div>
+
+<div class="language-select dropdown" id="language-select">
+<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
+<i class="flag-icon flag-icon-us"></i>
+</a>
+<div class="dropdown-menu" aria-labelledby="language">
+<div class="dropdown-item">
+<span class="flag-icon flag-icon-fr"></span>
+</div>
+<div class="dropdown-item">
+<i class="flag-icon flag-icon-es"></i>
+</div>
+<div class="dropdown-item">
+<i class="flag-icon flag-icon-us"></i>
+</div>
+<div class="dropdown-item">
+<i class="flag-icon flag-icon-it"></i>
+</div>
+</div>
+</div>
+
+</div> -->

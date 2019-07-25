@@ -1,0 +1,146 @@
+<div class="navbar-header">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+<i class="fa fa-bars"></i>
+</button>
+</div>
+
+<!-- //*ngIf="logdetails != 'STUDENT_ACCESS_TOKEN';" -->
+<div id="main-menu" class="main-menu collapse navbar-collapse" *ngIf="userroleflag == 'teacher';">
+<ul class="nav navbar-nav">
+<li routerLinkActive="active">
+    <a [routerLink]="['/dashboard']" > <i class="menu-icon fa fa-dashboard"></i>{{datalabel.menu[0].dashboard}} </a>
+</li>
+<li routerLinkActive="active">
+        <a [routerLink]="['/students']" > <i class="menu-icon fa fa-graduation-cap"></i>Students</a>
+</li>
+ <li routerLinkActive="active">
+    <a [routerLink]="['/discussionboard']" > <i class="menu-icon fa fa-graduation-cap"></i>{{datalabel.menu[0].discussion}} </a>
+</li>
+  <li routerLinkActive="active">
+    <a [routerLink]="['/syllabusposting']"  > <i class="menu-icon fa fa-clipboard"></i>{{datalabel.menu[0].syllabus}} </a>
+</li>
+  <li routerLinkActive="active">
+    <a [routerLink]="['/grade']" > <i class="menu-icon fa fa-graduation-cap"></i>{{datalabel.menu[0].grades}} </a>
+</li>
+  <li routerLinkActive="active">
+        <a href="https://spikelet.awsapps.com/auth/?client_id=6b9615ec01be1c8d&redirect_uri=https%3A%2F%2Fwebmail.mail.us-east-1.awsapps.com%2Fworkmail%2F" target="_blank"> <i class="menu-icon ti-email"></i>Mail </a>
+</li>
+  <li routerLinkActive="active">
+    <a [routerLink]="['/zoom']"> <i class="menu-icon fa fa-search"></i>{{datalabel.menu[0].zoom}} </a>
+</li>
+<li routerLinkActive="active">
+        <a [routerLink]="['/examdetails']" > <i class="menu-icon fa fa-pencil-square-o"></i>{{datalabel.menu[0].exam_details}} </a>
+    </li>
+  <!-- <li routerLinkActive="active">
+    <a [routerLink]="['/spikelet']" > <i class="menu-icon fa fa-microphone"></i>Spikelet </a>
+</li> -->
+<!--  <li routerLinkActive="active">
+    <a href="composequestion"> <i class="menu-icon fa fa-question-circle-o"></i>Compose Question </a>
+</li> -->
+ <!-- <li routerLinkActive="active">
+    <a [routerLink]="['/posthomework']"  > <i class="menu-icon fa fa-pencil-square-o"></i>Post Homework </a>
+</li> -->
+<li routerLinkActive="active">
+    <a [routerLink]="['/postyoutubevideos']"  > <i class="menu-icon fa fa-cloud-upload"></i>{{datalabel.menu[0].upload_youtube_videos}} </a>
+</li>
+<li routerLinkActive="active">
+    <a   [routerLink]="['/communityassignment']" > <i class="menu-icon fa fa-columns"></i>{{datalabel.menu[0].community_assignment}} </a>
+</li>
+<li routerLinkActive="active">
+    <a [routerLink]="['/audiofiles']" > <i class="menu-icon fa fa-file-audio-o"></i>{{datalabel.menu[0].audio_files}} </a>
+</li>
+<li routerLinkActive="active">
+    <a [routerLink]="['/postclassbehaviour']"  > <i class="menu-icon fa fa-external-link-square"></i> {{datalabel.menu[0].post_class_behaviour}}  </a>
+</li>
+<li routerLinkActive="active" >
+    <a [routerLink]="['/postlecturermaterial']"  > <i class="menu-icon fa fa-file-pdf-o"></i>{{datalabel.menu[0].post_lecturee_material}}  </a>
+</li>
+<li routerLinkActive="active" >
+    <a [routerLink]="['/test']"  > <i class="menu-icon fa fa-file-pdf-o"></i>Test </a>
+</li>
+</ul>
+</div>
+
+
+<div id="main-menu" class="main-menu collapse navbar-collapse"  *ngIf="userroleflag == 'student';">
+<ul class="nav navbar-nav">
+
+<li routerLinkActive="active">
+<a [routerLink]="['/student/dashboard']"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+</li>
+<li routerLinkActive="active">
+<a [routerLink]="['/student/zoom']" > <i class="menu-icon fa fa-search"></i>Zoom </a>
+</li>
+<li routerLinkActive="active">
+        <a [routerLink]="['/calendar']"  > <i class="menu-icon fa fa-calendar"></i>Calendar</a>
+    </li>
+<li routerLinkActive="active">
+<a [routerLink]="['/student/spikelet']" > <i class="menu-icon fa fa-microphone"></i>Spikelet </a>
+</li>
+<li routerLinkActive="active">
+    <a  [routerLink]="['/student/discussionboard']"  > <i class="menu-icon fa fa-cloud-upload"></i>Discussion Board </a>
+    </li>
+
+<li routerLinkActive="active">
+<a  [routerLink]="['/student/videos']"  > <i class="menu-icon fa fa-cloud-upload"></i>Youtube Videos </a>
+</li>
+<li routerLinkActive="active">
+<a  [routerLink]="['/student/chat']" > <i class="menu-icon fa fa-pencil-square-o"></i>Chat</a>
+</li>
+<li routerLinkActive="active">
+<a  [routerLink]="['/student/mail']" > <i class="menu-icon fa fa-envelope"></i>School Email</a>
+</li>
+<li routerLinkActive="active">
+<a  [routerLink]="['/student/chat']" > <i class="menu-icon fa fa-file-audio-o"></i>Audio Files</a>
+</li>
+
+<li routerLinkActive="active">
+<a  [routerLink]="['/student/chat']" > <i class="menu-icon fa fa-file-pdf-o"></i>Events Outside School</a>
+</li>
+</ul>
+</div>
+
+
+<div id="main-menu" class="main-menu collapse navbar-collapse"  *ngIf="userroleflag == 'admin';">
+    <ul class="nav navbar-nav">
+    
+    <li routerLinkActive="active">
+    <a [routerLink]="['/admin/dashboard']"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+    </li>
+    <li routerLinkActive="active">
+        <a [routerLink]="['/admin/dashboard']"> <i class="menu-icon fa fa-building-o"></i>School Details </a>
+        </li>
+    <li routerLinkActive="active">
+        <a [routerLink]="['/batchad']" > <i class="menu-icon fa fa-building-o"></i>Batch Mangement</a>
+        </li>    
+    <li routerLinkActive="active">
+    <a [routerLink]="['/batch']" > <i class="menu-icon fa fa-building-o"></i>Batch </a>
+    </li>
+    <li routerLinkActive="active">
+    <a [routerLink]="['/class']"  > <i class="menu-icon fa fa-building-o"></i>Classes</a>
+    </li>
+    <li routerLinkActive="active">
+    <a [routerLink]="['/section']"  > <i class="menu-icon fa fa-bullhorn"></i>Section</a>
+    </li>   
+    <li routerLinkActive="active">
+    <a  [routerLink]="['/subject']"  > <i class="menu-icon fa fa-bullhorn"></i>Subjects </a>
+    </li> 
+    <li routerLinkActive="active">
+    <a [routerLink]="['/batchwiseclass']" > <i class="menu-icon fa fa-microphone"></i>Batch Wise Classes </a>
+    </li>
+    <li routerLinkActive="active">
+        <a  [routerLink]="['/classwisesection']"  > <i class="menu-icon fa fa-cloud-upload"></i>Class Wise Section </a>
+        </li>
+    
+    
+    <li routerLinkActive="active">
+    <a  [routerLink]="['/classwisesubject']" > <i class="menu-icon fa fa-pencil-square-o"></i>Class Wise Subjects</a>
+    </li>
+    <!-- <li routerLinkActive="active">
+    <a  [routerLink]="['/student/mail']" > <i class="menu-icon fa fa-envelope"></i>Grades</a>
+    </li> -->
+    </ul>
+    </div>
+
+
+

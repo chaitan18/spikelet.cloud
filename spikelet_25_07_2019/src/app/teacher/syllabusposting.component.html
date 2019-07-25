@@ -1,0 +1,461 @@
+<body>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+<!-- Right Panel -->
+  <style type="text/css">
+/*div
+{
+    border-radius: 5px;
+    }*/
+
+#name {
+    float:left;
+  margin-left: 20px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-family: Verdana, sans-serif;
+  color: #ffffff;
+}
+
+#email{
+    float:right;
+    margin-right: 20px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-family: Verdana, sans-serif;
+  color: #ffffff;
+}
+
+#contact
+{
+    margin-left:45%;
+    padding-bottom: 10px;
+  font-size: 16px;
+  font-family: Verdana, sans-serif;
+  color: #ffffff;
+    }
+
+a:hover {
+    font-weight: bold;
+}
+.right
+{
+    float: left;
+    margin-top: 0px;
+    padding-left:5px;
+    height: auto;
+    width: 99%;
+    background-color: white;
+}
+#footer
+{
+    height:40px;
+    clear:both;
+    position: relative;
+    background-color: #C1E3E1;
+}
+
+    
+h3
+{
+    text-decoration: underline;
+}
+#job-responsibilities
+{
+    padding: 1px;
+    }
+.job-title
+{
+    font-weight: bold;
+    }
+#course-name
+{
+    font-weight:bold;
+}   
+#company-name
+{
+    height:2px;
+    text-decoration:underline;
+}  
+#job-title
+{
+    height: 5px;
+    }
+.job-duration
+{
+    float:right;
+    }
+#heading
+{
+    font-weight:bold;
+    } 
+
+.ptag-syllabus
+{
+     padding-left: 50px;
+    font-size: 15px;
+    padding-inline-end: 50px;
+    margin-inline-end: 0px;
+    color: black;
+ }       
+.ultag-syllabus
+{
+    padding-left: 100px;
+    font-size: 15px;
+    padding-inline-end: 50px;
+    margin-inline-end: 0px;
+ } 
+ h3
+{
+    text-decoration: unset;
+}  
+</style>
+
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>Syllabus</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+                          <li class="breadcrumb-item" aria-current="page">Syllabus</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+
+
+<div class="col-lg-12 right" >
+<div class="col-lg-12" >
+<div class="col-lg-12" style="text-align:center;">
+&nbsp;
+</div>
+<div class="col-lg-4">
+<h6  style="background-color: gray;color: white;text-align: center;">Grade Weightage</h6> <br>
+<div class="flot-container">
+<div id="flot-pie" class="flot-pie-container"></div>
+</div>
+</div>
+<div class="col-lg-8">
+<div class="form-group" style="text-align:center;margin-bottom:-2rem;">
+<label for="cc-payment" class="control-label mb-1"><b>Exam Type :</b>&nbsp;</label>
+<select  style="height: 25px;">
+<option>Exam</option>
+<option>Home Work</option>
+<option>Quiz</option>
+<option>Projects</option>
+</select>
+</div> 
+<div class="form-group">
+<label for="cc-payment" class="control-label mb-1"></label>
+<table style="width: 100%;font-size: 10px;">
+<tbody>
+
+<tr>
+<td style="text-align: center;"><span class="fa fa-edit edit_icon" style="display:none;font-size: 15px;color: #1360a0;cursor:pointer;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span><br>05/06/2019 <br>
+Exam1  <br>
+
+
+<img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;">
+</td>
+<td style="text-align: center;"><span class="fa fa-edit edit_icon" style="cursor:pointer;display:none;font-size: 15px;color: #1360a0;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span><br>05/08/2019 <br>Exam2<br>
+
+<img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;"></td>
+<td style="text-align: center;"><span class="fa fa-edit edit_icon" style="cursor:pointer;display:none;font-size: 15px;color: #1360a0;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span>
+<br>05/11/2019 <br>Exam3<br>
+
+<img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;"></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" style="width: 100%;background: #74a7d2;border-style: dotted;border-collapse: collapse !important;border: none !important;">
+<tbody>
+
+<!-- <tr>
+<td style="text-align: center;color: white;">Jan</td>
+<td style="text-align: center;color: white;">Feb</td>
+<td style="text-align: center;color: white;">Mar</td>
+<td style="text-align: center;color: white;">Apr</td>
+<td style="text-align: center;color: white;">May</td>
+<td style="text-align: center;color: white;">June</td>
+<td style="text-align: center;color: white;">July</td>
+<td style="text-align: center;color: white;">Aug</td>
+<td style="text-align: center;color: white;">Sept</td>
+<td style="text-align: center;color: white;">Oct</td>
+<td style="text-align: center;color: white;">Nov</td>
+<td style="text-align: center;color: white;">Dec</td>
+</tr> -->
+<tr>
+<td style="text-align: center;color: white;">Term 1</td>
+<td style="text-align: center;color: white;">Term 2</td>
+<td style="text-align: center;color: white;">Term 3</td>
+<td style="text-align: center;color: white;">Term 4</td>
+</tr>
+</tbody>
+</table>
+
+<table style="width: 100%;font-size: 10px;">
+<tbody>
+
+<tr>
+<td style="text-align: center;"><img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;"><br>
+05/06/2019 <br>
+Quiz <br>
+<span class="fa fa-edit edit_icon" style="cursor:pointer;display:none;font-size: 15px;color: #1360a0;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span>
+
+</td>
+
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td style="text-align: center;">
+<img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;"><br>05/08/2019 <br>Exam2<br>
+<span class="fa fa-edit edit_icon" style="cursor:pointer;display:none;font-size: 15px;color: #1360a0;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span>
+</td>
+<td style="text-align: center;">
+<img src="https://www.keys4ulocksmith.co.uk/wp-content/uploads/2016/06/Item-14524-4.jpg" alt="See the source image" style="width: 35px;height: 40px;">
+<br>
+05/11/2019 <br>Home Work<br>
+<span class="fa fa-edit edit_icon" style="cursor:pointer;display:none;font-size: 15px;color: #1360a0;"></span>&nbsp;<span class="fa fa-trash delete_icon" style="cursor:pointer;display:none;font-size: 15px;color: red;"></span>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div> 
+
+</div> 
+<div class="col-lg-12">     
+<hr style="border: 1px dashed red;">
+</div>     
+<div class="col-lg-12" style="height:800px;overflow-y: auto;text-align: justify;
+text-justify: inter-word;"> 
+<div align="right" >
+<a href="https://business.okstate.edu/site-files/docs/online/msis-5673-jahanshah-sp18.pdf"  download>
+<img src="https://bcms.net/wp-content/uploads/2015/10/PDF-Logo-350.png" title="syllabus download" alt="W3Schools" width="50" height="50">
+</a>
+</div>
+<br>
+<br>
+<br>
+<div style="text-align:center;">
+<h3 style="font-size: 15px;margin-inline-start: 32px;">MSIS 4673/5673  </h3>
+<h3 style="font-size: 15px;margin-inline-start: 32px;">Descriptive Analytics and Visualization</h3>
+<h3 style="font-size: 15px;margin-inline-start: 32px;">Syllabus – Spring 2018 v1.0 </h3>
+</div>
+ <br>
+<h3 style="font-size: 15px;margin-inline-start: 32px;">Behfar Jahanshahi:  </h3>
+<h3 style="font-size: 15px;margin-inline-start: 32px;">Spears School of Business:  </h3>
+<h3 style="font-size: 15px;margin-inline-start: 32px;">Management Science & Information Systems:  </h3>
+<h3 style="font-size: 15px;margin-inline-start: 32px;">Oklahoma State University:  </h3>
+<h3 style="font-size: 15px;margin-inline-start: 32px;">Contact: behfar@interworks.com </h3><br>
+<h3 style="font-size: 15px;margin-inline-start: 32px;">Class Hours:  <a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a><span style="
+font-size: 12px;
+">Last update : 2018-02-26 16:16:17</span></h3>
+<br>
+<p class="ptag-syllabus"> Monday, EN 107 from 4:30 – 5:45 pm. We have an abnormal class schedule throughout
+the semester. Please see the accompanying Spring Schedule document found in Brightspace
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">GA:  <a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3>
+<br>
+<p class="ptag-syllabus"> Holt Calder - holt.calder@okstate.edus
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Course Site:(Brightspace by D2L):  <a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus"> http://online.okstate.edu or http://my.okstate.edu
+Online Learning Support for students enrolled in the online version of this
+course: spearsonline@okstate.edu
+Phone: 405-744-4048
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Intro <a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">“A picture is worth a thousand words.” Welcome to Descriptive Analytics and Visualization. We’ll
+discuss storytelling with data and explore best practices (and not so great practices) for how to present
+data in visual form. The primary means of communication for this course will be e-mail and Brightspace
+
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Prerequisites <a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">This course does not have official prerequisites. However, it would be beneficial for you to have a basic
+understanding of database design as you may be interacting with multiple types of data and sources of
+data. 
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Course Value <a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">The main objective of this course is for the student to develop an understanding of the role of visualization and dashboard design in direct support of managerial decision making (nowadays commonly referred to as business intelligence and analytics). Specifically, at the end of this course you should develop
+<!-- <ul class="ultag-syllabus" >
+<li>Strongly Recommend text: Knaflic, Cole (2015). “storytelling with data” Wiley. 978-1-119-00225-3</li>
+</ul> -->
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Course Objectives <a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">The main objective of this course is for the student to develop an understanding of the role of visualization and dashboard design in direct support of managerial decision making (nowadays commonly referred to as business intelligence and analytics). Specifically, at the end of this course you should develop
+<!-- <ul class="ultag-syllabus">
+<li>Strongly Recommend text: Knaflic, Cole (2015). “storytelling with data” Wiley. 978-1-119-00225-3</li>
+</ul> -->
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">What else? <a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+This is not a typical class. We’re in class for about 9 weeks and then you’ll shift to working on your
+semester project. I’ll personally teach a few of the classes throughout the semester but you should
+anticipate several guest lecturers sprinkled in. The guest lecturers will share with you the types of
+problems they face in the real world as well as their backgrounds.<br>
+The only data visualization tool we’ll use is Tableau. We need to teach you enough about a single tool to
+prepare you for successful delivery of your semester project. The theory and lecture that’s taught
+throughout the semester applies to any mainstream tool (Microsoft Power BI, QlikView, etc.) – so
+although we’ll be talking a lot about Tableau, the tool is simply a means to an end – building beautiful
+and meaningful data visualizations.<br>
+With regards to homework – we’ve built videos for most of the labs you’ll be working on. Those videos
+show you both the problem and the answer. This is by design. We want you learning the tool at a steady
+pace and accumulate your knowledge of how it works throughout the semester.
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Textbook &nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<!-- <ul class="ultag-syllabus">
+<li>knowledge about business intelligence, analytics, and data visualization technique,</li>
+</ul> -->
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Software Packages &nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+During the semester we will primarily focus on two primary software packages to enable you to conduct a
+wide variety of work. This class is designed to give you a strong understanding of the theory of data
+visualization so we’ll study techniques to download and manipulate data sets, then apply data
+visualization best practices to take that data and help tell a story. This semester you will primarily use:
+<!-- <ul class="ultag-syllabus">
+<li>Microsoft Excel</li>
+<li>Tableau (provided through the Tableau for Teaching program)</li>
+</ul> -->
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Instructor Response &nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+Either my Graduate Teaching Assistant or I will respond to student inquiries within 24 hours during
+Monday-Friday business hours. Students will expect grades for assignments to be posted to the
+Gradebook in Brightspace within one week of turning in the assignment.
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Video Lectures Availability (online MSIS 5673 CRN 27283 students) &nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+For the online students enrolled in the online version of the MSIS 5673 course, the video recordings of
+the live Monday night class will be made available on Brightspace within 24-48 hours. For technical
+difficulty questions, contact the Spears School Online Learning Office at (405) 744-4048,
+or spearsonline@okstate.edu. Students in the online CRN of this course will only have access to the video
+lectures. On-campus students are expected to attend the live class each week.
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Instructor Response &nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+Either my Graduate Teaching Assistant or I will respond to student inquiries within 24 hours during
+Monday-Friday business hours. Students will expect grades for assignments to be posted to the
+Gradebook in Brightspace within one week of turning in the assignment.
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Project &nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+We’ll have large semester project that accounts for 50% of your grade. This project involves finding an
+appropriate data set for the topic of your choosing and using Tableau Public to upload your visualization
+and story. <br><br>
+You will be responsible for identifying, conceptualizing, designing and developing a valuable visual story
+based on data ‘in the wild.’ The project is an individual project, not a team project. As we enter the back
+half of the semester, additional information will be shared on where you may find these data sources and
+we’ll discuss examples of good and bad data projects as well as the requirements of the project. 
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Exam &nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+One exam will be given during the semester. This is aimed at assessing the knowledge and skills learned
+during the semester and will focus on the lecture portion of the course, not technical aspects of HOW-TO
+in Tableau. If for any reason you will not be able to sit for the exam, please notify the instructor prior to
+the exam day. Any notice given after or during the exam day, except for an emergency, will not qualify
+as an excuse. If you are allowed a make-up exam, it will be in a different form/version from that given to
+the class. <br>
+Students enrolled in the online CRN 27283: one week prior to course start date, go to the Spears School
+of Business Online Learning website to choose a testing center at: spearsonline.okstate.edu, and click on
+“Select Testing Center” at the top right of the page. Follow the instructions to identify your testing center.
+Up to one week before each exam start date, make your appointment directly with your testing center to
+take each exam while being monitored by a proctor for test security reasons. The exam and/or exam
+instructions will be sent to your testing center 3 days prior to the exam start date. Contact the Spears
+School Online Learning office at spearsonline@okstate.edu, or call (405) 744-4048 if you have any 
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Homework Assignments &nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+Individually assigned, these take-home assignments (THA) are done outside of class. Unless otherwise
+specified by the instructor, homework will be assigned out on Monday and you have until Sunday end of
+day to submit via Brightspace by D2L. Any late submission will result in that score being cut in half.
+Late submissions will be accepted up to one week after the original due date. <br>
+While the homework may be considered relatively easy and straightforward, it is important you keep up
+and understand the concepts of each assignment, as they will build off the previous week. At the end of
+the semester you will apply all of your compounded knowledge into your semester project.
+</p>
+
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Grade Disputes &nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+If you feel an assessment has been graded unfairly or if you feel you have a better solution, write up your
+dispute and send it to me via email. You must dispute a grade within one week of grading.
+</p>
+
+
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Academic Integrity &nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+OSU has a policy on academic integrity. You are expected to abide by this policy in this class. Academic
+dishonesty can result in an F. You can read about OSU’s Academic Integrity Policy
+at http://academicintegrity.okstate.edu/.
+</p>
+
+<h3 style="font-size: 20px;margin-inline-start: 32px;">Accommodations for Students with Disabilities
+&nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+If you require testing or homework accommodations as certified by the Student Disability Services
+(SDS), then please inform me in writing now. (This is not required for accommodations, but information
+for me.) If you need any type of accommodation due to a disability, please ensure the SDS has mailed me
+the appropriate documentation. Students are responsible for requesting accommodations from the SDS. 
+You must submit a written request for any accommodation to me at least five school days before each of
+the exam dates. Please schedule a meeting with me in my office to discuss arrangements.
+</p>
+<h3 style="font-size: 20px;margin-inline-start: 32px;">University Policy
+&nbsp;<a href="#" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i></a></h3><br>
+<p class="ptag-syllabus">
+Drop Policy
+Information about university drop policy and dates is at this website:
+http://registrar.okstate.edu/
+To drop this course, contact the Registrar’s office, (405) 744-6876, or drop through Banner Self
+Service, http://my.okstate.edu
+</p>
+
+</div>    
+</div>
+
+
+
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

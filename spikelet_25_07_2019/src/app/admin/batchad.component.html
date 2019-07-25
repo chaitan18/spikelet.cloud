@@ -1,0 +1,730 @@
+<body>
+ <style>
+ .form_error{
+    color: red;
+ }
+ </style>  
+<style>
+
+/* .mat-step-icon-not-touched{
+    background-color: blue;
+    color: white;
+} */
+
+button {
+background-color: #4CAF50;
+color: #ffffff;
+border: none;
+padding: 10px 20px;
+font-size: 17px;
+font-family: Raleway;
+cursor: pointer;
+}
+
+button:hover {
+opacity: 0.8;
+}
+
+#prevBtn {
+background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+height: 15px;
+width: 15px;
+margin: 0 2px;
+background-color: #bbbbbb;
+border: none;  
+border-radius: 50%;
+display: inline-block;
+opacity: 0.5;
+}
+
+.step.active {
+opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+background-color: #4CAF50;
+}
+</style> 
+<style>
+/* The container */
+.container {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 25px;
+width: 25px;
+background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+left: 9px;
+top: 5px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 3px 3px 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
+.next{
+    background-color: cornflowerblue;
+    line-height: 10px;
+}
+.previous{
+    background-color: #f1c0c0;
+    color: black;
+    line-height: 10px;
+}
+.mat-input-element{
+    border: 1px solid #ced4da; 
+}
+.clscol{
+text-align: center;
+background-color: red;
+color: white;
+}
+/* .clscols{
+text-align: center;
+background-color: darkolivegreen;
+color: white;
+} */
+</style>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+<!-- Right Panel -->
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>Batch</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+                          <li class="breadcrumb-item" aria-current="page">Batch</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+<div class="animated fadeIn">
+<div class="card">
+<div class="card-body">
+<div class="col-lg-12">
+        
+        <mat-horizontal-stepper [linear] = "true" #stepper>
+                <mat-step [stepControl] = "firstFormGroup">
+                   <form [formGroup] = "firstFormGroup">
+                      <ng-template matStepLabel>Batch</ng-template>
+                     
+                      <br>
+                      <div class="col-lg-12" style="text-align: center;">
+                            <label><b>Batch Creation</b></label>
+                            <hr>
+                      </div>
+                      <div class="col-lg-12 form-group">  
+                     <div class="col-lg-4 form-group" >
+                      <label for="inputSuccess2i" class=" form-control-label">Batch Name</label><br>
+                      <mat-form-field>
+                         <input matInput type="text" formControlName="batch_name" class="form-control-sm form-control-success form-control" >
+                      </mat-form-field>
+                      <br>
+                      <br>
+                      </div>
+                      <div class="col-lg-4 form-group" >
+                            <label for="inputSuccess2i" class=" form-control-label">Start Date</label><br>
+                            <mat-form-field>
+                               <input matInput type="text" formControlName="batch_name" class="form-control-sm form-control-success form-control" >
+                            </mat-form-field>
+                            <br>
+                            <br>
+                            </div>
+                    <div class="col-lg-4 form-group" >
+                        <label for="inputSuccess2i" class=" form-control-label">End Date</label><br>
+                        <mat-form-field>
+                            <input matInput type="text" formControlName="batch_name" class="form-control-sm form-control-success form-control" >
+                        </mat-form-field>
+                        <br>
+                        <br>
+                        </div>
+                    </div>
+                      <div class="col-lg-12 form-group" style="text-align: center;">
+                        <button class="next"  mat-button (click)="moveToNextStep1()">Next &raquo;</button>
+                      </div>
+                   </form>
+                </mat-step>
+                <mat-step [stepControl] = "secondFormGroup">
+                   <form [formGroup] = "secondFormGroup">
+                      <ng-template matStepLabel>Batch Wise Class</ng-template>
+                    
+                      <br>
+                      <div class="col-lg-12" style="text-align: center;">
+                            <label><b>Batch Wise Class</b></label>
+                            <hr>
+                      </div>
+                      <div class="col-lg-12 form-group" >  
+                      <div class="col-lg-4 form-group" >
+                        <label for="inputSuccess2i" class=" form-control-label">Batch</label><br>
+                        <mat-form-field>
+                        <input matInput type="text" formControlName = "batchitemCtrl" class="form-control-sm form-control-success form-control" readonly   >
+                        </mat-form-field> 
+                       
+                        <!-- <div *ngFor="let interest of interests; let i = index" >
+                            <mat-checkbox (change)="onChange($event)" [value]="interest" >{{interest}}{{i}}</mat-checkbox>
+                        </div> -->
+                       
+                       </div>
+                        <div class="col-lg-4 form-group">&nbsp;</div>
+                        <div class="col-lg-4 form-group">&nbsp;</div>
+                        </div> 
+                        <div class="col-lg-12 form-group">
+                                <div class="col-lg-12 form-group">
+                            <label for="inputSuccess2i" class=" form-control-label">Classes</label><span *ngIf="bwsItemserrorMsg!=null" class="form_error">
+                                    {{ bwsItemserrorMsg }}
+                                </span><br>
+                            </div>
+                            <div class="col-lg-2">
+                            <div *ngFor="let interest of interests; let i = index" >
+                                <span *ngIf="i <= '4';">
+                                    <mat-checkbox (change)="onChange($event)" [value]="interest" >{{interest}}</mat-checkbox>
+                                </span>
+                                </div>
+                            </div> 
+                            <div class="col-lg-2">
+                            
+                            <div *ngFor="let interest of interests; let i = index" >
+                                    <span *ngIf="i > '4';">
+                                        <mat-checkbox (change)="onChange($event)" [value]="interest" >{{interest}}</mat-checkbox>
+                                    </span>
+                                    </div>
+                            </div> 
+                            <div class="col-lg-8">
+                            
+                            </div>
+                                </div>  
+                      <br>
+                      <br>
+                      <div class="col-lg-12 form-group" style="text-align: center;">
+                        <button class="previous" mat-button (click)="moveToPreviousStep()">&laquo; Back</button>
+                        <button class="next" mat-button (click)="moveToNextStep2()">Next &raquo;</button>
+                      </div>
+                   </form>
+                </mat-step>
+                <mat-step>
+                   <ng-template matStepLabel>Class Wise Section And Subject</ng-template>
+                      <br>
+                      <div class="col-lg-12" style="text-align: center;">
+                            <label><b>Class Wise Section And Subject</b></label>
+                            <hr>
+                      </div>
+                      <div class="col-lg-12" style="height: 500px;overflow: auto;">
+                      <div class="col-lg-6" >
+                            <div class="clscol"><label><b>Class 1</b></label></div>
+                        <div class="container-fluid">
+                                <p></p>
+                                <div class="clscols"><label><b>Section Assign To Class</b></label></div>
+                                <ejs-multiselect id='localData' #local [dataSource]='countries' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> 
+                                <p></p>
+                                <div class="clscols"><label><b>Subject Assign To Class</b></label></div>
+                               
+                                <dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+                                    [(destination)]="confirmed" height="150px" width="100%" [format]="format" [disabled]="disabled"></dual-list>
+                                
+                                <!-- <ul class="nav nav-tabs" style="margin-top:50px;">
+                                    <li [class.active]="tab===1"><a (click)="tab=1">Arrays</a><li>
+                                    <li [class.active]="tab===2"><a (click)="tab=2">Format</a></li>
+                                    <li [class.active]="tab===3"><a (click)="tab=3">Programmatic changes</a></li>
+                                </ul>
+                            
+                                <div class="tab-content">
+                                    <div class="tab-pane" [class.active]="tab===1">
+                                        <div class="row">
+                                            <div class="col-sm-6" style="margin-top:32px;"><h4>Source</h4><pre><small>{{source|json}}</small></pre></div>
+                                            <div class="col-sm-6" style="margin-top:32px;"><h4>Confirmed</h4><pre><small>{{confirmed|json}}</small></pre></div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="tab-pane" [class.active]="tab===2">
+                                        <form class="form">
+                                            <div class="form-group">
+                                                <label style="display:block;">Direction</label>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn" [ngClass]="{ 'btn-primary' : sourceLeft, 'btn-default' : !sourceLeft }"
+                                                        (click)="swapDirection()">left-to-right</button>
+                                                    <button type="button" class="btn" [ngClass]="{ 'btn-primary' : !sourceLeft, 'btn-default' : sourceLeft }"
+                                                        (click)="swapDirection()">right-to-left</button>
+                                                </div>
+                                            </div>
+                            
+                                            <div class="form-group">
+                                                <label>Enable drag-and-drop</label>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" [(ngModel)]="format.draggable" name="drag">draggable</label>
+                                                </div>
+                                            </div>
+                            
+                                            <div class="form-group">
+                                                <label>Locale</label>
+                                                <input class="form-control" [(ngModel)]="format.locale" name="locale">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Add button</label>
+                                                <input class="form-control" [(ngModel)]="format.add" name="addBtn">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Remove button</label>
+                                                <input class="form-control" [(ngModel)]="format.remove" name="rmBtn">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>All button</label>
+                                                <input class="form-control" [(ngModel)]="format.all" name="allBtn">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>None button</label>
+                                                <input class="form-control" [(ngModel)]="format.none" name="noneBtn">
+                                            </div>
+                                        </form>
+                                    </div>
+                            
+                                    <div class="tab-pane" [class.active]="tab===3">
+                                        <div class="row" style="margin-top:20px;">
+                                            <div class="col-sm-6">
+                                                <label>Modify parent's source</label>
+                                                <form class="form-inline well">
+                                                    <input class="form-control col-sm-1" style="margin-right:4px;" [(ngModel)]="userAdd" name="userAdd">
+                                                    <button class="btn btn-success" (click)="doCreate()" [disabled]="!userAdd.length">Create</button>
+                                                    <button class="btn btn-danger" (click)="doDelete()">Delete</button>
+                                                </form>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Modify parent's confirmed</label>
+                                                <form class="form-inline well">
+                                                <button class="btn btn-default" (click)="doAdd()">Add</button>
+                                                <button class="btn btn-default" (click)="doRemove()">Remove</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <label>Array source</label>
+                                                <form class="form well">
+                                                    <div class="radio" *ngFor="let item of arrayType">
+                                                        <label>
+                                                            <input type="radio" name="sourceType" [value]="item.value" [(ngModel)]="type" (change)="swapSource()">
+                                                            {{item.name}} &mdash; {{item.detail}}
+                                                        </label>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                            
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <label>General</label><br/>
+                                                <form class="form-inline well">
+                                                    <button class="btn btn-default" (click)="doFilter()">{{filterBtn()}}</button>
+                                                    <button class="btn btn-default" (click)="doDisable()">{{disableBtn()}}</button>
+                                                    <button class="btn btn-primary" (click)="doReset()">Reset</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                      </div>
+                      <div class="col-lg-6" >
+                            <div class="clscol"><label><b>Class 2</b></label></div>
+                        <div class="container-fluid">
+                                <p></p>
+                                <div class="clscols"><label><b>Section Assign To Class</b></label></div>
+                                <ejs-multiselect id='localData' #local [dataSource]='countries' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> 
+                                <p></p>
+                                <div class="clscols"><label><b>Subject Assign To Class</b></label></div>
+                               
+                                <dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+                                    [(destination)]="confirmed" height="150px" width="100%" [format]="format" [disabled]="disabled"></dual-list>
+                           </div>
+                           </div> 
+                           <div class="col-lg-12">&nbsp;<br></div>
+                           <div class="col-lg-6" >
+                            <div class="clscol"><label><b>Class 3</b></label></div>
+                        <div class="container-fluid">
+                                <p></p>
+                                <div class="clscols"><label><b>Section Assign To Class</b></label></div>
+                                <ejs-multiselect id='localData' #local [dataSource]='countries' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> 
+                                <p></p>
+                                <div class="clscols"><label><b>Subject Assign To Class</b></label></div>
+                            
+                                <dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+                                    [(destination)]="confirmed" height="150px" width="100%" [format]="format" [disabled]="disabled"></dual-list>
+                           </div>
+                           </div> 
+                           <div class="col-lg-6" >
+                            <div class="clscol"><label><b>Class 4</b></label></div>
+                        <div class="container-fluid">
+                                <p></p>
+                                <div class="clscols"><label><b>Section Assign To Class</b></label></div>
+                                <ejs-multiselect id='localData' #local [dataSource]='countries' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> 
+                                <p></p>
+                                <div class="clscols"><label><b>Subject Assign To Class</b></label></div>
+                               
+                                <dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+                                    [(destination)]="confirmed" height="150px" width="100%" [format]="format" [disabled]="disabled"></dual-list>
+                           </div>
+                           </div> 
+                           <div class="col-lg-12">&nbsp;<br></div>
+                           <div class="col-lg-6" >
+                            <div class="clscol"><label><b>Class 5</b></label></div>
+                        <div class="container-fluid">
+                                <p></p>
+                                <p></p>
+                                <div class="clscols"><label><b>Section Assign To Class</b></label></div>
+                                <ejs-multiselect id='localData' #local [dataSource]='countries' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> 
+                                <div class="clscols"><label><b>Subject Assign To Class</b></label></div>
+                              
+                                <dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+                                    [(destination)]="confirmed" height="150px" width="100%" [format]="format" [disabled]="disabled"></dual-list>
+                           </div>
+                           </div> 
+                           <div class="col-lg-6" >
+                            <div class="clscol"><label><b>Class 6</b></label></div>
+                        <div class="container-fluid">
+                                <p></p>
+                                <p></p>
+                                <div class="clscols"><label><b>Section Assign To Class</b></label></div>
+                                <ejs-multiselect id='localData' #local [dataSource]='countries' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> 
+                                <div class="clscols"><label><b>Subject Assign To Class</b></label></div>
+                              
+                                <dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+                                    [(destination)]="confirmed" height="150px" width="100%" [format]="format" [disabled]="disabled"></dual-list>
+                           </div>
+                           </div>   
+                           <div class="col-lg-12">&nbsp;<br></div>   
+                           
+                           <div class="col-lg-6" >
+                            <div class="clscol"><label><b>Class 7</b></label></div>
+                        <div class="container-fluid">
+                                <p></p>
+                                <div class="clscols"><label><b>Section Assign To Class</b></label></div>
+                                <ejs-multiselect id='localData' #local [dataSource]='countries' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> 
+                                <p></p>
+                                <div class="clscols"><label><b>Subject Assign To Class</b></label></div>
+                             
+                                <dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+                                    [(destination)]="confirmed" height="150px" width="100%" [format]="format" [disabled]="disabled"></dual-list>
+                           </div>
+                           </div> 
+                           <div class="col-lg-6" >
+                            <div class="clscol"><label><b>Class 8</b></label></div>
+                        <div class="container-fluid">
+                                <p></p>
+                                <div class="clscols"><label><b>Section Assign To Class</b></label></div>
+                                <ejs-multiselect id='localData' #local [dataSource]='countries' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> 
+                                <p></p>
+                                <div class="clscols"><label><b>Subject Assign To Class</b></label></div>
+                              
+                                <dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+                                    [(destination)]="confirmed" height="150px" width="100%" [format]="format" [disabled]="disabled"></dual-list>
+                           </div>
+                           </div>   
+                           <div class="col-lg-12">&nbsp;<br></div>
+                           <div class="col-lg-6" >
+                            <div class="clscol" ><label><b>Class 9</b></label></div>
+                        <div class="container-fluid">
+                                <p></p>
+                                <div class="clscols"><label><b>Section Assign To Class</b></label></div>
+                                <ejs-multiselect id='localData' #local [dataSource]='countries' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> 
+                                <p></p>
+                                <div class="clscols"><label><b>Subject Assign To Class</b></label></div>
+                            
+                                <dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+                                    [(destination)]="confirmed" height="150px" width="100%" [format]="format" [disabled]="disabled"></dual-list>
+                           </div>
+                           </div> 
+                           <div class="col-lg-6" >
+                            <div class="clscol"><label><b>Class 10</b></label></div>
+                        <div class="container-fluid">
+                                <p></p>
+                                <div class="clscols"><label><b>Section Assign To Class</b></label></div>
+                                <ejs-multiselect id='localData' #local [dataSource]='countries' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect> 
+                                <p></p>
+                                <div class="clscols"><label><b>Subject Assign To Class</b></label></div>
+                               
+                                <dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+                                    [(destination)]="confirmed" height="150px" width="100%" [format]="format" [disabled]="disabled"></dual-list>
+                           </div>
+                           </div>   
+                           <div class="col-lg-12">&nbsp;<br></div>
+                           
+                    </div>
+                    <p>&nbsp;</p>
+                      <br>
+                      <br>
+                   <div class="col-lg-12 form-group" style="text-align: center;">
+                      <button class="previous" mat-button (click)="moveToPreviousStep()">&laquo; Back</button>
+                      <button class="next" mat-button (click)="moveToNextStep2()">Next</button>
+                   </div>
+                </mat-step>
+             </mat-horizontal-stepper>
+<!-- <mat-horizontal-stepper [linear]="isLinear"> 
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">  
+        <ng-template matStepLabel>Step 1</ng-template>  
+        <button mat-button mat-raised-button color="primary" matStepperNext>Solve</button>        
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Step 2</ng-template>
+        <mat-form-field>
+            <input matInput placeholder="Any input" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>          
+        <button mat-button mat-raised-button color="" matStepperPrevious>Back</button>        
+        </form>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel icon>Done</ng-template>
+        You are now done.      
+        <button mat-button mat-raised-button color="primary" >Done</button>      
+    </mat-step>
+</mat-horizontal-stepper> -->
+</div>
+<!-- <div class="col-lg-12 body_next">  
+<div class="section_next">  
+    <h5>Create Batch</h5>
+        <div class="col-lg-12 form-group">     
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Batch Name</label>
+<input type="text" id="inputSuccess2i" name="batch_name" class="form-control-sm form-control-success form-control" placeholder="Please Enter Batch Name">
+</div>
+</div>
+</div>
+<div class="section_next"> 
+        <h5>Batch Wise Class</h5> 
+ <div class="col-lg-12 form-group">     
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Batch</label>
+<input type="text" class="form-control-sm form-control-success form-control"  Value="2014-2015" disabled>
+</div>
+<div class="col-lg-4 form-group">&nbsp;</div>
+<div class="col-lg-4 form-group">&nbsp;</div>
+</div>
+<div class="col-lg-12 form-group">
+<div class="col-lg-2">
+<label class="container">1
+<input type="checkbox" checked="checked">
+<span class="checkmark"></span>
+</label>
+<label class="container">2
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+<label class="container">3
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+<label class="container">4
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+<label class="container">5
+<input type="checkbox" checked="checked">
+<span class="checkmark"></span>
+</label>
+</div> 
+<div class="col-lg-2">
+
+<label class="container">6
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+<label class="container">7
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+<label class="container">8
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+<label class="container">9
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+<label class="container">10
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div> 
+<div class="col-lg-8">
+
+</div>
+    </div>      
+</div>
+<div class="section_next">  
+        <h5>Batch (Class Wise Section )</h5>   
+<div class="col-lg-12 form-group">     
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Batch</label>
+<input type="text" class="form-control-sm form-control-success form-control"  Value="2014-2015" disabled>
+</div>
+<div class="col-lg-4 form-group">&nbsp;</div>
+<div class="col-lg-4 form-group">&nbsp;</div>
+</div>
+<div class="col-lg-12 form-group" >
+<div class="col-lg-12 form-group" style="text-align: left;">
+ <label for="inputSuccess2i" class=" form-control-label">Classes</label>  
+</div> 
+</div>
+<div class="col-lg-12 form-group">
+
+<div class="col-lg-4">
+<label class="container">1
+</label> 
+<div class="col-lg-12" style="padding-left: 60px;">
+<div id="InputsWrapper">
+
+<input type="text" name="mytext[]" id="field_1" value="" style="width: 20%;
+text-align: center;">
+<span id="AddMoreFileBox" class="AddMoreFileId fa fa-plus" style="cursor: pointer;color:red;"></span>
+
+</div>
+<div id="lineBreak"></div>
+</div>
+</div>
+<div class="col-lg-4">
+<label class="container">2
+    </label>     
+</div>
+<div class="col-lg-4"></div>
+</div> 
+<div class="col-lg-12 form-group">
+<div class="col-lg-4">
+<label class="container">3
+</label> 
+</div>
+<div class="col-lg-4">
+<label class="container">4
+</label>     
+</div>
+<div class="col-lg-4"></div>
+</div>
+<div class="col-lg-12 form-group">
+<div class="col-lg-4">
+<label class="container">5
+</label> 
+</div>
+<div class="col-lg-4">
+<label class="container">6
+</label>     
+</div>
+<div class="col-lg-4"></div>
+</div>
+<div class="col-lg-12 form-group">
+<div class="col-lg-4">
+<label class="container">7
+</label> 
+</div>
+<div class="col-lg-4">
+<label class="container">8
+</label>     
+</div>
+<div class="col-lg-4"></div>
+</div>
+<div class="col-lg-12 form-group">
+<div class="col-lg-4">
+<label class="container">9
+</label> 
+</div>
+<div class="col-lg-4">
+<label class="container">10
+</label>     
+</div>
+<div class="col-lg-4"></div>
+</div>
+
+
+</div>
+
+
+</div>    -->
+
+
+</div>
+</div>
+</div> 
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

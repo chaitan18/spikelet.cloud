@@ -1,0 +1,737 @@
+<body>
+    <aside id="left-panel" class="left-panel">
+     <nav class="navbar navbar-expand-sm navbar-default"> 
+    <app-sidebarheader></app-sidebarheader>
+    <!-- /.navbar-collapse -->
+    </nav>
+    </aside><!-- /#left-panel -->
+    <style type="text/css">
+        .right-panel{
+        background-color: darkgray;  
+        }
+        .search_criteria_body{
+        background-color: antiquewhite;
+        }
+        .search_criteria_header{
+        background-color: bisque;
+        }
+        .table_header{
+    background-color: bisque;
+    }
+    .table_body{
+    background-color: bisque;
+    }
+    .modal_add{
+    background-color: aliceblue;
+    }
+    .popupboxmodal{
+    background-color: ghostwhite;
+    }
+    .createquizbg{
+    background-color: antiquewhite;
+    color: black;
+    }
+    .chzn-select-deselect{
+    display: block;
+    }
+    .form-style-9{
+      background: #FAFAFA;
+      padding: 30px;
+      box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+      border-radius: 10px;
+      border: 6px solid #305A72;
+      width:100%;
+    }
+    
+    </style>    
+    
+    <div id="right-panel" class="right-panel">
+      <!-- Header-->
+    <header id="header" class="header">
+    <div class="header-menu">
+    <app-header></app-header>
+    </div>
+    </header><!-- /header -->
+    <div class="breadcrumbs">
+        <div class="col-sm-12">
+          
+          
+            <input type="hidden" id="exam_weightage"  value="{{getgradeweightageservice[0].exams}}"/>
+            <input type="hidden" id="homework_weightage"  value="{{getgradeweightageservice[0].homeworks}}"/>
+            <input type="hidden" id="projcet_weightage"  value="{{getgradeweightageservice[0].projects}}"/>
+            <input type="hidden" id="quiz_weightage"  value="{{getgradeweightageservice[0].quiz}}"/>
+            <div class="page-header float-left">
+                <div class="page-title breadcrumb" >
+                    <span >{{datalabel.heading[0].dashboard}}</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="content mt-3" *ngIf="router.url === '/student/dashboard'">
+      <div class="col-lg-12 dashboard_menu" >
+    
+          <!--/.col-->
+            <div class="col-sm-6 col-lg-3">
+              <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #c14fc3;">
+                  <div class="card-body pb-0">
+                      <h4 class="mb-0">
+                         <i class="fa fa-search" style="font-size: 50px;"></i>
+                      </h4>
+                      <a [routerLink]="['/student/zoom']"><p class="text-light" style="margin-top: 10px;">Zoom</p></a>
+          
+                      
+          
+                  </div>
+              </div>
+          </div>
+          
+          <!--/.col-->
+            <div class="col-sm-6 col-lg-3">
+              <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #4f93c3;">
+                  <div class="card-body pb-0">
+                      <h4 class="mb-0">
+                         <i class="fa fa-microphone" style="font-size: 50px;"></i>
+                      </h4>
+                      <a [routerLink]="['/student/spikelet']"><p class="text-light" style="margin-top: 10px;">Spikelet</p></a>
+          
+                      
+          
+                  </div>
+              </div>
+          </div>
+          
+          
+          
+            <!-- <div class="col-sm-6 col-lg-3">
+              <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #fc4600;">
+                  <div class="card-body pb-0">
+                      <h4 class="mb-0">
+                         <i class="fa fa-pencil-square-o" style="font-size: 50px;"></i>
+                      </h4>
+                      <a href="assignment.php"><p class="text-light" style="margin-top: 10px;">Assignment</p></a>
+          
+                      
+          
+                  </div>
+              </div>
+          </div> -->
+          
+                <div class="col-sm-6 col-lg-3">
+              <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #fc4600;">
+                  <div class="card-body pb-0">
+                      <h4 class="mb-0">
+                         <i class="fa fa-pencil-square-o" style="font-size: 50px;"></i>
+                      </h4>
+                      <a  [routerLink]="['/student/myclasswork']"><p class="text-light" style="margin-top: 10px;">My Class Work</p></a>
+          
+                      
+          
+                  </div>
+              </div>
+          </div>
+          <!--/.col-->
+          
+           <div class="col-sm-6 col-lg-3">
+              <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #d39e00;">
+                  <div class="card-body pb-0">
+                      <h4 class="mb-0">
+                         <i class="fa fa-cloud-upload" style="font-size: 50px;"></i>
+                      </h4>
+                      <a [routerLink]="['/student/videos']" ><p class="text-light" style="margin-top: 10px;">Youtube Videos</p></a>
+          
+                      
+          
+                  </div>
+              </div>
+          </div>
+          
+          </div>
+    
+    </div>
+    
+    <div class="content mt-3" *ngIf="router.url === '/dashboard'">
+    <div class="col-lg-12" style="background-color:white;">
+    <div class="col-lg-12" style="text-align:center;">
+    &nbsp;
+    </div> 
+    <div class="col-lg-4">
+    <h6  style="background-color: gray;color: white;text-align: center;">{{datalabel.module[0].grade_weightage}}</h6>  
+    <div class="flot-container">
+    <div id="flot-pie" class="flot-pie-container"></div>
+    </div>
+    </div>
+    <div class="col-lg-8">
+    <div class="col-lg-12"> 
+    <div class="col-lg-9">        
+    <div class="form-group" style="text-align:center;margin-bottom: -2rem;">
+    <label for="cc-payment" class="control-label mb-1"><b>{{datalabel.module[0].exam_type}} :</b>&nbsp;</label>
+    <!-- <div *ngFor='let bird of {{getacademiccalendar[0].examtypes}}'>
+        <div></div>
+    </div> -->
+    
+    <select  style="height: 25px;" >
+    <option value="">--ALL--</option>    
+    <!-- <option value="1" >Exam</option>
+    <option value="2">Home Work</option>
+    <option value="3">Quiz</option>
+    <option value="4">Projects</option> -->
+    <!-- <option *ngFor="let answer of getacademiccalendar[0].examtypes" >
+        {{answer.name}}
+    </option> -->
+    <option value="1" >{{getacademiccalendar[0].examtypes[0].name}}</option>
+    <option value="2">{{getacademiccalendar[0].examtypes[1].name}}</option>
+    <option value="3">{{getacademiccalendar[0].examtypes[2].name}}</option>
+    <option value="4">{{getacademiccalendar[0].examtypes[3].name}}</option>
+    </select>
+    </div>
+    </div>
+    <div class="col-lg-3">  
+            <div class="menu" style="font-size: 18px;">
+                    <span class="fa fa-search-minus" id="zoomOut" title="zoomOut"></span>
+                     <span class="fa fa-search-plus" id="zoomIn" title="zoomIn"></span>
+                     <span class="fa fa-toggle-left" id="moveLeft" title="moveLeft"></span>
+                     <span class="fa fa-toggle-right" id="moveRight" title="moveRight"></span>
+                     <input type="button" id="save" value="&uarr; Save" title="Save data from the Timeline into the textarea" style="font-size: 11px;color: white;background-color: tomato">
+                 </div>   
+    </div>    
+    </div>
+    <div class="col-lg-12"><p>&nbsp;</p> </div>
+    
+    <div class="col-lg-12"> 
+    
+        <input   type="hidden" id="data" value="datalabel.module[0].examdates" >
+        <div id="visualization" >
+            
+            </div><br>
+          
+
+        <!-- <input   type="hidden" id="data" value='[
+        {
+          "id": 1,
+          "content": "Exam 1",
+          "start": "2019-04-20"
+        },
+        {
+          "id": 2,
+          "content": "Exam 1",
+          "start": "2019-04-14"
+        },
+        {
+          "id": 3,
+          "content": "Quiz 1",
+          "start": "2019-04-18"
+        },
+        {
+          "id": 4,
+          "content": "Quiz 2",
+          "start": "2019-04-16"
+        },
+        {
+          "id": 5,
+          "content": "Home Work 1",
+          "start": "2019-04-25"
+          
+        },
+        {
+          "id": 6,
+          "content": "Home Work 2",
+          "start": "2019-04-27"
+        }
+      ]'> -->
+      <!-- <textarea id="data" style="width: 300px;height: 300px;">
+          [
+          {
+            "id": 1,
+            "content": "item 1",
+            "start": "2019-04-20"
+          },
+          {
+            "id": 2,
+            "content": "item 2",
+            "start": "2019-04-14"
+          },
+          {
+            "id": 3,
+            "content": "item 3",
+            "start": "2019-04-18"
+          },
+          {
+            "id": 4,
+            "content": "item 4",
+            "start": "2019-04-16"
+          },
+          {
+            "id": 5,
+            "content": "item 5",
+            "start": "2019-04-25"
+            
+          },
+          {
+            "id": 6,
+            "content": "item 6",
+            "start": "2019-04-27",
+            "type": "point"
+          }
+        ]
+      </textarea> -->
+   
+</div>   
+    <div class="form-group" style="margin-bottom: -1rem;">
+    <div id="alternating-slider" style="background: #5d86fb;"></div>
+    </div>  
+    <!-- <div class="col-lg-12" style="text-align:right;">
+    <button type="button" class="btn btn-outline-secondary btn-sm add_exam"> 
+    <i class="fa fa-arrows" aria-hidden="true" title="exam"></i>&nbsp; {{datalabel.module[0].academic_calendar}}</button>
+    <input type="hidden" name="getdays_hidden" value="0" id="getdays_hidden">
+    </div> -->
+    </div>
+     &nbsp;
+    <div class="col-lg-12 addexam_hide" style="display:none;">
+    <div class="col-lg-12" style="margin-top: 5px;">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true" style="font-size: 25px;">×</span>
+    </button>
+    </div>
+    <form class="form-style-9">
+    <div class="row form-group">
+    <div class="col-md-12">
+    <div class="col-md-4">
+    <label for="selectSm" class=" form-control-label"><b>{{datalabel.module[0].course_duration}} </b></label>
+    <select name="selectSm" id="SelectLm" class="form-control-sm form-control">
+    <option value="Yearly">Yearly</option>
+    <option value="Semester">Semester</option>
+    </select>
+    </div>
+    <div class="col-md-4">
+    <label for="selectSm" class=" form-control-label"><b>{{datalabel.module[0].from_date}}</b></label>
+    <input type="text" id="from_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+    </div>
+    
+    <div class="col-md-4">
+    <label for="selectSm" class=" form-control-label"><b>{{datalabel.module[0].end_date}} </b></label>
+    <input type="text" id="end_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+    </div>
+    
+    </div> 
+    <div class="col-md-12"> &nbsp;
+    </div>
+    <div class="col-md-12" style="border-radius: 10px; border: 6px solid #ffd6eb;">
+    <div class="col-md-12" style="text-align: center;">
+    <b><!--  Grade Weightage --> </b>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8">
+    <div class="row form-group">
+    <div class="col col-md-3" style="text-align:right;">
+    <label for="text-input" class=" form-control-label">{{datalabel.module[0].exams}} </label>
+    </div>
+    <div class="col-12 col-md-2">
+    <input type="text" id="exam_percentage" name="exam_percentage" placeholder="%" class="form-control-sm form-control">
+    </div>
+    </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8">
+    <div class="row form-group">
+    <div class="col col-md-3" style="text-align:right;">
+    <label for="text-input" class=" form-control-label">{{datalabel.module[0].homeworks}} </label>
+    </div>
+    <div class="col-12 col-md-2">
+    <input type="text" id="quiz_percentage" name="quiz_percentage" placeholder="%" class="form-control-sm form-control">
+    </div>
+    </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8">
+    <div class="row form-group">
+    <div class="col col-md-3" style="text-align:right;">
+    <label for="text-input" class=" form-control-label">{{datalabel.module[0].quiz}} </label>
+    </div>
+    <div class="col-12 col-md-2">
+    <input type="text" id="homework_percentage" name="homework_percentage" placeholder="%" class="form-control-sm form-control">
+    </div>
+    </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8">
+    <div class="row form-group">
+    <div class="col col-md-3" style="text-align:right;">
+    <label for="text-input" class=" form-control-label">{{datalabel.module[0].projects}} </label>
+    </div>
+    <div class="col-12 col-md-2">
+    <input type="text" id="project_percentage" name="project_percentage" placeholder="%" class="form-control-sm form-control">
+    </div>
+    </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8">
+    <div class="row form-group">
+    <div class="col col-md-3" style="text-align:right;">
+    <label for="text-input" class=" form-control-label"><b>{{datalabel.module[0].total_weightage}} </b></label>
+    </div>
+    <div class="col-12 col-md-2">
+    <input type="text" id="total_percentage" name="project_percentage" placeholder="%" readonly class="form-control-sm form-control">
+    </div>
+    </div>
+    </div>
+    
+    </div>  
+    
+    <div class="col-md-12">
+    &nbsp;
+    </div>  
+    <div class="col-md-12">
+    <div class="col-md-12">
+    <!-- <label for="selectSm" class=" form-control-label" style="color:red;"><b>Appear on the graph (Yes/No)?</b></label><br> -->
+    <div class="col-md-2">
+    <input type="checkbox" >&nbsp;<b>{{datalabel.module[0].exams}}</b>
+    </div> 
+    <div class="col-md-2">
+    <input type="checkbox" >&nbsp;<b>{{datalabel.module[0].quiz}}</b>
+    </div>
+    <div class="col-md-2">
+    <input type="checkbox" >&nbsp;<b>{{datalabel.module[0].homeworks}}</b>
+    </div>
+    <div class="col-md-2">
+    <input type="checkbox" >&nbsp;<b>{{datalabel.module[0].projects}}</b>
+    </div>
+    </div> 
+    </div> 
+    <div class="col-md-12">
+    <div class="col-md-4">
+    <label for="selectSm" class=" form-control-label"><b>{{datalabel.module[0].exam_name}}</b></label>
+    <div class="input-group">
+    <div class="form-control-sm input-group-addon">
+    <i class="fa fa-plus-square" style="color:red;cursor:pointer;"></i>
+    </div>
+    <input type="text" class="form-control-sm form-control" placeholder="{{datalabel.module[0].exam_name}}">
+    </div>
+    </div>
+    <div class="col-md-3">
+    <label for="selectSm" class=" form-control-label"><b>{{datalabel.module[0].exam_date}} </b></label>
+    <input type="text" id="exam_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+    </div>
+    <div class="col-md-5">
+    </div>
+    
+    </div>
+    
+    <div class="col-md-12">
+    <div class="col-md-4">
+    <label for="selectSm" class=" form-control-label"><b>{{datalabel.module[0].homework_name}} </b></label>
+    <div class="input-group">
+    <div class="form-control-sm input-group-addon">
+    <i class="fa fa-plus-square" style="color:red;cursor:pointer;"></i>
+    </div>
+    <input type="text" class="form-control-sm form-control" placeholder="{{datalabel.module[0].homework_name}}">
+    </div>
+    </div>
+    <div class="col-md-3">
+    <label for="selectSm" class=" form-control-label"><b>{{datalabel.module[0].homework_date}} </b></label>
+    <input type="text" id="homework_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+    </div>
+    <div class="col-md-5">
+    
+    </div>
+    </div>
+    <div class="col-md-12">
+    <div class="col-md-4">
+    <label for="selectSm" class=" form-control-label"><b>{{datalabel.module[0].quiz_name}}  </b></label>
+    <div class="input-group">
+    <div class="form-control-sm input-group-addon">
+    <i class="fa fa-plus-square" style="color:red;cursor:pointer;"></i>
+    </div>
+    <input type="text" class="form-control-sm form-control" placeholder="{{datalabel.module[0].quiz_name}} ">
+    </div>
+    </div>
+    <div class="col-md-3">
+    <label for="selectSm" class=" form-control-label"><b>{{datalabel.module[0].quiz_date}}  </b></label>
+    <input type="text" id="quiz_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+    </div>
+    <div class="col-md-5">
+    </div>
+    </div>
+    <div class="col-md-12">
+    <div class="col-md-4">
+    <label for="selectSm" class=" form-control-label"><b>{{datalabel.module[0].project_name}}  </b></label>
+    <div class="input-group">
+    <div class="form-control-sm input-group-addon">
+    <i class="fa fa-plus-square" style="color:red;cursor:pointer;"></i>
+    </div>
+    <input type="text" class="form-control-sm form-control" placeholder="{{datalabel.module[0].project_name}} ">
+    </div>
+    </div>
+    <div class="col-md-3">
+    <label for="selectSm" class=" form-control-label"><b>{{datalabel.module[0].project_date}}  </b></label>
+    <input type="text" id="project_date" class="form-control-sm form-control" placeholder="YYYY-MM-DD">
+    </div>
+    
+    <div class="col-md-5">
+    
+    </div>
+    </div>
+    <div class="col-md-12">&nbsp;
+    </div>
+    
+    <div class="col-md-12" style="text-align:center;">
+    <input type="button" class="btn btn-sm addexambutton"  value="{{datalabel.module[0].save}} " />
+    </div> 
+    
+    </div> 
+    </form>
+    </div> 
+    &nbsp;
+    <!-- endofthediv -->      
+    </div>    
+    <div class="col-lg-12" style="text-align:center;">
+    &nbsp;
+    </div>   
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-3" style="height: 130px;background-color: blue;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-group" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/discussionboard']" > <p class="text-light" style="margin-top: 10px;">{{datalabel.module[0].discussion}}</p></a>
+    
+    </div>
+    
+    <div class="chart-wrapper px-0" style="height:70px;" height="70">
+    <canvas id="widgetChart3"></canvas>
+    </div>
+    </div>
+    </div>
+    <!--/.col-->
+    
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: deeppink;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-clipboard" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/syllabusposting']" ><p class="text-light" style="margin-top: 10px;">{{datalabel.module[0].syllabus}}</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: darkorchid;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-graduation-cap" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/grade']"  ><p class="text-light" style="margin-top: 10px;">{{datalabel.module[0].grades}}</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    <!--/.col-->
+    
+    
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: mediumaquamarine;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="ti-email" style="font-size: 50px;"></i>
+    </h4>
+    <a href="https://spikelet.awsapps.com/auth/?client_id=6b9615ec01be1c8d&redirect_uri=https%3A%2F%2Fwebmail.mail.us-east-1.awsapps.com%2Fworkmail%2F" target="_blank"><p class="text-light" style="margin-top: 10px;"> Mail</p></a>
+    </div>
+    </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #c14fc3;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-search" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/Zoom']"><p class="text-light" style="margin-top: 10px;">{{datalabel.module[0].zoom}}</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    
+    <!--/.col-->
+    <!-- <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #4f93c3;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-microphone" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/spikelet']" ><p class="text-light" style="margin-top: 10px;">Spikelet</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    
+    
+    
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #fc4600;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-pencil-square-o" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/posthomework']"  ><p class="text-light" style="margin-top: 10px;">Post Homework</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: mediumvioletred;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-question" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/posthomework']"   ><p class="text-light" style="margin-top: 10px;">Post Quiz</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div> -->
+    <!--/.col-->
+    
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #fc4600;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-pencil-square-o" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/examdetails']"  ><p class="text-light" style="margin-top: 10px;">{{datalabel.module[0].exam_details}}</p></a>
+    </div>
+    </div>
+    </div>
+    
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #d39e00;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-cloud-upload" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/postyoutubevideos']"   ><p class="text-light" style="margin-top: 10px;">{{datalabel.module[0].upload_youtube_videos}}</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    
+    
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #487896;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-columns" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/teacherpostforallstudents']"   ><p class="text-light" style="margin-top: 10px;"> {{datalabel.module[0].community_assignment}}</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    <!--/.col-->
+    
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: #d46c6c;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-file-audio-o" style="font-size: 50px;"></i>
+    </h4>
+    <!--audiofiles-->
+    <a href="#"><p class="text-light" style="margin-top: 10px;">{{datalabel.module[0].audio_files}}</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: slateblue;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-external-link-square" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/postclassbehaviour']"   ><p class="text-light" style="margin-top: 10px;">{{datalabel.module[0].post_class_behaviour}}</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: seagreen;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-child" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/studentperformance']"    ><p class="text-light" style="margin-top: 10px;">{{datalabel.module[0].student_performance}}</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    
+    
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: blue;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-tasks" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/vacancyschedule']"    ><p class="text-light" style="margin-top: 10px;">{{datalabel.module[0].vacancy_schedule}}</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    
+    <div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4" style="height: 130px;background-color: yellowgreen;">
+    <div class="card-body pb-0">
+    <h4 class="mb-0">
+    <i class="fa fa-file-pdf-o" style="font-size: 50px;"></i>
+    </h4>
+    <a [routerLink]="['/postlecturematerial']"    ><p class="text-light" style="margin-top: 10px;">{{datalabel.module[0].post_lecturee_material}}</p></a>
+    
+    
+    
+    </div>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+    
+    </body>

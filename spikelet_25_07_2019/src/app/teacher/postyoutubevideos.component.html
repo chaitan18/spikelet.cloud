@@ -1,0 +1,492 @@
+<body>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>{{datalabel.heading[0].upload_youtube_link}}</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">{{datalabel.heading[0].dashboard}}</a></li>
+                          <li class="breadcrumb-item" aria-current="page">{{datalabel.heading[0].upload_youtube_link}}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+<div class="row">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body">
+<div class="default-tab">
+<nav>
+<div class="nav nav-tabs" id="nav-tab" role="tablist">
+<a class="nav-item nav-link  active show" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">{{datalabel.heading[0].youtube_list}}</a>
+<a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false">{{datalabel.heading[0].create_youtube_link}}</a>
+<!-- <a class="nav-item nav-link" id="nav-online-tab" data-toggle="tab" href="#nav-online" role="tab" aria-controls="nav-online" aria-selected="false">Online Class Scheduled</a> -->
+</div>
+</nav>
+<!--tab Start-->      
+<div class="tab-content pl-3 pt-2" id="nav-tabContent">
+<div class="tab-pane fade active show" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+<input type="checkbox" name="search_criteria_checkbox" class="search_criteria_checkbox" value="homework"> &nbsp;{{datalabel.searchform[0].search_criteria}}
+<div class="col-lg-12 search_criteria_div" style="display:none;">
+<div class="card">
+<div class="card-body card-block search_criteria_body">
+<form method="post"  id="search_criteria_form" >
+<div class="col-lg-12 form-group">
+<label for="inputSuccess2i" class=" form-control-label">{{datalabel.searchform[0].title}}</label>
+<input type="text" id="inputSuccess2i" class="form-control-success form-control" placeholder="{{datalabel.searchform[0].titlepc}}">
+</div> 
+
+<div class="form-actions form-group search_criteria_body" style="text-align:center;">
+<button type="submit" class="btn btn-primary btn-sm">{{datalabel.searchform[0].bsearch}}</button>
+&nbsp;<button type="reset" class="btn btn-primary btn-sm removelist" style="background: #c50f1f;">{{datalabel.searchform[0].breset}}</button>
+</div>
+</form>    
+</div>
+</div>
+</div> 
+<br>
+<div class="col-md-12 search_criteria_list" >
+<h5>{{datalabel.listform[0].youtube_link}}</h5>
+<div class="table-responsive">
+<table id="mytable" class="table table-bordred table-striped">
+<thead class="table_header" style="background-color: #c0ebf9;"> 
+<tr>
+<th>{{datalabel.listform[0].sno}}</th> 
+<th>{{datalabel.listform[0].title}}</th> 
+</tr>
+</thead>
+<tbody class="table_body" style="background-color:#fffff3">
+<tr>
+<td>1</td>  
+<td>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;" >core java
+</span>
+</a>
+<br>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;">framework in java
+</span>
+</a>
+</td>
+</tr>
+<tr>
+<td>2</td>  
+<td>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;" >core Php
+</span>
+</a>
+<br>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;">framework in Php
+</span>
+</a>
+</td>
+</tr>
+<tr>
+<td>3</td>  
+<td>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;" >Angular Js 1
+</span>
+</a>
+<br>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;">Angular Js 2
+</span>
+</a>
+
+</td>
+</tr>
+<tr>
+<td>4</td>  
+<td>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;" >Maths 1
+</span>
+</a>
+<br>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;">Maths 2
+</span>
+</a>
+
+</td>
+</tr>
+<tr>
+<td>5</td>  
+<td>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;" >Sciense V1
+</span>
+</a>
+<br>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;">Sciense V2
+</span>
+</a>
+
+</td>
+</tr>
+<tr>
+<td>6</td>  
+<td>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;" >Social V1
+</span>
+</a>
+<br>
+<a href="youtubelink.php" target="_blank" title="Click here for youtube link">
+<span style="background-color: antiquewhite;color: black;">Social V2
+</span>
+</a>
+
+</td>
+</tr>
+</tbody>
+</table>
+<div class="clearfix"></div>  
+</div>
+</div>
+
+
+</div>  
+
+<!--  Create you tube  -->
+
+<div class="tab-pane fade" id="nav-online" role="tabpanel" aria-labelledby="nav-online-tab">
+<div class="col-lg-12">
+<button type="button"  id="" class="btn btn-sm social xing list_schedule" style="margin-bottom: 4px">
+<span>&nbsp;Scheduled List</span>
+</button>&nbsp;
+<button type="button"  id="" class="btn btn-sm social html5 add_schedule" style="margin-bottom: 4px">
+<span>&nbsp; Create class Scheduled</span>
+</button>
+
+</div>
+<div class="col-lg-12 add_schdule_show" style="display:none;">
+<div class="card">
+<div class="card-body card-block" style="background: #a8d4ea;">
+<div class="row form-group">
+<div class="col-lg-12">
+<div class="col col-md-4" style="text-align:right;">
+<label for="select" class=" form-control-label" style="font-size: 20px;">
+Title : 
+</label>
+</div>
+<div class="col-12 col-md-4">
+<input type="text" class="form-control onlineclassshedule" placeholder="Please Enter Title">
+</div>
+<div class="col-12 col-md-4">
+</div>
+</div>
+</div>
+<div class="row form-group">
+<div class="col-lg-12">
+<div class="col col-md-4" style="text-align:right;">
+<label for="select" class=" form-control-label" style="font-size: 20px;"> 
+Date : 
+</label>
+</div>
+<div class="col-12 col-md-4">
+<input type="text" class="form-control onlineclassshedule" Placeholder="DD-MM-YYYY">
+</div>
+<div class="col-12 col-md-4">
+</div>
+</div>
+</div>
+
+<div class="row form-group">
+<div class="col-lg-12">
+<div class="col col-md-4" style="text-align:right;">
+<label for="select" class=" form-control-label" style="font-size: 20px;"> 
+Time : 
+</label>
+</div>
+<div class="col-12 col-md-4">
+<input type="text" class="form-control onlineclassshedule" Placeholder="Set Current Time">
+</div>
+<div class="col-12 col-md-4">
+</div>
+</div>
+</div>
+<div class="row form-group">
+<div class="col-lg-12">
+<div class="col col-md-4" style="text-align:right;">
+<label for="select" class=" form-control-label" style="font-size: 20px;" > 
+Duration : 
+</label>
+</div>
+<div class="col-12 col-md-4">
+<input type="text" class="form-control onlineclassshedule" Placeholder="Set Current Duration">
+</div>
+<div class="col-12 col-md-4">
+</div>
+</div>
+</div>
+<div class="row form-group">
+<div class="col-lg-12">
+<div class="col col-md-4" style="text-align:right;">
+<label for="select" class=" form-control-label" style="font-size: 20px;"> 
+Type : 
+</label>
+</div>
+<div class="col-12 col-md-4">
+<div class="form-check">
+<div class="radio">
+<label for="radio1" class="form-check-label ">
+<input type="radio" id="radio1" name="radios" value="option1" class="form-check-input typeaudio">Audio
+</label>
+</div>
+<div class="radio">
+<label for="radio2" class="form-check-label ">
+<input type="radio" id="radio2" name="radios" value="option2" class="form-check-input typeaudiovideo">Audio & Video
+</label>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-4">
+</div>
+</div>
+</div>
+<div class="row form-group">
+<div class="col-lg-12">
+<div class="col col-md-4" style="text-align:right;">
+<label for="select" class=" form-control-label" style="font-size: 20px;"> 
+Record This Class : 
+</label>
+</div>
+<div class="col-12 col-md-4">
+<div class="form-check">
+<div class="radio">
+<label for="radio1" class="form-check-label ">
+<input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Yes
+</label>
+</div>
+<div class="radio">
+<label for="radio2" class="form-check-label ">
+<input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">No
+</label>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-4">
+</div>
+</div>
+</div>
+<div class="row form-group video_show" style="display:none;">
+<div class="col-lg-12">
+<div class="col col-md-4" style="text-align:right;">
+<label for="select" class=" form-control-label" style="font-size: 20px;" > 
+Presenter Link : 
+</label>
+</div>
+<div class="col-12 col-md-8">
+<input type="text" class="form-control onlineclassshedule" Placeholder="Presenter Link">
+</div>
+</div>
+</div>
+<div class="row form-group audio_show" style="display:none;">
+<div class="col-lg-12">
+<div class="col col-md-4" style="text-align:right;">
+<label for="select" class=" form-control-label" style="font-size: 20px;" > 
+Attendee URL : 
+</label>
+</div>
+<div class="col-12 col-md-8">
+<input type="text" class="form-control onlineclassshedule" Placeholder="Attendee URL">
+</div>
+</div>
+</div>
+<div class="row form-group audio_show" style="display:none;">
+<div class="col-lg-12">
+<div class="col col-md-4" style="text-align:right;">
+<label for="select" class=" form-control-label" style="font-size: 20px;" > 
+Recording Link : 
+</label>
+</div>
+<div class="col-12 col-md-8">
+<input type="text" class="form-control onlineclassshedule" Placeholder="Recording Link">
+</div>
+</div>
+</div>
+<div class="row form-group">
+<div class="col-lg-12">
+<div class="col col-md-4" >
+</div>
+<div class="col col-md-4" >
+<button type="submit" class="btn btn-sm">
+<i class="fa fa-dot-circle-o"></i>Schedule
+</button>&nbsp;
+<button type="reset" class="btn btn-sm">
+<i class="fa fa-ban"></i>Cancel
+</button>
+</div>
+<div class="col col-md-4" >
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>    
+
+<div class="col-md-12 list_schdule_show"  style="display:none;">
+
+<p></p><h5>Schedule List </h5><p></p>
+<div class="table-responsive">
+<table id="mytable" class="table table-bordred table-striped">
+<thead class="table_header" style="background-color: #c0ebf9;"> 
+<tr>
+<th>Schedule Number</th> 
+<th>Title</th> 
+<th>Date / TIME - Duration</th>
+<th>Type</th> 
+<th>Record This Class</th>
+</tr>
+</thead>
+<tbody class="table_body" style="background-color:#fffff3">
+<tr>
+<td>SCH0001</td>  
+<td>Java </td>  
+<td>14-01-2019 &nbsp;/&nbsp;2.00 AM - 1.00 hr</td>
+<td>Audio & Video</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SCH0002</td>  
+<td>PHP </td>  
+<td>14-01-2019 &nbsp;/&nbsp;2.00 AM - 1.00 hr</td>
+<td>Audio & Video</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SCH0003</td>  
+<td>Mysql </td>  
+<td>14-01-2019 &nbsp;/&nbsp;2.00 AM - 1.00 hr</td>
+<td>Audio & Video</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SCH0004</td>  
+<td>Java </td>  
+<td>14-01-2019 &nbsp;/&nbsp;2.00 AM - 1.00 hr</td>
+<td>Audio & Video</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SCH0005</td>  
+<td>Jquery </td>  
+<td>14-01-2019 &nbsp;/&nbsp;2.00 AM - 1.00 hr</td>
+<td>Audio & Video</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<div class="clearfix"></div>  
+</div>
+</div>     
+</div>
+
+<div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+<div class="col-lg-12" >
+<div class="card" style="background-color: #f5f5f5;font-family: Calibri, Helvetica, sans-serif;">
+<div class="card-body card-block">
+<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+<!--  <div class="row form-group selctCourse_hide">
+<div class="col col-md-2"><label for="select" class=" form-control-label">Course</label></div>
+<div class="col-12 col-md-8">
+<select name="select" id="selctCourseType" class="selectcourse_hide form-control">
+<option value="0" >--Select--</option>
+<option value="cqa" style="background-color: indianred;color: white;cursor: pointer;">--Create Course--</option>
+<option value="1">Java</option>
+<option value="2">Php</option>
+<option value="3">Angular Js</option>
+</select>
+</div>
+</div> -->
+<!-- <div class="row form-group selctCourse_show" style="display:none;">
+<div class="col col-md-2"><label for="select" class=" form-control-label">Course Name <span class="selectquizenable" style="cursor: pointer;background-color: #e6ff16;">(selected Quiz)</span></label></div>
+<div class="col-12 col-md-8">
+<input type="text" id="inputSuccess2i" class="form-control-success form-control quizname_show" placeholder="Please Enter Course Name">
+</div>
+</div> -->
+<div class="row form-group">
+<div class="col col-md-2"><label for="text-input" class=" form-control-label">{{datalabel.add[0].title}}</label></div>
+<div class="col-12 col-md-8"><input type="text" id="text-input" name="text-input" placeholder="{{datalabel.add[0].titlepc}}" class="form-control">
+</div>
+</div>
+<div class="row form-group">
+<div class="col-md-12  inc">
+<div class="col col-md-2">
+<label for="text-input" class=" form-control-label">
+<img class="irc_mi"
+src="assets/images/logo/add_icon.ico" 
+alt="Image result for add icon in" style="height: 65px;cursor: pointer;" id="append" name="append">
+</label>
+</div>
+
+<div class="col-12 col-md-5">
+<label for="company" class=" form-control-label">{{datalabel.add[0].youtube_link}}</label>
+<input type="text" class="form-control" name="text" placeholder="{{datalabel.add[0].youtube_linkpc}}"/>
+</div>
+<div class="col-12 col-md-5">
+<label for="company" class=" form-control-label">{{datalabel.add[0].link_description}}</label>
+<textarea class="form-control" name="textbox"  placeholder="{{datalabel.add[0].link_descriptionpc}}"></textarea>
+</div>
+</div>
+</div>
+<div class="card-footer" style="text-align:center;">
+
+<button type="submit" class="btn btn-primary btn-sm">
+<i class="fa fa-dot-circle-o"></i> {{datalabel.add[0].submit}}
+</button>&nbsp;
+<button type="reset" class="btn btn-danger btn-sm">
+<i class="fa fa-ban"></i> {{datalabel.add[0].reset}}
+</button>
+
+</div>
+</form>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+<!--tab End-->  
+</div> 
+</div> 
+</div> 
+</div>   
+</div>  
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

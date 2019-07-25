@@ -1,0 +1,248 @@
+<body>
+ <style>
+ .form_error{
+    color: red;
+ }
+ </style>   
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+<!-- Right Panel -->
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>Subject</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+                          <li class="breadcrumb-item" aria-current="page">Subject</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+<div class="animated fadeIn">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body">
+<div class="row">
+
+<div class="col-lg-12">
+<div class="card">
+<div class="card-header search_criteria_header">
+<div class="col-lg-4">
+    Search Criteria
+</div>
+<div class="col-lg-6">
+</div>
+<div class="col-lg-2">
+<button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#adddiscussion">Add Subject</button>
+</div>
+</div>
+<div class="card-body card-block search_criteria_body">
+<form #searchform="ngForm" (ngSubmit)="OnSearchSubmit(searchform)" class="form-horizontal" method="post">      
+<div class="col-lg-12">  
+ 
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Subject Name</label>
+<input type="text" id="inputSuccess2i" name="ssubjectname" #topicname="ngModel" [(ngModel)]="Passdata.ssubjectname"  class="form-control-sm form-control-success form-control" placeholder="">
+</div>
+</div>
+<div class="col-lg-12" style="text-align:center;">  
+<div class="form-actions form-group ">
+<button type="submit" class="btn btn-primary btn-sm">Search</button>
+&nbsp;
+<button type="reset" class="btn btn-primary btn-sm" style="background: #c50f1f;">Reset</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<div class="col-lg-12">     
+ <div class="col-lg-6">       
+<p><b>Subject List</b></p>
+ </div>
+<div class="col-lg-6" *ngIf="topiccout;" style="text-align:right;">       
+<p>Count:&nbsp;<b>{{topiccout}}</b></p>
+</div>
+<div class="col-lg-12">    
+<div class="alert alert-danger alert-dismissible fade show" *ngIf="delmsgsucess;">
+<strong>{{delmsgsucess}}</strong>
+<button #closealertmsg type="button" class="close" data-dismiss="alert">&times;</button>
+</div> 
+</div> 
+<div class="table-responsive">
+        <!-- id="mytable"-->
+<table id="mytable" class="table table-bordred table-striped">
+<thead class="table_header" style="background-color: #c0ebf9;"> 
+<!--   <th><input type="checkbox" id="checkall" /></th> -->
+<th>Operation</th>
+<th>Subject Name</th>
+<th>Status</th>
+</thead>
+<tbody class="table_body"  style="background-color:#fffff3">
+<tr *ngFor="let Items of pagedItems">
+<td>
+    <span  title="close" (click)="deleteselectItem(Items)" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+    <i class="fa fa-remove" style="font-size:20px;color:red;"></i>
+    </span>  &nbsp;
+    <span  data-toggle="modal" (click)="showForEdit(Items)" data-target="#editdiscussion" style="font-size:20px;color: darkcyan;" title="edit" style="cursor:pointer;">
+    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </span>
+    
+    </td>
+    <!-- <td>TN000{{Items.batchId}}</td> -->
+    <td><a href="#" data-toggle="modal" data-target="#largeModalDiscussion">{{Items.subjectname}}</a></td>
+    <td><a href="#" data-toggle="modal" data-target="#largeModalDiscussion" >{{Items.status}}</a></td>
+</tr>
+</tbody>
+
+</table>
+
+<div class="clearfix"></div>         
+</div>
+<div class="col-lg-12" style="text-align: center;">    
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div> 
+
+
+</div> 
+
+
+<div class="modal fade"  id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-body popupboxmodal">
+<span >
+Are you sure you want to close Subject?
+</span>
+</div>
+<div class="modal-footer popupboxmodal">
+<button type="button" (click)="deleteItem()" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+<button #deleteClick  type="button"  class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="editdiscussion" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<form #topiceditform="ngForm" (ngSubmit)="OnEditSubmit(topiceditform)" class="form-horizontal" method="post">    
+<div class="modal-header ">
+<h5 class="modal-title" id="largeModalLabel">Edit Subject</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body modal_add" >
+<div class="alert alert-primary alert-dismissible fade show" *ngIf="updatemsgsucess;">
+<strong>{{updatemsgsucess}}</strong>
+<button #closealertmsg type="button" class="close" data-dismiss="alert">&times;</button>
+</div> 
+<div class="row form-group">
+    <div class="col-lg-12"><label for="disabled-input" class=" form-control-label">Subject Name</label>
+ <input type="text" name="upsubjectname" #topicname="ngModel" [(ngModel)]="Passdata.upsubjectname"  class="form-control" value="{{editdetails && editdetails?.subjectname}}"></div>
+</div>
+</div>
+<div class="modal-footer modal_add">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+<button type="submit" class="btn btn-primary" >Update</button>
+
+</div>
+</form>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="adddiscussion" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">    
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="largeModalLabel">Add Subject</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+<form #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)" class="form-horizontal" method="post">
+<div class="modal-body modal_add">
+<div class="alert alert-primary alert-dismissible fade show" *ngIf="addmsgsucess;">
+<strong>{{addmsgsucess}}</strong>
+<button #closealertmsg type="button" class="close" data-dismiss="alert">&times;</button>
+</div>  
+<div class="alert alert-danger alert-dismissible fade show" *ngIf="addmsgerror;">
+    <strong>{{addmsgerror}}</strong>
+    <button #closealertmsg type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>  
+<div class="row form-group">
+<div class="col-lg-12">
+    <label for="subjectname" class=" form-control-label">Subject Name</label>
+<input type="text" id="classname" name="subjectname" #topicname="ngModel" [(ngModel)]="Passdata.subjectname"  class="form-control-sm form-control">
+<span *ngIf="addsubjecterrorMsg!=null" class="form_error">
+        {{ addsubjecterrorMsg }}
+    </span>
+</div>
+
+</div>
+
+</div>
+<div class="modal-footer modal_add">
+<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+<button   type="submit" class="btn btn-primary btn-sm">Save</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

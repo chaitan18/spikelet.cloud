@@ -1,0 +1,724 @@
+<body>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+<!-- Right Panel -->
+ 
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>{{datalabel.heading[0].assignment_list_by_student}}</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">{{datalabel.heading[0].dashboard}}</a></li>
+                          <li class="breadcrumb-item" aria-current="page">{{datalabel.heading[0].assignment_list_by_student}}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body">
+<div class="col-lg-12" style="background-color: aliceblue;border: 2px solid black;outline: #7b66cedb solid 5px;">
+
+<div class="row form-group" style="margin-top: 10px;font-size:15px;">
+<div class="col-lg-12">
+<table border="0" style="width: 100%;">
+<tbody>
+<tr>
+<td><b>{{datalabel.info[0].homeworkId}}</b></td>
+<td>:</td>
+<td>HM00001</td>
+<td><b>{{datalabel.info[0].topic}}</b></td>
+<td>:</td>
+<td><span style="font-weight: normal;">Assignment 1 </span>
+<span style="background-color: yellow;cursor: pointer;" data-toggle="modal" data-target="#smallmodal">
+Instruction
+</span></td>
+<td><b>{{datalabel.info[0].numberofquestions}} </b></td>
+<td>:&nbsp;</td>
+<td>20</td>
+
+</tr>
+<tr>     
+<td><b>{{datalabel.info[0].start_date}} </b></td>
+<td>:&nbsp;</td>
+<td>2012-12-19 03:14:07</td>
+<td><b>{{datalabel.info[0].created_date}} </b></td>
+<td>:&nbsp;</td>
+<td>2012-12-19 03:14:07</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-lg-12">
+&nbsp;
+</div>
+<div class="col-lg-12">
+<div class="col-lg-4" style="text-align: center;">
+<b>{{datalabel.info[0].submitted_count}}</b><br>
+<input type="text" style="text-align: center;border-radius: 20px;background-color: #87e887;" value="10" readonly="">
+</div>
+<div class="col-lg-4" style="text-align: center;">
+<b> {{datalabel.info[0].not_submitted_count}}</b><br>
+<input type="text" style="text-align: center;border-radius: 20px;background-color: #f7b5b5;" value="20" readonly="">
+</div>
+<div class="col-lg-4" style="text-align: center;">
+<b>{{datalabel.info[0].correction_count}}</b><br>
+<input type="text" style="text-align: center;border-radius: 20px;background-color: #e9ecef;" value="13" readonly="">
+</div>
+</div>
+</div>
+
+
+</div>
+
+<div class="col-md-12" >
+<div class="col-lg-12">
+  &nbsp;
+<input type="text" class="form-control" style="text-align: center;background-color: tomato;color: white;border-radius: 20px;" value="{{datalabel.listform[0].student_assignment_list}}" readonly="">
+</div>
+<div class="col-md-12" style="background-color: aliceblue;border: 2px solid black;outline: #ff8c8cdb solid 5px;height: 350px;overflow: auto;">
+&nbsp;
+<table id="example" class="display" style="width:100%">
+<thead>
+<tr>
+<th>{{datalabel.listform[0].student_name}}</th>
+<th style="text-align: center;">{{datalabel.listform[0].status}}</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#" data-toggle="modal" data-target="#attachescrollmodal">Tiger Nixon</a></td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Garrett Winters</td>
+<td style="text-align: center;">Not Submitted</td>
+</tr>
+<tr>
+<td>Ashton Cox</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Cedric Kelly</td>
+<td style="text-align: center;">Not Submitted</td>
+</tr>
+<tr>
+<td><a href="#" data-toggle="modal" data-target="#attachescrollmodal">Airi Satou</a></td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Brielle Williamson</td>
+<td style="text-align: center;">Not Submitted</td>
+</tr>
+<tr>
+<td>Herrod Chandler</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Rhona Davidson</td>
+<td style="text-align: center;">Not Submitted</td>
+</tr>
+<tr>
+<td>Colleen Hurst</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Sonya Frost</td>
+<td style="text-align: center;">Not Submitted</td>
+</tr>
+<tr>
+<td>Jena Gaines</td>
+<td style="text-align: center;">Correction</td>
+</tr>
+<tr>
+<td>Quinn Flynn</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Charde Marshall</td>
+<td style="text-align: center;">Not Submitted</td>
+</tr>
+<tr>
+<td>Haley Kennedy</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Tatyana Fitzpatrick</td>
+<td style="text-align: center;">Correction</td>
+</tr>
+<tr>
+<td>Michael Silva</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Paul Byrd</td>
+<td style="text-align: center;">Not Submitted</td>
+</tr>
+<tr>
+<td>Gloria Little</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Bradley Greer</td>
+<td style="text-align: center;">Not Submitted</td>
+</tr>
+<tr>
+<td>Dai Rios</td>
+<td style="text-align: center;">Not Submitted</td>
+</tr>
+<tr>
+<td>Jenette Caldwell</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Yuri Berry</td>
+<td style="text-align: center;">Not Submitted</td>
+</tr>
+<tr>
+<td>Caesar Vance</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Doris Wilder</td>
+<td style="text-align: center;">Correction</td>
+</tr>
+<tr>
+<td><a href="#" data-toggle="modal" data-target="#scrollmodal">Angelica Ramos</a></td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Gavin Joyce</td>
+<td style="text-align: center;">Correction</td>
+</tr>
+
+<tr>
+<td>Olivia Liang</td>
+<td style="text-align: center;">Correction</td>
+</tr>
+<tr>
+<td><a href="#" data-toggle="modal" data-target="#Viewdocumentmodal">Bruno Nash</a></td>
+<td style="text-align: center;">Correction</td>
+</tr>
+<tr>
+<td>Sakura Yamamoto</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Thor Walton</td>
+<td style="text-align: center;">Correction</td>
+</tr>
+<tr>
+<td>Finn Camacho</td>
+<td style="text-align: center;">Correction</td>
+</tr>
+<tr>
+<td>Serge Baldwin</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Zenaida Frank</td>
+<td style="text-align: center;">Correction</td>
+</tr>
+<tr>
+<td>Zorita Serrano</td>
+<td style="text-align: center;">Correction</td>
+</tr>
+<tr>
+<td>Jennifer Acosta</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Cara Stevens</td>
+<td style="text-align: center;">Correction</td>
+</tr>
+<tr>
+<td>Hermione Butler</td>
+<td style="text-align: center;">Correction</td>
+</tr>
+<tr>
+<td>Lael Greer</td>
+<td style="text-align: center;">Submitted</td>
+</tr>
+<tr>
+<td>Jonas Alexander</td>
+<td style="text-align: center;">Correction</td>
+
+</tr>
+<tr>
+<td>Shad Decker</td>
+<td style="text-align: center;">Submitted</td>
+
+</tr>
+<tr>
+<td>Michael Bruce</td>
+<td style="text-align: center;">Correction</td>
+<!--      <td>Singapore</td> -->
+</tr>
+<tr>
+<td>Donna Snider</td>
+<td style="text-align: center;">Correction</td>
+<!--  <td>New York</td> -->
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<th>Student Name</th>
+<th>Status</th>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<!-- End Assigmment List --> 
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="smallmodalLabel">Homework Instruction</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<p>
+There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
+and the mountain zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus
+Dolichohippus. The latter resembles an ass, to which it is closely related, while the former two are more
+horse-like. All three belong to the genus Equus, along with other living equids.
+</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="attachescrollmodal" tabindex="-1" role="dialog" aria-labelledby="scrollmodalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content" style="width: 135%;">
+<div class="modal-header">
+<div class="col-lg-12">
+<div class="col-sm-8">
+<label class=" form-control-label"><b>Student Name / Id&nbsp;:</b>Prasad Reddy (STU00001)</label>
+</div>
+<div class="col-sm-4">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+</div> 
+</div>
+
+<div class="modal-body"> 
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body card-block" style="background-color: aliceblue;">
+<div class="row form-group" style="font-size:13px;">
+<div class="col-lg-3">
+<label class=" form-control-label"><b>Home Work Id</b>&nbsp; : &nbsp; <span style="font-weight: normal;">HM00001 </span> </label>
+</div>
+<div class="col-lg-3">
+<label class=" form-control-label"><b>Topic</b>&nbsp; : &nbsp; <span style="font-weight: normal;">Assignment 1 </span>
+<span style="background-color: yellow;cursor: pointer;" data-toggle="modal" data-target="#smallmodal">
+Instruction
+</span>
+</label>
+</div>
+<div class="col-lg-3">
+<label class=" form-control-label"><b>Start Date </b>&nbsp;: &nbsp;<span style="font-weight: normal;">2012-12-19 03:14:07</span>
+</label>
+</div>
+<div class="col-lg-3">
+<label class="form-control-label"><b>Created Date</b> &nbsp; : &nbsp;<span style="font-weight: normal;">2012-12-19 03:14:07</span>
+</label>  
+</div>
+<div class="col-lg-3">
+<label class="form-control-label"><b>Nuumber Of Questions</b> &nbsp; : &nbsp;<span style="font-weight: normal;">20</span>
+</label>  
+</div>
+<div class="col-lg-3">
+<label class="form-control-label"><b>Total Marks</b> &nbsp; : &nbsp;<span style="font-weight: normal;">50</span>
+</label>  
+</div>
+<div class="col-lg-3">
+<label class="form-control-label"><b>Assign Type</b> &nbsp; : &nbsp;<span style="font-weight: normal;">Manual</span>
+</label>  
+</div>
+</div>    
+</div>
+</div>
+</div> 
+<div class="col-lg-12" style="overflow: auto;">
+<div class="card">
+<div class="card-body card-block" >
+<div class="row form-group" style="font-size:15px;">
+<div class="col-lg-12">
+<input type="text" class="form-control form-control-sm" style="text-align: center;background-color: seagreen;color: white;border-radius: 20px;" value="Assignment Evaluation Sheet" readonly="">
+</div>
+<div class="col-lg-9" style="width: 100%;height: 400px;overflow: auto;">
+<div class="card">
+<div class="card-body card-block">
+<div class="row form-group" style="font-size:15px;">
+<div class="col-lg-3 ">
+</div>
+<div class="col-lg-3 ">
+</div>
+<div class="col-lg-12" >
+1) Explain what is Bootstrap? 
+</div>
+<div class="col-lg-12">
+<b>Ans)</b> <span style="font-weight: normal;">HTML is short for HyperText Markup Language and is the language 
+of the World Wide Web. It is the standard text formatting 
+language used for creating and displaying pages on the Web.
+HTML documents are made up of two things: the content and the tags that format it 
+for proper display on pages.</span>
+</div>
+<div class="col-lg-12">
+2) What are tags?
+</div>
+<div class="col-lg-12">
+<b>Ans)</b> <span style="font-weight: normal;">Content is placed in between HTML 
+tags in order to properly format it. It makes use of the less than symbol (<) 
+and the greater than symbol (>). A slash symbol is also used as a closing tag.
+For example:</span>
+</div>
+<div class="col-lg-12">
+3) Do all HTML tags come in a pair?
+</div>
+<div class="col-lg-12">
+<b>Ans)</b> <span style="font-weight: normal;">No, there are single HTML
+tags that do not need a closing tag. Examples are the 
+<img> tag and <br> tags.</span>
+</div>
+<div class="col-lg-12">
+4) What are some of the common lists that can be used when designing a page?
+</div>
+<div class="col-lg-12">
+<b>Ans)</b> <span style="font-weight: normal;">You can insert any or a combination of the following list types:
+– ordered list
+– unordered list
+– definition list
+– menu list
+– directory list
+Each of this list types makes use of a different tag set to compose</span>
+</div>
+<div class="col-lg-12">
+5) What are some of the common lists that can be used when designing a page?
+</div>
+<div class="col-lg-12">
+<b>Ans)</b> <span style="font-weight: normal;">You can insert any or a combination of the following list types:
+– ordered list
+– unordered list
+– definition list
+– menu list
+– directory list
+Each of this list types makes use of a different tag set to compose</span>
+</div>
+<div class="col-lg-12">
+6) What are some of the common lists that can be used when designing a page?
+</div>
+<div class="col-lg-12">
+<b>Ans)</b> <span style="font-weight: normal;">You can insert any or a combination of the following list types:
+– ordered list
+– unordered list
+– definition list
+– menu list
+– directory list
+Each of this list types makes use of a different tag set to compose</span>
+</div>
+
+</div>    
+</div>
+</div>
+</div>
+<div class="col-lg-3" style="background-color: antiquewhite;">
+<div class="col-lg-12 ">
+<b> Student Total Marks </b> <input type="text" 
+class="sumofstudentmarks" style="text-align: center;background-color: teal;color: white;border-radius: 20px;"  
+placeholder="Student Total Marks" value="0" readonly>
+</div>
+<div class="col-lg-12 ">
+<div class="col-lg-4" >
+Q.Id
+</div>
+<div class="col-lg-4" style="text-align:center;">
+M
+</div>
+<div class="col-lg-4" style="text-align:center;">
+Max
+</div>
+</div>
+<br>
+<div class="col-lg-12 ">
+<div class="col-lg-4" style="font-weight: normal;text-align: center;font-size: 18px;">
+1) 
+</div>
+<div class="col-lg-5">
+<input type="text" id="text-input" name="addmarks[]" placeholder="M" class="form-control addmarks" style="text-align: center;">
+
+</div>
+<div class="col-lg-3" style="font-size: 15px;">10</div>
+</div>
+<div class="col-lg-12 ">
+<div class="col-lg-4" style="font-weight: normal;text-align: center;font-size: 15px;">
+2) 
+</div>
+<div class="col-lg-5">
+<input type="text" id="text-input" name="addmarks[]" placeholder="M" class="form-control addmarks" style="text-align: center;">
+
+</div>
+<div class="col-lg-3" style="font-size: 15px;">10 </div>
+</div>
+<div class="col-lg-12 ">
+<div class="col-lg-4" style="font-weight: normal;text-align: center;font-size: 15px;">
+3) 
+</div>
+<div class="col-lg-5">
+<input type="text" id="text-input" name="addmarks[]" placeholder="M" class="form-control addmarks" style="text-align: center;">
+
+</div>
+<div class="col-lg-3" style="font-size: 15px;">10 </div>
+</div>
+<div class="col-lg-12 ">
+<div class="col-lg-4" style="font-weight: normal;text-align: center;font-size: 15px;">
+4) 
+</div>
+<div class="col-lg-5">
+<input type="text" id="text-input" name="addmarks[]" placeholder="M" class="form-control addmarks" style="text-align: center;">
+
+</div>
+<div class="col-lg-3" style="font-size: 15px;">10 </div>
+</div>
+</div>  
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="modal-footer">
+<div class="col-lg-12" style="text-align:center;">
+
+<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Reset </button>
+&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-sm">Add Marks </button>
+
+</div> 
+</div>
+</div>
+</div>
+</div> <!-- End div -->
+
+
+<div class="modal fade" id="scrollmodal" tabindex="-1" role="dialog" aria-labelledby="scrollmodalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content" style="width: 135%;">
+<div class="modal-header">
+<div class="col-lg-12">
+<div class="col-sm-8">
+<label class=" form-control-label"><b>Student Name / Id :</b>Prasad Reddy (STU00001)</label>
+</div>
+
+<div class="col-sm-4">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+</div> 
+</div>
+
+<div class="modal-body">
+  <div class="col-lg-8">
+<div class="card">
+<div class="card-body card-block" style="background-color: aliceblue;">
+<div class="row form-group" style="font-size:13px;">
+<div class="col-lg-12">
+<table border="0" style="width: 100%;height: 100%">
+<tbody>
+<tr>
+<td><b>Home Work Id</b></td>
+<td>:</td>
+<td style="font-weight: normal;">HM00001</td>
+</tr>
+<tr>
+<td><b>Topic</b></td>
+<td>:</td>
+<td><span style="font-weight: normal;">Assignment 1 </span>
+<span style="background-color: yellow;cursor: pointer;" data-toggle="modal" data-target="#smallmodal">
+Instruction
+</span></td>
+</tr>
+<tr>
+</tr><tr>
+<td><b>Number Of Questions </b></td>
+<td>:&nbsp;</td>
+<td style="font-weight: normal;">20</td>
+</tr>
+<tr>
+<td><b>Total Marks </b></td>
+<td>:&nbsp;</td>
+<td style="font-weight: normal;">20</td>
+</tr>
+<tr><td><b>Start Date </b></td>
+<td>:&nbsp;</td>
+<td style="font-weight: normal;">2012-12-19 03:14:07</td>
+</tr>
+<tr>
+<td><b>Created Date </b></td>
+<td>:&nbsp;</td>
+<td style="font-weight: normal;">2012-12-19 03:14:07</td>
+</tr>
+<tr>
+<td style="font-weight: normal;"><b>Assign Type</b></td>
+<td>:&nbsp;</td>
+<td style="font-weight: normal;">Document Type</td>
+</tr>
+
+
+</tbody>
+</table>
+</div>  
+</div>    
+</div>
+</div>
+</div>
+<div class="col-lg-4" style="background-color: antiquewhite;">
+<div class="col-lg-12 " style="text-align: center;">
+<b> Student Total Marks </b> 
+<input type="text" 
+class="sumofstudentmarks" style="text-align: center;background-color: teal;color: white;border-radius: 20px;"  
+placeholder="Student Total Marks" value="0" readonly>
+</div>
+<div class="col-lg-12 ">
+<div class="col-lg-4" >
+Q.Id
+</div>
+<div class="col-lg-4" style="text-align:center;">
+M
+</div>
+<div class="col-lg-4" style="text-align:center;">
+Max
+</div>
+</div>
+<br> 
+<div class="col-lg-12 ">
+<div class="col-lg-4" style="font-weight: normal;text-align: center;font-size: 18px;">
+1) 
+</div>
+<div class="col-lg-5">
+<input type="text" id="text-input" name="addmarks[]" placeholder="M" class="form-control addmarks" style="text-align: center;">
+
+</div>
+<div class="col-lg-3" style="font-size: 15px;">10</div>
+</div>
+<div class="col-lg-12 ">
+<div class="col-lg-4" style="font-weight: normal;text-align: center;font-size: 15px;">
+2) 
+</div>
+<div class="col-lg-5">
+<input type="text" id="text-input" name="addmarks[]" placeholder="M" class="form-control addmarks" style="text-align: center;">
+
+</div>
+<div class="col-lg-3" style="font-size: 15px;">10 </div>
+</div>
+<div class="col-lg-12 ">
+<div class="col-lg-4" style="font-weight: normal;text-align: center;font-size: 15px;">
+3) 
+</div>
+<div class="col-lg-5">
+<input type="text" id="text-input" name="addmarks[]" placeholder="M" class="form-control addmarks" style="text-align: center;">
+
+</div>
+<div class="col-lg-3" style="font-size: 15px;">10 </div>
+</div>
+<div class="col-lg-12 ">
+<div class="col-lg-4" style="font-weight: normal;text-align: center;font-size: 15px;">
+4) 
+</div>
+<div class="col-lg-5">
+<input type="text" id="text-input" name="addmarks[]" placeholder="M" class="form-control addmarks" style="text-align: center;">
+
+</div>
+<div class="col-lg-3" style="font-size: 15px;">10 </div>
+</div>
+</div>
+
+
+<div class="col-lg-12" style="overflow: auto;">
+<div class="card">
+<div class="card-body card-block">
+<div class="row form-group" style="font-size:15px;">
+<div class="col-lg-12">
+<input type="text" class="form-control" style="text-align: center;background-color: seagreen;color: white;border-radius: 20px;" value="Assignment Evaluation Sheet" readonly="">
+</div>
+<div class="col-lg-6" style="text-align: center;">
+Question Paper
+</div>
+<div class="col-lg-6" style="text-align: center;">
+Student Answer Sheet
+</div>
+
+<div class="col-lg-12">
+</div>
+<div class="col-lg-12">
+</div>
+<div class="col-lg-6">
+<iframe class="doc" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" style="width: 100%;height: 400px;"></iframe>
+</div>
+<div class="col-lg-6">
+<iframe class="doc" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" style="width: 100%;height: 400px;"></iframe>
+</div>
+</div>    
+</div>
+</div>
+</div>
+
+</div>  
+
+<div class="modal-footer">
+<div class="col-lg-12" style="text-align:center;">
+
+<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button> &nbsp;
+<button type="button" class="btn btn-primary btn-sm">Add Marks </button>
+
+</div> 
+</div>
+
+
+</div>
+</div>
+</div>
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

@@ -1,0 +1,368 @@
+<style>
+  /* body{
+    background: white;
+  } */
+  .mySlides {display:none;}
+  .forminputele{
+    background-color: #f9f7f6;
+    color: #141414;
+    font-family: verdana,Arial,sans-serif;
+    font-weight: normal;
+    padding: 0 0 0 6px;
+    font-size: 13px;
+    border: 1px solid #979797;
+    border-radius: 2px;
+    width: 100%;
+     height: 42px;
+  }
+  .form-submit{
+    background-color: #d71e28;
+    border: 0 none;
+    border-radius: 8px;
+    color: #fff;
+    font-family: verdana,Arial,sans-serif;
+    font-size: 16px;
+    height: 40px;
+    text-align: center;
+    width: 100%;
+  }
+  /* .formElementChe{
+
+  } */
+  .logo-small-section{
+    color: #b9755f;  
+    font-size: 50px;
+  }
+</style>
+<body >
+
+<div id="right-panel" class="right-panel" style="background-color: #efefef;">
+  <!-- Header-->
+<header id="header" class="header header-admain spbg-dblue">
+<div class="header-menu">
+ <app-spikeletheader></app-spikeletheader>
+</div>
+</header><!-- /header -->
+<div class="col-lg-12 bg-white" style="margin-top: -5px;">
+   <div class="col-lg-2"></div>
+   <div class="col-lg-8">
+    <ul class="list-inline">
+        <li class="list-inline-item list-inline-item-select">Quizes</li>
+        <li class="list-inline-item">Video Platform</li>
+        <li class="list-inline-item">Extra Curricular</li>
+        <li class="list-inline-item">1:1 With Tutors</li>
+        <li class="list-inline-item">Schools</li>
+    </ul>
+    </div>
+</div> 
+<div class="col-lg-12 bg-white" >
+    <div class="col-lg-12">
+      
+      <div class="col-lg-4" style="width: 200px;
+      margin-top: 17px;
+      margin-bottom: 189px;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      height: auto;
+      box-shadow: 0 2px 4px 0 rgba(198,198,198,0.5);
+      background-color: antiquewhite;
+      /* padding-left: 13px; */
+      /* margin-bottom: 28px; */
+      margin-left: 70px">
+       <p>&nbsp;&nbsp;</p>
+        <select name="destination" id="destination" class="form-control form-control-sm forminputele">
+            <option value="">--Select Login Type--</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Student">Student</option>
+            <option value="Tutor">Tutor</option>
+            <option value="vrdeveloper">VR Developer</option>
+            <option value="videomaker">Video Maker</option>
+            <option value="eventhost">Event Host</option>
+            </select>
+            <input type="text" name="username" class="form-control form-control-sm forminputele" placeholder="User Name">
+            <input type="text" name="username" class="form-control form-control-sm forminputele" placeholder="Password">
+            <input type="checkbox" accesskey="S" id="saveusername" class="formElement formElementChe" name="saveusername" isclickable="true">
+            <label for="saveusername" class="lsc">Save username</label>
+            <div class="formSubmit">
+              <input type="submit" value="Sign On" name="signon" class="form-submit" >
+              </div>
+              <div class="forgotPasswordLinkWrapper" style="font-size: 13px;">
+                <a >New User Register </a>
+            </div>
+              <div class="forgotPasswordLinkWrapper" style="font-size: 13px;">
+                  <a >Forgot Password/Username? </a>
+              </div>
+              <p>&nbsp;&nbsp;</p>
+            </div>
+    <ng-image-slider [images]="imageObject" #nav 
+     [infinite]="false"
+     [imageSize]="{width: 1306, height: 400}"
+     [autoSlide]="5"
+     [animationSpeed]="1"
+     [slideImage]="+1"
+     >
+    </ng-image-slider>
+  </div>
+  <div class="col-lg-12">
+    <div class="col-lg-3 sp-center">
+        <p><i class="fa fa-newspaper-o logo-small-section" style="font-size: 35px;"></i><br><a [routerLink]="['/exammanagement']" >Exam Management Section</a></p>
+    </div>
+    <div class="col-lg-3 sp-center">
+        <p><i class="fa fa-question-circle-o logo-small-section" style="font-size: 35px;"></i><br><a [routerLink]="['/exammanagement']" >Spikelet Quiz Section</a></p>
+    </div>
+    <div class="col-lg-3 sp-center">
+        <p><i class="fa fa-video-camera logo-small-section" style="font-size: 35px;"></i><br><a [routerLink]="['/appslogin']" >Buid App Section</a></p>
+    </div>
+    <div class="col-lg-3 sp-center">
+        <p><i class="fa fa-address-book logo-small-section" style="font-size: 35px;"></i><br>Section 4</p>
+    </div>
+  </div>
+<style>
+    .container-fluid {
+    padding: 60px 50px;
+  }
+  .bg-grey {
+    background-color: #f6f6f6;
+  }
+  .logo-small {
+    color: #f4511e;
+    font-size: 50px;
+  }
+  .logo {
+    color: #f4511e;
+    font-size: 200px;
+  }
+
+  
+</style>
+  <div class="col-lg-12 bg-white" >
+  <!-- Container (Services Section) -->
+<div class="container-fluid text-center header-main">
+    <h2>SERVICES</h2>
+    <h4>What we offer</h4>
+    <br>
+    <div class="row">
+      <div class="col-sm-4">
+        <span class="fa fa-video-camera logo-small"></span>
+        <h4>Build App For VR Video</h4>
+        <p>Createb your build app for Vr</p>
+      </div>
+      <div class="col-sm-4">
+        <span class="fa fa-question-circle-o logo-small"></span>
+        <h4>Bulk Questions For Quiz</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+      </div>
+      <div class="col-sm-4">
+        <span class="fa fa-newspaper-o logo-small"></span>
+        <h4>Exams Students</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+      </div>
+    </div>
+    <br><br>
+    <div class="row">
+      <div class="col-sm-4">
+        <span class="fa fa-cogs logo-small"></span>
+        <h4>GREEN</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+      </div>
+      <div class="col-sm-4">
+        <span class="fa fa-credit-card logo-small"></span>
+        <h4>CERTIFIED</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+      </div>
+      <div class="col-sm-4">
+        <span class="fa fa-dashboard logo-small"></span>
+        <h4 style="color:#303030;">HARD WORK</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-12 bg-white" >
+    <!-- Container (Services Section) -->
+    <div class="container-fluid text-center header-main">
+        <h2>Education VR Videos</h2><br>
+        <h4>What we have created</h4>
+        <div class="row text-center">
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <img src="assets/images/apps/img1.jpg" alt="Paris" width="400" height="300">
+              <p><strong>Paris</strong></p>
+              <p>Yes, we built Paris</p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <img src="assets/images/apps/img2.jpg" alt="New York" width="400" height="300">
+              <p><strong>New York</strong></p>
+              <p>We built New York</p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <img src="assets/images/apps/img3.jpg" alt="San Francisco" width="400" height="300">
+              <p><strong>San Francisco</strong></p>
+              <p>Yes, San Fran is ours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <style>
+  /* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+/* #footer {
+    border-top: 1px solid #b5adad;
+} */
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color: white
+}
+#footer a {
+    color: white;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+    color: white;
+}
+#footer ul.social li a:hover{
+    color: white;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+}
+
+  </style>
+
+
+	<!-- ./Footer -->
+  
+    <!-- <button (click)="prevImageClick()">Prev</button>
+        <button (click)="nextImageClick()">Next</button> -->
+  <!-- <div class="w3-content w3-display-container">
+    <img class="mySlides" src="assets/images/apps/img1.jpg" style="width:100%">
+    <img class="mySlides" src="assets/images/apps/img2.jpg" style="width:100%">
+    <img class="mySlides" src="assets/images/apps/img3.jpg" style="width:100%">
+    <img class="mySlides" src="assets/images/apps/img4.jpg" style="width:100%">
+  
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+  </div> -->
+</div> <!-- .content -->
+<div class="col-lg-12 spbg-dblue" style="margin-top: 60px;border-top: 1px solid #b5adad;">
+    <!-- Footer -->
+    <section id="footer">
+            <div class="container">
+                <div class="row text-center text-xs-center text-sm-left text-md-left">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5 >Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                            <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                        <ul class="list-unstyled list-inline social text-center">
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                    <hr>
+                </div>	
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                        <p class="h6" >&copy All right Reversed.<a [routerLink]="['/spikelethome']" style="color:white;cursor: pointer;">-Spikelet</a></p>
+                    </div>
+                    <hr>
+                </div>	
+            </div>
+        </section>
+    </div> 
+</div><!-- /#right-panel -->
+ 
+</body>
