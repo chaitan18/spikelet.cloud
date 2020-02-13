@@ -1,0 +1,240 @@
+
+<body >
+    <style>
+     .panel {
+        border: 1px solid #deb00e; 
+        border-radius:0 !important;
+        transition: box-shadow 0.5s;
+      }
+      .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+      }
+      .panel-footer .btn:hover {
+        border: 1px solid #deb00e;
+        background-color: #fff !important;
+        color: #deb00e;
+      }
+      .panel-heading {
+        color: #fff !important;
+        background-color: #deb00e !important;
+        padding: 25px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      .panel-footer {
+        background-color: white !important;
+      }
+      .panel-footer h3 {
+        font-size: 32px;
+      }
+      .panel-footer h4 {
+        color: #aaa;
+        font-size: 14px;
+      }
+      .panel-footer .btn {
+        margin: 15px 0;
+        background-color: #deb00e;
+        color: #fff;
+      }
+      .tfa{
+        font-size: 75px;
+        color: #deb00e;
+      }
+</style>    
+<div id="right-panel" class="right-panel" style="background-color: #efefef;">
+  <!-- Header-->
+<header id="header" class="header header-admain spbg-dblue">
+<div class="header-menu">
+ <app-spquizestheader></app-spquizestheader>
+</div>
+</header><!-- /header -->
+<div class="col-lg-12 bg-white" style="margin-top: -5px;">
+        <div class="col-lg-12">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-11">
+         <ul class="list-inline" style="margin-right: 3.5rem;padding-top: 8px;">    
+          <li class="list-inline-item list-inline-item-select"> 
+              <a href="#"  [routerLink]="['/spquizt-dashboard']">Dashboard</a>
+          </li>
+          <li class="list-inline-item"> 
+              <a href="#"  [routerLink]="['/spquizt-addquestion']">Add Questions</a>
+          </li>
+          
+          <li class="list-inline-item "> 
+              <a href="#"  [routerLink]="['/spquizt-viewquestion']">View Questions</a>
+          </li>
+         </ul>
+         </div>
+        </div>
+     </div> 
+     <div class="col-lg-12 bg-white">
+        <!-- Container (Pricing Section) -->
+        <div id="pricing" class="container-fluid">
+        <div class="text-center">
+          <br>
+          <br>
+        <h2>Questions</h2>
+        </div>
+        <br>
+        <br>
+        <div class="row slideanim">
+        <div class="col-sm-3 col-xs-12">
+        <div class="panel panel-default text-center">
+        
+        <div class="panel-body">
+          <br>
+        <p><i class="fa fa-eraser tfa"></i></p>
+        </div>
+        <div class="panel-footer">
+        
+        <button class="btn btn-lg">Class 12</button>
+        </div>
+        </div>      
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <div class="panel panel-default text-center">
+          
+          <div class="panel-body">
+            <br>
+          <p><i class="fa fa-film tfa"></i></p>
+          </div>
+          <div class="panel-footer">
+          
+          <button class="btn btn-lg">Class 11</button>
+          </div>
+          </div>      
+          </div>   
+          <div class="col-sm-3 col-xs-12">
+            <div class="panel panel-default text-center">
+            
+            <div class="panel-body">
+              <br>
+            <p><i class="fa fa-th-large tfa"></i></p>
+            </div>
+            <div class="panel-footer">
+            
+            <button class="btn btn-lg">Class 10</button>
+            </div>
+            </div>      
+            </div>   
+            <div class="col-sm-3 col-xs-12">
+              <div class="panel panel-default text-center">
+              
+              <div class="panel-body">
+                <br>
+              <p><i class="fa fa-th tfa"></i></p>
+              </div>
+              <div class="panel-footer">
+              
+              <button class="btn btn-lg">Class 09</button>
+              </div>
+              </div>      
+              </div>   
+              <div class="col-sm-3 col-xs-12">
+                <div class="panel panel-default text-center">
+                
+                <div class="panel-body">
+                  <br>
+                <p><i class="fa fa-eraser tfa"></i></p>
+                </div>
+                <div class="panel-footer">
+                
+                <button class="btn btn-lg">Class 08</button>
+                </div>
+                </div>      
+                </div>   
+          <div class="col-sm-3 col-xs-12">
+            <div class="panel panel-default text-center">
+            
+            <div class="panel-body">
+              <br>
+            <p><i class="fa fa-envelope-o tfa"></i></p>
+            </div>
+            <div class="panel-footer">
+            
+            <button class="btn btn-lg">Class 07</button>
+            </div>
+            </div>      
+            </div>        
+            <div class="col-sm-3 col-xs-12">
+              <div class="panel panel-default text-center">
+              
+              <div class="panel-body">
+                <br>
+              <p><i class="fa fa-inbox tfa"></i></p>
+              </div>
+              <div class="panel-footer">
+              
+              <button class="btn btn-lg">Class 05</button>
+              </div>
+              </div>      
+            </div>
+            <div class="col-sm-3 col-xs-12">
+              <div class="panel panel-default text-center">
+              
+              <div class="panel-body">
+                <br>
+              <p><i class="fa fa-bookmark tfa"></i></p>
+              </div>
+              <div class="panel-footer">
+              
+              <button class="btn btn-lg">Class 04</button>
+              </div>
+              </div>      
+            </div> 
+            <div class="col-sm-3 col-xs-12">
+              <div class="panel panel-default text-center">
+              
+              <div class="panel-body">
+                <br>
+              <p><i class="fa fa-star tfa"></i></p>
+              </div>
+              <div class="panel-footer">
+              
+              <button class="btn btn-lg">Class 03</button>
+              </div>
+              </div>      
+            </div> 
+            <div class="col-sm-3 col-xs-12">
+              <div class="panel panel-default text-center">
+              
+              <div class="panel-body">
+                <br>
+              <p><i class="fa fa-check-square-o tfa"></i></p>
+              </div>
+              <div class="panel-footer">
+              
+              <button class="btn btn-lg">Class 02</button>
+              </div>
+              </div>      
+            </div> 
+            <div class="col-sm-3 col-xs-12">
+              <div class="panel panel-default text-center">
+              
+              <div class="panel-body">
+                <br>
+              <p><i class="fa fa-chevron-left tfa"></i></p>
+              </div>
+              <div class="panel-footer">
+              
+              <button class="btn btn-lg">Class 01</button>
+              </div>
+              </div>      
+            </div> 
+        </div>
+        <div class="row slideanim">
+        <div class="col-lg-12">&nbsp;</div>
+        </div>
+        <div class="row slideanim">
+        <div class="col-lg-12">&nbsp;</div>
+        </div>
+        </div>
+        </div>    
+<!-- Container (Services Section) -->
+   
+</div><!-- /#right-panel -->
+ 
+</body>

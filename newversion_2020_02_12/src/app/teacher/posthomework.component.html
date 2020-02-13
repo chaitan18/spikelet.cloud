@@ -1,0 +1,770 @@
+<body>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<style type="text/css">
+.extension_duedate{
+  display: none;
+}
+.box {
+    background-color: #dfc8ca;
+    padding: 6.25rem 1.25rem;
+}
+.uploader {
+  width:100%;
+  height:200px;
+  background:#f3f3f3;
+  border:2px 
+  dashed #e8e8e8;
+  border-style: dashed;
+ border-color: teal;
+}
+.Imagepreview{
+  max-width: 80%;
+  display: inline-block;
+  overflow: hidden;
+  padding: 4.625rem 1.25rem;
+}
+</style>
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  border-radius: 10px 5%;
+  font-size: 12px;
+  height: 50px;
+ overflow: auto;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>{{datalabel.heading[0].post_homework}}</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">{{datalabel.heading[0].dashboard}}</a></li>
+                          <li class="breadcrumb-item" aria-current="page">{{datalabel.heading[0].post_homework}}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+<div class="row">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body">
+<div class="default-tab">
+<nav>
+<div class="nav nav-tabs" id="nav-tab" role="tablist">
+<!-- <a class="nav-item nav-link  active show" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Homework List</a> -->
+<a class="nav-item nav-link active show" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false">{{datalabel.add[0].create_homework}}</a>
+</div>
+</nav>
+<!--tab Start-->      
+<div class="tab-content pl-3 pt-2" id="nav-tabContent">
+<!-- <div class="tab-pane fade active show" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+<input type="checkbox" name="search_criteria_checkbox" class="search_criteria_checkbox" value="homework"> &nbsp;Search Criteria
+<div class="col-lg-12 search_criteria_div" style="display:none;">
+<div class="card">
+<div class="card-body card-block search_criteria_body">
+<form method="post"  id="search_criteria_form" >
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Topic Name</label>
+<input type="text" id="inputSuccess2i" class="form-control-success form-control form-control-sm" placeholder="Please Search Topic Name">
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">Due Dates</label>
+<input type="text" id="inputSuccess2i" class="form-control-sm form-control-success form-control" placeholder="DD/MM/YYYY HH:SS">
+</div> 
+
+<div class="form-actions form-group " style="text-align:center;">
+<button type="submit" class="btn btn-primary btn-sm">Search</button>
+<button type="reset" class="btn btn-primary btn-sm removelist" style="background: #c50f1f;">Reset</button>
+</div>
+
+</form>    
+</div>
+</div>
+</div>
+<div class="col-md-12 search_criteria_list" >
+<span>Home Work List</span>
+<div class="table-responsive">
+<table id="mytable" class="table table-bordred table-striped" style="font-size:13px">
+<thead class="table_header" style="background-color: #c0ebf9;"> 
+<tr><th>Actions</th>
+<th>HM Number</th>
+<th>Topic</th>
+<th>Student Submitted</th>
+<th>Start Date</th>
+<th>Due Date</th>
+<th>Created Date</th>
+<th>Marks Available</th>
+<th>Grace Period <input type="checkbox" id="select_all" /></th>
+
+</tr></thead>  
+<tbody class="table_body" style="background-color:#fffff3">
+<tr>
+<td>
+<span  title="close" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+<i class="fa fa-remove" style="color:red;"></i>
+</span>  &nbsp;
+<span  data-toggle="modal" data-target="#editdiscussion" style="color: darkcyan;" title="edit" style="cursor:pointer;">
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</span>
+
+</td>
+<td>HM00001</td>
+<td>AMT 1 <br>  
+<a href="#" data-toggle="modal" data-target="#smallmodal">
+<span style="cursor: pointer;">Instruction</span>
+</a>
+</td>
+<td>
+<span style="background-color: antiquewhite;">
+<a href="posthomework/studenthomework" target="_blank" title="Student Info"><b>20</b></a>
+</span>
+
+</td>
+<td><span >2012-12-19 03:14:07</span></td>
+<td><span  class="old_duedate">2012-12-28 03:14:07</span>
+<input type="text" class="extension_duedate" style="dispaly:none;" value="2012-12-28 03:14:07"></td>
+<td><span >2012-12-18 03:14:07</span></td>
+<td><span >100</span></td>
+<td style="text-align:center;"><input type="checkbox" class="graceperiod_checkbox" value="1"/></td>
+</tr>
+<tr>
+<td>
+<span  title="close" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+<i class="fa fa-remove" style="color:red;"></i>
+</span>  &nbsp;
+<span  data-toggle="modal" data-target="#editdiscussion" style="color: darkcyan;" title="edit" style="cursor:pointer;">
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</span>
+</td>
+<td>HM00002</td>
+<td>AMT 2 <br>  
+<a href="#" data-toggle="modal" data-target="#smallmodal"><span style="cursor: pointer;">Instruction</span></a>
+</td>
+<td> 
+<span style="background-color: antiquewhite;">
+<a href="posthomework/studenthomework" target="_blank" title="Student Info"><b>10</b></a>
+</span>
+
+</td>
+<td><span >2012-12-19 03:14:07</span></td>
+<td><span  class="old_duedate">2012-12-28 03:14:07</span>
+<input type="text" class="extension_duedate" style="dispaly:none;" value="2012-12-28 03:14:07"></td>
+<td><span >2012-12-18 03:14:07</span></td>
+<td><span >100</span></td>
+<td style="text-align:center;"><input type="checkbox" class="graceperiod_checkbox" value="2"/></td>
+</tr>
+<tr>
+<td>
+<span  title="close" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+<i class="fa fa-remove" style="color:red;"></i>
+</span>  &nbsp;
+<span  data-toggle="modal" data-target="#editdiscussion" style="color: darkcyan;" title="edit" style="cursor:pointer;">
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</span>
+</td>
+<td>HM00003</td>
+<td>AMT 3 <br>  
+<a href="#" data-toggle="modal" data-target="#smallmodal"><span style="cursor: pointer;">Instruction</span></a>
+</td>
+<td>
+
+<span style="background-color: antiquewhite;">
+<a href="posthomework/studenthomework" target="_blank" title="Student Info"><b>10</b></a>
+</span>
+
+</td>
+<td><span >2012-12-19 03:14:07</span></td>
+<td><span  class="old_duedate">2012-12-28 03:14:07</span>
+<input type="text" class="extension_duedate" style="dispaly:none;" value="2012-12-28 03:14:07"></td>
+<td><span >2012-12-18 03:14:07</span></td>
+<td><span >100</span></td>
+<td style="text-align:center;"><input type="checkbox" class="graceperiod_checkbox" value="3"/></td>
+</tr>
+<tr>
+<td>
+<span  title="close" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+<i class="fa fa-remove" style="color:red;"></i>
+</span>  &nbsp;
+<span  data-toggle="modal" data-target="#editdiscussion" style="color: darkcyan;" title="edit" style="cursor:pointer;">
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</span>
+</td>
+<td>HM00004</td>
+<td>AMT 4 <br>  
+<a href="#" data-toggle="modal" data-target="#smallmodal"> <span style="cursor: pointer;">Instruction</span></a>
+</td>
+<td> 
+<span style="background-color: antiquewhite;">
+<a href="posthomework/studenthomework" target="_blank" title="Student Info"><b>10</b></a>
+</span>
+
+</td>
+<td><span >2012-12-19 03:14:07</span></td>
+<td><span  class="old_duedate">2012-12-28 03:14:07</span>
+<input type="text" class="extension_duedate" style="dispaly:none;" value="2012-12-28 03:14:07"></td>
+<td><span >2012-12-18 03:14:07</span></td>
+<td><span >100</span></td>
+<td style="text-align:center;"><input type="checkbox" class="graceperiod_checkbox" value="4"/></td>
+</tr>
+<tr>
+<td>
+<span  title="close" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+<i class="fa fa-remove" style="color:red;"></i>
+</span>  &nbsp;
+<span  data-toggle="modal" data-target="#editdiscussion" style="color: darkcyan;" title="edit" style="cursor:pointer;">
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</span>
+</td>
+<td>HM00005</td>
+<td>AMT 5 <br>  
+<a href="#" data-toggle="modal" data-target="#smallmodal"><span style="cursor: pointer;">Instruction</span></a>  
+</td>
+<td>
+
+<span style="background-color: antiquewhite;">
+<a href="posthomework/studenthomework" target="_blank" title="Student Info"><b>30</b></a>
+</span>
+</td>
+
+<td><span >2012-12-19 03:14:07</span></td>
+<td><span  class="old_duedate">2012-12-28 03:14:07</span>
+<input type="text" class="extension_duedate" style="dispaly:none;" value="2012-12-28 03:14:07"></td>
+<td><span >2012-12-18 03:14:07</span></td>
+<td><span >100</span></td>
+<td style="text-align:center;">
+<input type="checkbox" class="graceperiod_checkbox" value="5"/>
+</td>
+</tr>
+</tbody>  
+</table>
+<div class="form-actions form-group graceperiod_showhide" style="display:none;text-align:center;">
+
+<button type="button"  data-toggle="modal" data-target="#mediumModal" class="graceperiod_extension btn btn-primary btn-sm">Save</button>
+
+</div>
+<div class="clearfix"></div>  
+</div>  
+</div>  
+
+</div>   -->
+
+
+<div class="tab-pane fade  active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+<div class="col-lg-12 " >
+<div class="row">
+<span>{{datalabel.add[0].assignment_information}}</span>
+</div> 
+<div class="row" style="border-style: solid;border-color: rgb(228, 210, 210);">
+<div class="col-lg-12">
+&nbsp;
+</div> 
+<div class="col-lg-12">
+<div class="col-lg-2">
+<label for="text-input" class="form-control-label">
+    <!-- <textarea class="text_editor_content1 save_button_enabled" style="height: 230px;"></textarea> -->
+<span style="color:red;font-size: 20px;">*</span>{{datalabel.add[0].topic_name}} 
+<span class="tooltip"><img src="assets/images/logo/info.png" style="width:20px;height:20px;">
+<span class="tooltiptext">create title of homework
+</span>
+</span>
+
+
+</label>
+</div>
+<div class="col-lg-10">
+<input type="text" name="topic_name" id="topic_name" placeholder="Please Enter Topic Name" class="form-control form-control-sm">
+</div>
+</div> 
+<div class="col-lg-12">
+<div class="col-lg-2">&nbsp; 
+<label for="nf-email" class=" form-control-label">{{datalabel.add[0].instruction}} 
+&nbsp; 
+<input type="checkbox" class="instruction_checkbox" value="instruction" style="-ms-transform: scale(2); -moz-transform: scale(2); -webkit-transform: scale(2); -o-transform: scale(2); padding: 10px;">
+<!-- <span class="tooltip"><img src="assets/images/logo/info.png" style="width:20px;height:20px;">
+<span class="tooltiptext">Instruction of homework
+</span>
+</span> -->
+</label>
+</div> 
+<div class="col-lg-10 texteditor_show" style="display:none;">
+<div style="background-color: white;" >
+<textarea id="txtEditor" style="background-color: white;"></textarea> 
+</div >
+</div>   
+</div>
+<div class="col-lg-12">
+&nbsp;
+</div>
+<div class="col-lg-12">
+<div class="col-lg-2">
+<label for="text-input" class=" form-control-label">
+<span style="color:red;font-size: 20px;">*</span>{{datalabel.add[0].total_marks}}</label>
+</div>
+
+<div class="col-lg-4">
+<input type="text" name="text-input" id="total_marks" placeholder="Please Enter Total marks" class="form-control form-control-sm">
+</div>
+<div class="col-lg-2">
+<label for="text-input" class=" form-control-label">
+<span style="color:red;font-size: 20px;">*</span>{{datalabel.add[0].numberofquestions}}</label>
+</div>
+
+<div class="col-lg-4">
+<input type="text"  name="text-input" id="numberofquestion" placeholder="Please Enter Number Of Question" class="form-control form-control-sm">
+</div>
+</div>
+
+<div class="col-lg-12">
+<div class="col-lg-2">&nbsp;
+<label for="text-input" class=" form-control-label">{{datalabel.add[0].penalty}}</label>
+</div>
+<div class="col-lg-4">
+<select class="form-control form-control-sm" name="select_penalty_type" id="select_penalty_type">
+<option value="no">No</option>
+<option value="yes">YES</option>
+</select>
+</div>
+</div>
+
+<div class="col-lg-12 form-group penalty_show" style="display:none;">
+<div class="row form-group ">
+<div class="col-lg-2">
+</div>
+<div class="col-lg-6 field_wrapper">
+<div class="col-lg-6">
+<div class="form-group"><label for="postal-code" class=" form-control-label">Penalty (days)</label>
+<input type="text" id="postal-code" placeholder="Penalty days" class="form-control" >
+</div>
+</div>
+<div class="col-lg-6">
+<div class="form-group">
+<label for="postal-code" class=" form-control-label" placeholder="Penalty Marks">Penalty (Marks)
+</label>
+<div class="input-group ">
+<input type="text" id="postal-code" placeholder="Marks" class="form-control">
+<div class="input-group-addon" style="cursor: pointer;border: 0px solid #ced4da;">
+<a href="javascript:void(0);" class="add_button" title="Add field">
+<img src="http://demos.codexworld.com/add-remove-input-fields-dynamically-using-jquery/add-icon.png"/>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="form-group">
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-12">
+<div class="col col-md-2">
+<label class=" form-control-label">
+<span style="color:red;font-size: 20px;">*</span>{{datalabel.add[0].add_assign}}
+<span class="tooltip"><img src="assets/images/logo/info.png" style="width:20px;height:20px;">
+<span class="tooltiptext">
+</span>
+</span>
+</label>
+</div>
+<div class="col-12 col-md-3">
+<div class="form-check">
+<div class="checkbox">
+<label for="checkbox1" class="form-check-label ">
+<input type="radio"  name="addassign" value="manual" class="form-check-input addassign" value="manual" >{{datalabel.add[0].manual}}
+</label>
+</div>
+<div class="checkbox">
+<label for="checkbox2" class="form-check-label ">
+<input type="radio"  name="addassign" value="documenttype" class="form-check-input addassign" value="document">{{datalabel.add[0].document_type}} 
+</label>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-2">
+<button type="button" id="reset_addassign" class="btn btn-danger btn-sm" >{{datalabel.add[0].reset}}</button>
+</div>
+</div>
+<div class="col-lg-12"> 
+&nbsp;
+</div>
+<div class="col-lg-12 div_assign">
+</div>
+<div class="col-lg-12"> 
+&nbsp;
+</div>
+</div>
+<div class="row">
+<span>{{datalabel.add[0].availability}}</span>
+</div> 
+<div class="row" style="border-style: solid;border-color: rgb(228, 210, 210);">
+<div class="col-lg-12"> <h5></h5>
+&nbsp;
+</div>
+<div class="col-lg-12"> 
+<input type="checkbox"  name="makeavailabilchecked" class="makeavailabilchecked" value="makeavailabilchecked" checked> {{datalabel.add[0].make_amt_available}}
+</div>
+<div class="col-lg-12 checkedavailable">
+<div class="col col-md-3">
+<label class=" form-control-label"> {{datalabel.add[0].numberofattempts}}</label></div>
+<div class="col col-md-9">
+<div class="form-check">
+<div class="radio">
+<label for="radio1" class="form-check-label ">
+<input type="radio" id="radio1" name="numberofattempts" value="option1" class="form-check-input numberofattempts" checked> {{datalabel.add[0].allowunsingleattempts}} 
+</label>
+</div>
+<div class="radio singleattemptsp">
+<span data-toggle="modal" data-target="#largeModal">
+<label for="radio1" class="form-check-label " style="font-size: 13px;cursor: pointer;">
+  {{datalabel.add[0].student_permission}}
+</label></span>
+</div>
+
+<div class="radio">
+<label for="radio2" class="form-check-label ">
+<input type="radio" id="radio2" name="numberofattempts"  value="option2" class="form-check-input numberofattempts">{{datalabel.add[0].allowunlimitedattempts}}
+</label>
+</div>
+<div class="radio unlimitedattemptsp">
+<span data-toggle="modal" data-target="#largeModal">
+<label for="radio1" class="form-check-label " style="font-size: 13px;cursor: pointer;">
+  {{datalabel.add[0].student_permission}}
+</label></span>
+</div>
+<div class="radio">
+<label for="radio3" class="form-check-label ">
+<input type="radio" id="radio3" name="numberofattempts"  value="option3" class="form-check-input numberofattempts">{{datalabel.add[0].numberofattempts}} : 
+<input type="number"  name="tracknumberchecked" style="width: 50px;">
+</label>
+</div>
+<div class="radio numberofattemptsp">
+<span data-toggle="modal" data-target="#largeModal">
+<label for="radio1" class="form-check-label " style="font-size: 13px;cursor: pointer;">
+  {{datalabel.add[0].student_permission}}
+</label></span>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="col-lg-12"> <input type="checkbox"  name="tracknumberchecked" >{{datalabel.add[0].track_numberofviews}}</div>
+
+</div>
+
+<div class="row">
+<span>{{datalabel.add[0].date_time}}</span>
+</div>
+
+<div class="row" style="border-style: solid;border-color: rgb(228, 210, 210);">
+<div class="col-lg-12"> <h5></h5>
+&nbsp;
+</div>
+<div class="col-lg-6 checkedavailable">
+
+<div class="col-lg-4">
+<label class=" form-control-label">{{datalabel.add[0].limit_availability}}</label>
+</div>
+<div class="col-lg-8">
+<div class="form-check">
+<div class="radio">
+<label for="radio1" class="form-check-label ">
+<input type="checkbox"  name="availabilchecked" > {{datalabel.add[0].display_after}}  <input type="text" id="text-input" name="text-input" placeholder="DD/MM/YYY HH:SS" >
+</label>
+</div>
+<div class="radio">
+<label for="radio2" class="form-check-label ">
+<input type="checkbox"  name="availabilchecked" > {{datalabel.add[0].due_dates}}<input type="text" id="text-input" name="text-input" placeholder="DD/MM/YYY HH:SS" >
+</label>
+</div>
+
+</div>
+</div>
+</div> 
+
+<div class="col-lg-6 checkedavailable">
+
+<div class="col-lg-4">
+<label class=" form-control-label">{{datalabel.add[0].display_until}}</label>
+</div>
+<div class="col-lg-8">
+<input type="text" id="text-input" name="text-input" placeholder="DD/MM/YYY HH:SS" >
+</div>
+</div>
+</div>
+
+<div class="row">
+<h5>{{datalabel.add[0].recipients}}</h5><span style="color:red;">{{datalabel.add[0].recipients_note}}</span>
+</div>
+
+<div class="row" style="border-style: solid;border-color: rgb(228, 210, 210);">
+<div class="col-lg-12"> <h5></h5>
+&nbsp;
+</div>
+<div class="col-lg-12">
+<div class="col col-md-3">
+<label class=" form-control-label">{{datalabel.add[0].recipients}}</label></div>
+<div class="col col-md-9">
+<div class="form-check">
+<div class="radio">
+<label for="radio1" class="form-check-label ">
+<input type="radio" id="radio1" name="recipients" value="option1" class="form-check-input">{{datalabel.add[0].all_student_individually}}
+</label>
+</div>
+<div class="radio">
+<label for="radio2" class="form-check-label ">
+<input type="radio" id="radio2" name="recipients" value="option2" class="form-check-input">{{datalabel.add[0].groupofstudent}}
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-12">
+&nbsp;
+</div>
+
+<div class="form-actions form-group " style="text-align:center;">
+<button type="submit" class="btn btn-primary btn-sm">{{datalabel.add[0].Create}}</button>&nbsp;
+<button type="reset" class="btn btn-primary btn-sm quiz_removelist" style="background: #c50f1f;">{{datalabel.add[0].reset}}</button>
+</div>
+
+</div>  
+
+</div>
+
+</div>
+<!--tab End-->  
+</div> 
+</div> 
+</div> 
+</div>   
+</div>  
+<div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="smallmodalLabel">Homework Instruction</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<p>
+There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
+and the mountain zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus
+Dolichohippus. The latter resembles an ass, to which it is closely related, while the former two are more
+horse-like. All three belong to the genus Equus, along with other living equids.
+</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-body popupboxmodal">
+<h1>
+Are you sure you want to close home work?
+</h1>
+</div>
+<div class="modal-footer popupboxmodal">
+<button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+</div>
+</div>
+<!-- /.modal-content --> 
+</div>
+<!-- /.modal-dialog --> 
+</div>  
+
+<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<div class="col-lg-6">
+<h6 class="modal-title" id="mediumModalLabel">Review Extension Due Date</h6>
+</div>
+<div class="col-lg-6">
+<h6 class="modal-title" id="modalnumberofquestion"></h6>
+</div>
+
+</div>
+<div class="modal-body" style="background-color: #ffe7e7;">
+<div class="row form-group">
+<div class="col-lg-12">
+<table class="table">
+<thead>
+<tr>
+<th scope="col">Home Work Id</th>
+<th scope="col">Topic</th>
+<th scope="col">Start Date</th>
+<th scope="col">Extension Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td >HM00001</td>
+<td>AMT 1 </td>
+<td>2012-12-19 03:14:07</td>
+<td>2012-12-19 03:14:07</td>
+</tr>
+<tr>
+<td >HM00002</td>
+<td>AMT 2 </td>
+<td>2012-12-19 03:14:07</td>
+<td>2012-12-19 03:14:07</td>
+</tr>
+<tr>
+<td >HM00003</td>
+<td>AMT 3 </td>
+<td>2012-12-19 03:14:07</td>
+<td>2012-12-19 03:14:07</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<div class="col-lg-12" style="text-align:center;">
+
+<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button> &nbsp;
+<button type="button" class="btn btn-primary btn-sm">Confirm</button>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header" style="background-color: aliceblue;">
+<img src="assets/images/logo/studentpermission.png" alt="See the source image" style="width: 30px;height: 25px;">&nbsp;
+<h5>Student Records</h5>&nbsp; <i><b>(Alllow Single Attempt)</b></i>
+
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body" style="background-color: beige;">
+<!--  <div class="col-lg-12"> -->
+
+<div class="row form-group">
+<div class="col-md-4">
+<label class=" form-control-label">Student Number / Name  : </label> 
+</div>
+<div class="col-md-7">
+<div class="input-group">
+<input type="text" id="input1-group2" name="input1-group2" placeholder="Search with Student Number or Name" class="form-control">
+<div class="input-group-btn">
+<button class="btn btn-info">
+<i class="fa fa-search"></i> Search
+</button>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped">
+<thead>
+<tr>
+<th scope="col">
+Select All<br><input type="checkbox">
+</th>
+<th scope="col">Student Number</th>
+<th scope="col">First Name</th>
+<th scope="col">Last Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"> <input type="checkbox"></th>
+<td>STN0001</td>
+<td>Johan</td>
+<td>ANT</td>
+</tr>
+<tr>
+<th scope="row"> <input type="checkbox"></th>
+<td>STN0002</td>
+<td>Mike</td>
+<td>Kbg</td>
+</tr>
+<tr>
+<th scope="row"> <input type="checkbox"></th>
+<td>STN0003</td>
+<td>Kumar</td>
+<td>SDC</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!--    </div> -->
+
+<div class="modal-footer" style="background-color: beige;"> 
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+<button type="button" class="btn btn-primary">Allowed</button>
+
+</div>
+
+</div>
+</div>
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

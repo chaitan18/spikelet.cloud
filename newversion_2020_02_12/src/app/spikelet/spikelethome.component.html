@@ -1,0 +1,526 @@
+<style>
+  /* body{
+    background: white;
+  } */
+  .mySlides {display:none;}
+  .forminputele{
+    background-color: #f9f7f6;
+    color: #141414;
+    font-family: verdana,Arial,sans-serif;
+    font-weight: normal;
+    padding: 0 0 0 6px;
+    font-size: 13px;
+    border: 1px solid #979797;
+    border-radius: 2px;
+    width: 100%;
+     height: 42px;
+  }
+  .form-submit{
+    background-color: #d71e28;
+    border: 0 none;
+    border-radius: 8px;
+    color: #fff;
+    font-family: verdana,Arial,sans-serif;
+    font-size: 16px;
+    height: 40px;
+    text-align: center;
+    width: 100%;
+  }
+  /* .formElementChe{
+
+  } */
+  .logo-small-section{
+    color: #b9755f;  
+    font-size: 50px;
+  }
+  .nav-tabs .nav-link.active {
+    color: black;
+    background: white;
+    border-color: #deb00e #deb00e #fff;
+}
+.nav-link {
+    padding: 0.5rem 5rem;
+}
+.nav-tabs {
+    border-bottom: 1px solid #deb00e;
+}
+.nav-tabs .nav-link {
+    border-color: #deb00e #deb00e #deb00e;
+}
+</style>
+<body >
+
+<div id="right-panel" class="right-panel" style="background-color: #efefef;">
+  <!-- Header-->
+<header id="header" class="header header-admain spbg-dblue">
+<div class="header-menu">
+ <app-spikeletheader></app-spikeletheader>
+</div>
+</header><!-- /header -->
+<div class="col-lg-12 bg-white" style="margin-top: -5px;">
+   <div class="col-lg-2"></div>
+   <div class="col-lg-8">
+    <ul class="list-inline">
+       
+     <li class="list-inline-item list-inline-item-select"> 
+         <a href="#"  [routerLink]="['/spquizes']">quizes</a>
+        </li>
+        
+        <li class="list-inline-item">Video Platform</li>
+        <li class="list-inline-item">Extra Curricular</li>
+        <li class="list-inline-item">1:1 With Tutors</li>
+        <li class="list-inline-item">Schools</li>
+        <li class="list-inline-item">VR Videos</li>
+    </ul>
+    </div>
+</div> 
+<div class="col-lg-12 bg-white" >
+    <div class="col-lg-12">
+      
+      <div class="col-lg-4" style="width: 200px;
+      margin-top: 17px;
+      margin-bottom: 189px;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      height: auto;
+      box-shadow: 0 2px 4px 0 rgba(198,198,198,0.5);
+      background-color: antiquewhite;
+      /* padding-left: 13px; */
+      /* margin-bottom: 28px; */
+      margin-left: 40px">
+       <p>&nbsp;&nbsp;</p>
+        <select name="destination" id="destination" class="form-control form-control-sm forminputele">
+            <option value="">--Select Login Type--</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Student">Student</option>
+            <option value="Tutor">Tutor</option>
+            <option value="vrdeveloper">VR Developer</option>
+            <option value="videomaker">Video Maker</option>
+            <option value="eventhost">Event Host</option>
+            </select>
+            <input type="text" name="username" class="form-control form-control-sm forminputele" placeholder="User Name">
+            <input type="text" name="username" class="form-control form-control-sm forminputele" placeholder="Password">
+            <input type="checkbox" accesskey="S" id="saveusername" class="formElement formElementChe" name="saveusername" isclickable="true">
+            <label for="saveusername" class="lsc">Save username</label>
+            <div class="formSubmit">
+              <input type="submit" value="Sign On" name="signon" class="form-submit" >
+              </div>
+              <div class="forgotPasswordLinkWrapper" style="font-size: 13px;">
+                <a >New User Register </a>
+            </div>
+              <div class="forgotPasswordLinkWrapper" style="font-size: 13px;">
+                  <a >Forgot Password/Username? </a>
+              </div>
+              <p>&nbsp;&nbsp;</p>
+            </div>
+    <ng-image-slider [images]="imageObject" #nav 
+     [infinite]="false"
+     [imageSize]="{width: 1306, height: 500}"
+     [autoSlide]="5"
+     [animationSpeed]="1"
+     [slideImage]="+1"
+     >
+    </ng-image-slider>
+  </div>
+  <!-- <div class="col-lg-12">
+    <div class="col-lg-3 sp-center">
+        <p><i class="fa fa-newspaper-o logo-small-section" style="font-size: 35px;"></i><br><a [routerLink]="['/exammanagement']" >Exam Management Section</a></p>
+    </div>
+    <div class="col-lg-3 sp-center">
+        <p><i class="fa fa-question-circle-o logo-small-section" style="font-size: 35px;"></i><br><a [routerLink]="['/exammanagement']" >Spikelet Quiz Section</a></p>
+    </div>
+    <div class="col-lg-3 sp-center">
+        <p><i class="fa fa-video-camera logo-small-section" style="font-size: 35px;"></i><br><a [routerLink]="['/appslogin']" >Buid App Section</a></p>
+    </div>
+    <div class="col-lg-3 sp-center">
+        <p><i class="fa fa-address-book logo-small-section" style="font-size: 35px;"></i><br>Section 4</p>
+    </div>
+  </div> -->
+<style>
+    .container-fluid {
+    padding: 60px 50px;
+  }
+  .bg-grey {
+    background-color: #f6f6f6;
+  }
+  .logo-small {
+    color: #f4511e;
+    font-size: 50px;
+  }
+  .logo {
+    color: #f4511e;
+    font-size: 200px;
+  }
+
+  
+        .st-box { 
+            height: 220px;
+            border:solid #deb00e; 
+            overflow: auto;
+        } 
+        .s-quiz{
+            background-color:#050565; 
+            width:100%;
+            color:white;
+        }
+</style>
+<div class="col-lg-12 bg-white header-main" >
+           <br>
+            <div class="col-lg-12 text-center">   
+            <h2>Quizes</h2><br>
+            </div>
+                  <div class="col-lg-12 ">
+                    <div class="col-lg-4 bg-white st-box text-center " > 
+                        <h4> Mathematics </h4>
+                        <img src="assets/images/math.jpg"style="width:100%;height:140px"> 
+                       <button class="btn s-quiz">Start Quiz</button>
+                    </div> 
+                      
+                    <div class="col-lg-4 bg-white st-box text-center " > 
+                            <h4> Science </h4>
+                            <img src="assets/images/science.jpg" style="width:100%;height:140px"> 
+                           <button class="btn s-quiz">Start Quiz</button>
+                    </div> 
+                      
+                    <div class="col-lg-4 bg-white st-box text-center"> 
+                            <h4> English </h4>
+                            <img src="assets/images/english.jpg" style="width:100%;height:140px"> 
+                           <button class="btn s-quiz">Start Quiz</button>
+                    </div> 
+                </div>
+                <div class="col-lg-12 text-center">   
+                   <br>
+                    </div>
+                
+      </div>
+<div class="col-lg-12 bg-white header-main" >
+       
+    <!-- Container (Services Section) -->
+    <br>
+    <div class="col-lg-12 text-center">   
+        <h2>Video Platform</h2><br>
+    </div>
+            
+    <div class="col-lg-12 text-center"> 
+        <ng-image-slider [images]="vrvideosObject" #nav></ng-image-slider>
+    </div>
+    <div class="col-lg-12 text-center">   
+        <br>
+         </div>
+      
+  </div>
+
+  <div class="col-lg-12 bg-white header-main" >
+                <br>
+            <div class="col-lg-12 text-center">   
+                <h2>Extra Curricular</h2><br>
+            </div>
+                <p>&nbsp;</p>
+            <div class="row">
+              <div class="col-sm-4">
+                    <div class="" style="border-right: 4px solid #deb00e;
+                    padding-right: 15px;
+                    height: 293px;
+                    overflow: auto;">
+                    <article>
+                            <header>
+                              <h5 style="color: blue;" align="justify">National Talent Search Examination or NTSE
+                                </h5>
+                              <p><b>Medium of examination:</b> English and Hindi</p>
+                              <p><b>Exam date:</b>  November</p>
+                            </header>
+                            <p align="justify">NTSE is by far the most prestigious of all the talent search examinations conducted in India for school students. The main objective of this test is to identify the intelligent and brilliant students. It follows the NCERT prescribed syllabus covering Science, Maths, Social Science and Mental Ability. General awareness becomes an important factor during interview stages</p>
+                          </article>
+                      </div>    
+              </div>
+              <div class="col-sm-4">
+                    <div class="" style="border-right: 4px solid #deb00e;
+                    padding-right: 15px;
+                    height: 293px;
+                    overflow: auto;">
+                    <article>
+                            <header>
+                              <h5 style="color: blue;" align="justify">ZIO or Zonal Informatics Olympiad
+
+                                </h5>
+                              <p><b>Medium of examination:</b> English and Hindi</p>
+                              <p><b>Exam date:</b>  November-December </p>
+                            </header>
+                            <p align="justify">Organized by the Indian Association for Research in Computing Science Chennai, this test has a goal to identify school students with outstanding skills in algorithms and computing. The finalists represent India at International Olympiad for Informatics (IOI). IOI is one of the 6 science Olympiads held annually at the international level.                                </p>
+                          </article>
+                      </div> 
+              </div>
+              <div class="col-sm-4">
+                    <div class="" style="border-right: 4px solid #deb00e;
+                    padding-right: 15px;
+                    height: 293px;
+                    overflow: auto;">
+                    <article>
+                            <header>
+                              <h5 style="color: blue;" align="justify">NSEA or National Standard Examination in Astronomy
+
+                                </h5>
+                              <p><b>Medium of examination:</b> English</p>
+                              <p><b>Exam date:</b>  November</p>
+                            </header>
+                            <p align="justify">NSEA is the first of the five stages of Astronomy Olympiad program. It is jointly conducted by two very prestigious bodies namely IAPT or Indian Association of Physics Teachers and HBCSE or Homi Bhabha Centre for Science Education. </p>
+                          </article>
+                      </div> 
+              </div>
+            </div>
+            <div class="col-lg-12">   
+                <br>
+                 </div>
+      </div>
+      
+
+      <div class="col-lg-12 bg-white header-main" >
+        <!-- Container (Services Section) -->
+                <br>
+                <div class="col-lg-12 text-center">   
+                        <h2>1:1 With Tutors</h2><br>
+                </div>
+            <div class="col-lg-12">
+                <div class="default-tab">
+                    <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                     <!-- <div class="col-lg-12"> -->
+                     <!-- <div class="col-lg-2"></div>
+                     <div class="col-lg-4"> -->
+                    <a class="nav-item nav-link  active show" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">I want to learn</a>
+                    <!-- </div>
+                    <div class="col-lg-4"> -->
+                    <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false">I want to teach
+                    </a>
+                <!-- </div>
+                <div class="col-lg-2"></div> -->
+                       <!-- </div> -->
+                    </div>
+                    </nav>
+                    <!--tab Start-->      
+                    <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+                    <div class="tab-pane fade active show" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <div class="col-sm-12">&nbsp;</div>
+                            <div class="col-sm-4">
+                                    <span class="fa fa-registered logo-small"></span>
+                                    <br>
+                                    <h4>Free registration </h4>
+                                  
+                                    <p align="justify">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet..</p>
+                                  </div>
+                                  <div class="col-sm-4">
+                                    <span class="fa fa-search logo-small"></span>  <br>
+                                    <h4>Find your tutor </h4>
+                                    <p align="justify">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet..</p>
+                                  </div>
+                                  <div class="col-sm-4">
+                                    <span class="fa fa-calendar-check-o logo-small"></span>  <br>
+                                    <h4>Schedule a lesson </h4>
+                                    <p align="justify">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet..</p>
+                            </div>
+                    </div>  
+                    
+                    <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="col-sm-12">&nbsp;</div>
+                    
+                  
+                            <div class="col-sm-4">
+                                    <span class="fa fa-registered logo-small"></span><br>
+                                    <h4>Free registration</h4>
+                                    <p align="justify">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet..</p>
+                                  </div>
+                                  <div class="col-sm-4">
+                                    <span class="fa fa-user-circle-o logo-small"></span><br>
+                                    <h4>Create a tutor profile</h4>
+                                    <p align="justify">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet..</p>
+                                  </div>
+                                  <div class="col-sm-4">
+                                    <span class="fa fa-vcard-o logo-small"></span><br>
+                                    <h4>Start teaching</h4>
+                                    <p align="justify">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet..</p>
+                            </div>
+                    </div>
+                    </div>
+                    <!--tab End-->  
+                    </div>
+            </div>
+           
+            <div class="col-lg-12">   
+                    <br>
+                     </div>
+      </div>
+
+
+      <div class="col-lg-12 bg-white header-main" >
+            <!-- Container (Services Section) -->
+                    <br>
+                    <div class="col-lg-12 text-center">   
+                            <h2>Schools</h2><br>
+                    </div>
+                  
+                <div class="col-lg-12 text-center">
+                        <span class="fa fa-newspaper-o logo-small"></span>
+                        <br>
+                        <h4> Exam Management Section</h4>
+                </div>
+              
+              <div class="col-lg-12">   
+                    <br>
+                     </div>
+          </div>
+  <style>
+  /* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+/* #footer {
+    border-top: 1px solid #b5adad;
+} */
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color: white
+}
+#footer a {
+    color: white;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+    color: white;
+}
+#footer ul.social li a:hover{
+    color: white;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+}
+
+  </style>
+
+
+	<!-- ./Footer -->
+  
+    <!-- <button (click)="prevImageClick()">Prev</button>
+        <button (click)="nextImageClick()">Next</button> -->
+  <!-- <div class="w3-content w3-display-container">
+    <img class="mySlides" src="assets/images/apps/img1.jpg" style="width:100%">
+    <img class="mySlides" src="assets/images/apps/img2.jpg" style="width:100%">
+    <img class="mySlides" src="assets/images/apps/img3.jpg" style="width:100%">
+    <img class="mySlides" src="assets/images/apps/img4.jpg" style="width:100%">
+  
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+  </div> -->
+</div> <!-- .content -->
+<div class="col-lg-12 spbg-dblue" style="margin-top: 60px;border-top: 1px solid #b5adad;">
+    <!-- Footer -->
+    <section id="footer">
+            <div class="container">
+                <div class="row text-center text-xs-center text-sm-left text-md-left">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5 >Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                            <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                        <ul class="list-unstyled list-inline social text-center">
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                    <hr>
+                </div>	
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                        <p class="h6" >&copy All right Reversed.<a [routerLink]="['/spikelethome']" style="color:white;cursor: pointer;">-Spikelet</a></p>
+                    </div>
+                    <hr>
+                </div>	
+            </div>
+        </section>
+    </div> 
+</div><!-- /#right-panel -->
+ 
+</body>

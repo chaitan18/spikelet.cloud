@@ -1,0 +1,173 @@
+<body>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>{{datalabel.heading[0].post_class_behaviours}}</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">{{datalabel.heading[0].dashboard}}</a></li>
+                          <li class="breadcrumb-item" aria-current="page">{{datalabel.heading[0].post_class_behaviours}}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+
+<div class="col-lg-12">
+<div class="card">
+<div class="card-header">
+<h4>{{datalabel.heading[0].class_wise_behaviour}}</h4>
+</div>
+<div class="card-body">
+<div class="col-lg-12">
+<input type="checkbox" name="search_criteria_checkbox" class="search_criteria_checkbox" value="classbehavior"> &nbsp;{{datalabel.searchform[0].search_criteria}}
+<div class="card search_criteria_div" style="display:none;">
+<div class="card-body card-block search_criteria_body">
+<form method="post"  id="search_criteria_form" >
+<div class="col-lg-12 form-group">
+<label for="inputSuccess2i" class=" form-control-label">{{datalabel.searchform[0].student_name}}</label>
+<input type="text" id="inputSuccess2i" class="form-control-success form-control" placeholder="{{datalabel.searchform[0].student_namepc}}">
+</div>
+
+<div class="form-actions form-group " style="text-align:center">
+<button type="submit" class="btn btn-primary btn-sm">{{datalabel.searchform[0].bsearch}}</button>&nbsp;
+<button type="reset" class="btn btn-primary btn-sm removelist" style="background: #c50f1f;">{{datalabel.searchform[0].breset}}</button>
+</div>
+
+</form>    
+</div>
+</div>
+
+</div>
+<div class="col-md-12 search_criteria_list" >
+<p></p><h5>{{datalabel.listform[0].student_list}}</h5><p></p>
+<div class="table-responsive">
+<table id="mytable" class="table table-bordred table-striped">
+<thead class="table_header" style="background-color: #c0ebf9;"> 
+<tr>
+<th>{{datalabel.listform[0].selecct_all}} <br>  <input type="checkbox" id="select_all"/></th>
+<th>{{datalabel.listform[0].student_id}}</th>
+<th>{{datalabel.listform[0].student_name}}</th>
+<th>{{datalabel.listform[0].remarks}}</th>
+<th>{{datalabel.listform[0].send_date}}</th>
+</tr></thead>
+<tbody class="table_body" style="background-color:#fffff3">
+
+<tr>
+
+<td>
+<input class="checkbox" type="checkbox" name="check[]">
+</td>
+<td>STU00001</td>
+<td>Prasad Reddy (STU00001)</td>
+<td>
+
+</td>
+<td><span style="background-color: #ffc1d6;"></span></td>
+
+</tr><tr>
+
+<td>
+<input class="checkbox" type="checkbox" name="check[]">
+</td>
+<td>STU00002</td>
+<td>Suman</td>
+<td>
+The first step of an intervention is to identify
+</td>
+<td><span style="background-color: #ffc1d6;">2012-12-19 03:14:07</span></td>
+</tr><tr>
+<td>
+<input class="checkbox" type="checkbox" name="check[]">
+</td>
+<td>STU00002</td>
+<td>Ramakrishna (STU00002)</td>
+<td>
+</td>
+<td><span style="background-color: #ffc1d6;"></span></td>
+
+</tr><tr>
+<td>
+<input class="checkbox" type="checkbox" name="check[]">
+</td>
+<td>STU00003</td>
+<td>Madhu</td>
+<td>
+Disruptive Student Behavior in the Classroom.
+</td>
+<td><span style="background-color: #ffc1d6;">2012-12-19 03:14:07</span></td>
+
+</tr><tr>
+<td>
+<input class="checkbox" type="checkbox" name="check[]">
+</td>
+<td>STU00005</td>
+<td>Santhoshu</td>
+<td>
+Disruptive Student Behavior in the Classroom.
+</td>
+<td><span style="background-color: #ffc1d6;">2012-12-19 03:14:07</span></td>
+
+</tr>
+</tbody>
+
+</table>
+
+<div class="form-actions form-group " style="text-align:center;">
+<button type="button" class="btn btn-secondary btn-sm" id="remarks_button" data-toggle="modal" data-target="#smallmodal">{{datalabel.listform[0].remarks}}</button>
+</div>
+
+<div class="clearfix"></div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="smallmodalLabel">{{datalabel.listform[0].student_remarks}}</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="col-12"><textarea name="textarea-input" id="textarea-input" rows="9" placeholder="{{datalabel.listform[0].student_remarkspc}}" class="form-control"></textarea></div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">{{datalabel.listform[0].send}}</button>
+</div>
+</div>
+</div>
+</div>
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

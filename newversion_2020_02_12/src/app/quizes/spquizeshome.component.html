@@ -1,0 +1,284 @@
+
+<body >
+    <style>
+      .mySlides {display:none;}
+  .forminputele{
+    background-color: #f9f7f6;
+    color: #141414;
+    font-family: verdana,Arial,sans-serif;
+    font-weight: normal;
+    padding: 0 0 0 6px;
+    font-size: 13px;
+    border: 1px solid #979797;
+    border-radius: 2px;
+    width: 100%;
+     height: 42px;
+  }
+  .form-submit{
+    background-color: #d71e28;
+    border: 0 none;
+    border-radius: 8px;
+    color: #fff;
+    font-family: verdana,Arial,sans-serif;
+    font-size: 16px;
+    height: 40px;
+    text-align: center;
+    width: 100%;
+  }
+        .logo-small {
+        color: #f4511e;
+        font-size: 50px;
+      }
+      .bg_show{
+        height: auto;
+        box-shadow: 8px 9px 6px -6px black;
+        border: 1px solid #ccc;
+        background-color: white;
+        border-radius: 70px;
+      }
+      .panel {
+        border: 1px solid #deb00e; 
+        border-radius:0 !important;
+        transition: box-shadow 0.5s;
+      }
+      .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+      }
+      .panel-footer .btn:hover {
+        border: 1px solid #deb00e;
+        background-color: #fff !important;
+        color: #deb00e;
+      }
+      .panel-heading {
+        color: #fff !important;
+        background-color: #deb00e !important;
+        padding: 25px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      .panel-footer {
+        background-color: white !important;
+      }
+      .panel-footer h3 {
+        font-size: 32px;
+      }
+      .panel-footer h4 {
+        color: #aaa;
+        font-size: 14px;
+      }
+      .panel-footer .btn {
+        margin: 15px 0;
+        background-color: #deb00e;
+        color: #fff;
+      }
+      </style>
+<div id="right-panel" class="right-panel" style="background-color: #efefef;">
+  <!-- Header-->
+<header id="header" class="header header-admain spbg-dblue">
+<div class="header-menu">
+    <div class="col-sm-12">
+        <div class="col-sm-4" style="text-align: left;">
+        <a [routerLink]="['/spikelethome']" style="color:white;cursor: pointer;">
+        <h4 style="margin: 6px;">SPIKELET</h4></a> 
+        </div> 
+        <!-- <div class="col-sm-10"> -->
+        <div class="col-sm-4">  
+            <div class="col-sm-12 text-center" style="color:white;cursor: pointer;">
+                <h6 style="margin: 8px;">Welecome To QUIZ</h6> 
+            </div>
+            
+        </div>
+        <div class="col-sm-4" style="width: 100%;">
+            
+        </div>
+        
+        </div>
+</div>
+</header><!-- /header -->
+<div class="col-lg-12 bg-white" style="margin-top: -5px;">
+        <div class="col-lg-12">
+         <p>&nbsp;</p>
+        </div>
+     </div> 
+<!-- Container (Services Section) -->
+<div class="col-lg-12 bg-white">
+    <div class="col-lg-12">
+      
+        <div class="col-lg-4" style="width: 200px;
+        margin-top: 17px;
+        margin-bottom: 189px;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        height: auto;
+        box-shadow: 0 2px 4px 0 rgba(198,198,198,0.5);
+        background-color: antiquewhite;
+        /* padding-left: 13px; */
+        /* margin-bottom: 28px; */
+        margin-left: 40px">
+         <p>&nbsp;&nbsp;</p>
+         <form class="form-signin" method="POST" action="#" role="form">
+          <select name="destination" id="destination" class="form-control form-control-sm forminputele">
+              <option value="">--Select Login Type--</option>
+              <option value="Teacher">Teacher</option>
+              <option value="Student">Student</option>
+              </select>
+              <input type="text" name="email"   [(ngModel)]="email" [ngModelOptions]="{standalone: true}"  class="form-control form-control-sm forminputele" placeholder="User Name">
+              <input type="text" name="password"  [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm forminputele" placeholder="Password">
+              <input type="checkbox" accesskey="S" id="saveusername" class="formElement formElementChe" name="saveusername" isclickable="true">
+              <label for="saveusername" class="lsc">Save username</label>
+              <div class="formSubmit">
+                  <!-- <a [routerLink]="['/spquiz-dashboard']" style="color:white;cursor: pointer;"> -->
+                     <input  (click)="onLogin()" type="submit" value="Sign On" name="signon" class="form-submit" >
+                  <!-- </a> -->
+                </div>
+              </form>
+                <div class="forgotPasswordLinkWrapper" style="font-size: 13px;">
+                  <a [routerLink]="['/teacherregister']" style="cursor: pointer;">New User Register </a>
+              </div>
+                <div class="forgotPasswordLinkWrapper" style="font-size: 13px;">
+                    <a >Forgot Password/Username? </a>
+                </div>
+                <p>&nbsp;&nbsp;</p>
+              </div>
+      <ng-image-slider [images]="imageObject" #nav 
+       [infinite]="false"
+       [imageSize]="{width: 1306, height: 500}"
+       [autoSlide]="5"
+       [animationSpeed]="1"
+       [slideImage]="+1"
+       >
+      </ng-image-slider>
+    </div>     
+<div class="col-lg-12 bg-white">
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid">
+<div class="text-center">
+  <br>
+  <br>
+<h2>Pricing</h2>
+<h4>Choose a payment plan that works for you</h4>
+</div>
+<br>
+<br>
+<div class="row slideanim">
+<div class="col-sm-4 col-xs-12">
+<div class="panel panel-default text-center">
+<div class="panel-heading">
+<h5>Hyderabad School</h5>
+</div>
+<div class="panel-body">
+  
+<p><strong>20</strong> Projects</p>
+<p><strong>15</strong> Tasks</p>
+</div>
+<div class="panel-footer">
+<h3>$19</h3>
+<h4>per month</h4>
+<button class="btn btn-lg">Sign Up</button>
+</div>
+</div>      
+</div>     
+<div class="col-sm-4 col-xs-12">
+<div class="panel panel-default text-center">
+<div class="panel-heading">
+<h5>Nandyal School</h5>
+</div>
+<div class="panel-body">
+<p><strong>20</strong> Projects</p>
+<p><strong>15</strong> Tasks</p>
+</div>
+<div class="panel-footer">
+<h3>$29</h3>
+<h4>per month</h4>
+<button class="btn btn-lg">Sign Up</button>
+</div>
+</div>      
+</div>       
+<div class="col-sm-4 col-xs-12">
+<div class="panel panel-default text-center">
+<div class="panel-heading">
+<h5>Kurnool School</h5>
+</div>
+<div class="panel-body">
+  <p><strong>20</strong> Projects</p>
+  <p><strong>15</strong> Tasks</p>
+  </div>
+<div class="panel-footer">
+<h3>$49</h3>
+<h4>per month</h4>
+<button class="btn btn-lg">Sign Up</button>
+</div>
+</div>      
+</div>    
+</div>
+<div class="row slideanim">
+<div class="col-lg-12">&nbsp;</div>
+</div>
+<div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+    <div class="panel panel-default text-center">
+    <div class="panel-heading">
+    <h5>Hyderabad School</h5>
+    </div>
+    <div class="panel-body">
+      
+    <p><strong>20</strong> Projects</p>
+    <p><strong>15</strong> Tasks</p>
+    </div>
+    <div class="panel-footer">
+    <h3>$19</h3>
+    <h4>per month</h4>
+    <button class="btn btn-lg">Sign Up</button>
+    </div>
+    </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+    <div class="panel panel-default text-center">
+    <div class="panel-heading">
+    <h5>Nandyal School</h5>
+    </div>
+    <div class="panel-body">
+    <p><strong>20</strong> Projects</p>
+    <p><strong>15</strong> Tasks</p>
+    </div>
+    <div class="panel-footer">
+    <h3>$29</h3>
+    <h4>per month</h4>
+    <button class="btn btn-lg">Sign Up</button>
+    </div>
+    </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+    <div class="panel panel-default text-center">
+    <div class="panel-heading">
+    <h5>Kurnool School</h5>
+    </div>
+    <div class="panel-body">
+      <p><strong>20</strong> Projects</p>
+      <p><strong>15</strong> Tasks</p>
+      </div>
+    <div class="panel-footer">
+    <h3>$49</h3>
+    <h4>per month</h4>
+    <button class="btn btn-lg">Sign Up</button>
+    </div>
+    </div>      
+    </div>    
+    </div>
+<div class="row slideanim">
+<div class="col-lg-12">&nbsp;</div>
+</div>
+</div>
+</div>
+<br><br>
+          
+      
+        
+</div>     
+</div><!-- /#right-panel -->
+ 
+</body>

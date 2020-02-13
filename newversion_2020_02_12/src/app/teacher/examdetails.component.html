@@ -1,0 +1,644 @@
+<body>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<style type="text/css">
+.extension_duedate{
+  display: none;
+}
+.box {
+    background-color: #dfc8ca;
+    padding: 6.25rem 1.25rem;
+}
+.uploader {
+  width:100%;
+  height:200px;
+  background:#f3f3f3;
+  border:2px 
+  dashed #e8e8e8;
+  border-style: dashed;
+ border-color: teal;
+}
+.Imagepreview{
+  max-width: 80%;
+  display: inline-block;
+  overflow: hidden;
+  padding: 4.625rem 1.25rem;
+}
+</style>
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  border-radius: 10px 5%;
+  font-size: 12px;
+  height: 50px;
+ overflow: auto;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>{{datalabel.heading[0].exam_details}}</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">{{datalabel.heading[0].dashboard}}</a></li>
+                          <li class="breadcrumb-item" aria-current="page">{{datalabel.heading[0].exam_details}}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+<div class="row">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body">
+<div class="default-tab">
+<nav>
+<div class="nav nav-tabs" id="nav-tab" role="tablist">
+<a class="nav-item nav-link  active show" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">{{datalabel.heading[0].homework_list}}</a> 
+<a class="nav-item nav-link" id="nav-quiz-tab" data-toggle="tab" href="#nav-quiz" role="tab" aria-controls="nav-quiz" aria-selected="true">{{datalabel.heading[0].quiz_list}}</a>
+<a class="nav-item nav-link" id="nav-exam-tab" data-toggle="tab" href="#nav-exam" role="tab" aria-controls="nav-exam" aria-selected="true">{{datalabel.heading[0].exam_list}}</a>
+<a class="nav-item nav-link" id="nav-projects-tab" data-toggle="tab" href="#nav-projects" role="tab" aria-controls="nav-projects" aria-selected="true">{{datalabel.heading[0].projects_list}}</a>
+</div>
+</nav>
+<!--tab Start-->      
+<div class="tab-content pl-3 pt-2" id="nav-tabContent">
+<div class="tab-pane fade" id="nav-exam" role="tabpanel" aria-labelledby="nav-exam-tab">
+  </div>  
+  <div class="tab-pane fade" id="nav-projects" role="tabpanel" aria-labelledby="nav-projects-tab">
+    </div>    
+<div class="tab-pane fade active show" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+<input type="checkbox" name="search_criteria_checkbox" class="search_criteria_checkbox" value="homework"> &nbsp;{{datalabel.searchform[0].search_criteria}}
+<div class="col-lg-12 search_criteria_div" style="display:none;">
+<div class="card">
+<div class="card-body card-block search_criteria_body">
+<form method="post"  id="search_criteria_form" >
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">{{datalabel.searchform[0].topic}}</label>
+<input type="text" id="inputSuccess2i" class="form-control-success form-control form-control-sm" placeholder="{{datalabel.searchform[0].topic}}">
+</div>
+<div class="col-lg-6 form-group">
+<label for="inputSuccess2i" class=" form-control-label">{{datalabel.searchform[0].due_date}}</label>
+<input type="text" id="inputSuccess2i" class="form-control-sm form-control-success form-control" placeholder="{{datalabel.searchform[0].due_date}}">
+</div> 
+
+<div class="form-actions form-group " style="text-align:center;">
+<button type="submit" class="btn btn-primary btn-sm">{{datalabel.searchform[0].bsearch}}</button>&nbsp;
+<button type="reset" class="btn btn-primary btn-sm removelist" style="background: #c50f1f;">{{datalabel.searchform[0].breset}}</button>
+</div>
+
+</form>    
+</div>
+</div>
+</div>
+<div class="col-md-12 search_criteria_list" >
+<span>{{datalabel.heading[0].homework_list}}</span>
+<div class="table-responsive">
+<table id="mytable" class="table table-bordred table-striped" style="font-size:13px">
+<thead class="table_header" style="background-color: #c0ebf9;"> 
+<tr><th>{{datalabel.listform[0].action}}</th>
+<th>{{datalabel.listform[0].hm_number}}</th>
+<th>{{datalabel.listform[0].topic}}</th>
+<th>{{datalabel.listform[0].student_submitted}}</th>
+<th>{{datalabel.listform[0].start_date}}</th>
+<th>{{datalabel.listform[0].due_date}}</th>
+<th>{{datalabel.listform[0].created_date}}</th>
+<th>{{datalabel.listform[0].marks_available}}</th>
+<th>{{datalabel.listform[0].grace_period}} <input type="checkbox" id="select_all" /></th>
+
+</tr></thead>  
+<tbody class="table_body" style="background-color:#fffff3">
+<tr>
+<td>
+<span  title="close" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+<i class="fa fa-remove" style="color:red;"></i>
+</span>  &nbsp;
+<span  data-toggle="modal" data-target="#editdiscussion" style="color: darkcyan;" title="edit" style="cursor:pointer;">
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</span>
+
+</td>
+<td>HM00001</td>
+<td>AMT 1 <br>  
+<a href="#" data-toggle="modal" data-target="#smallmodal">
+<span style="cursor: pointer;">Instruction</span>
+</a>
+</td>
+<td>
+<span style="background-color: antiquewhite;">
+<a href="posthomework/studenthomework" target="_blank" title="Student Info"><b>20</b></a>
+</span>
+
+</td>
+<td><span >2012-12-19 03:14:07</span></td>
+<td><span  class="old_duedate">2012-12-28 03:14:07</span>
+<input type="text" class="extension_duedate" style="dispaly:none;" value="2012-12-28 03:14:07"></td>
+<td><span >2012-12-18 03:14:07</span></td>
+<td><span >100</span></td>
+<td style="text-align:center;"><input type="checkbox" class="graceperiod_checkbox" value="1"/></td>
+</tr>
+<tr>
+<td>
+<span  title="close" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+<i class="fa fa-remove" style="color:red;"></i>
+</span>  &nbsp;
+<span  data-toggle="modal" data-target="#editdiscussion" style="color: darkcyan;" title="edit" style="cursor:pointer;">
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</span>
+</td>
+<td>HM00002</td>
+<td>AMT 2 <br>  
+<a href="#" data-toggle="modal" data-target="#smallmodal"><span style="cursor: pointer;">Instruction</span></a>
+</td>
+<td> 
+<span style="background-color: antiquewhite;">
+<a href="posthomework/studenthomework" target="_blank" title="Student Info"><b>10</b></a>
+</span>
+
+</td>
+<td><span >2012-12-19 03:14:07</span></td>
+<td><span  class="old_duedate">2012-12-28 03:14:07</span>
+<input type="text" class="extension_duedate" style="dispaly:none;" value="2012-12-28 03:14:07"></td>
+<td><span >2012-12-18 03:14:07</span></td>
+<td><span >100</span></td>
+<td style="text-align:center;"><input type="checkbox" class="graceperiod_checkbox" value="2"/></td>
+</tr>
+<tr>
+<td>
+<span  title="close" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+<i class="fa fa-remove" style="color:red;"></i>
+</span>  &nbsp;
+<span  data-toggle="modal" data-target="#editdiscussion" style="color: darkcyan;" title="edit" style="cursor:pointer;">
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</span>
+</td>
+<td>HM00003</td>
+<td>AMT 3 <br>  
+<a href="#" data-toggle="modal" data-target="#smallmodal"><span style="cursor: pointer;">Instruction</span></a>
+</td>
+<td>
+
+<span style="background-color: antiquewhite;">
+<a href="posthomework/studenthomework" target="_blank" title="Student Info"><b>10</b></a>
+</span>
+
+</td>
+<td><span >2012-12-19 03:14:07</span></td>
+<td><span  class="old_duedate">2012-12-28 03:14:07</span>
+<input type="text" class="extension_duedate" style="dispaly:none;" value="2012-12-28 03:14:07"></td>
+<td><span >2012-12-18 03:14:07</span></td>
+<td><span >100</span></td>
+<td style="text-align:center;"><input type="checkbox" class="graceperiod_checkbox" value="3"/></td>
+</tr>
+<tr>
+<td>
+<span  title="close" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+<i class="fa fa-remove" style="color:red;"></i>
+</span>  &nbsp;
+<span  data-toggle="modal" data-target="#editdiscussion" style="color: darkcyan;" title="edit" style="cursor:pointer;">
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</span>
+</td>
+<td>HM00004</td>
+<td>AMT 4 <br>  
+<a href="#" data-toggle="modal" data-target="#smallmodal"> <span style="cursor: pointer;">Instruction</span></a>
+</td>
+<td> 
+<span style="background-color: antiquewhite;">
+<a href="posthomework/studenthomework" target="_blank" title="Student Info"><b>10</b></a>
+</span>
+
+</td>
+<td><span >2012-12-19 03:14:07</span></td>
+<td><span  class="old_duedate">2012-12-28 03:14:07</span>
+<input type="text" class="extension_duedate" style="dispaly:none;" value="2012-12-28 03:14:07"></td>
+<td><span >2012-12-18 03:14:07</span></td>
+<td><span >100</span></td>
+<td style="text-align:center;"><input type="checkbox" class="graceperiod_checkbox" value="4"/></td>
+</tr>
+<tr>
+<td>
+<span  title="close" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+<i class="fa fa-remove" style="color:red;"></i>
+</span>  &nbsp;
+<span  data-toggle="modal" data-target="#editdiscussion" style="color: darkcyan;" title="edit" style="cursor:pointer;">
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</span>
+</td>
+<td>HM00005</td>
+<td>AMT 5 <br>  
+<a href="#" data-toggle="modal" data-target="#smallmodal"><span style="cursor: pointer;">Instruction</span></a>  
+</td>
+<td>
+
+<span style="background-color: antiquewhite;">
+<a href="posthomework/studenthomework" target="_blank" title="Student Info"><b>30</b></a>
+</span>
+</td>
+
+<td><span >2012-12-19 03:14:07</span></td>
+<td><span  class="old_duedate">2012-12-28 03:14:07</span>
+<input type="text" class="extension_duedate" style="dispaly:none;" value="2012-12-28 03:14:07"></td>
+<td><span >2012-12-18 03:14:07</span></td>
+<td><span >100</span></td>
+<td style="text-align:center;">
+<input type="checkbox" class="graceperiod_checkbox" value="5"/>
+</td>
+</tr>
+</tbody>  
+</table>
+<div class="form-actions form-group graceperiod_showhide" style="display:none;text-align:center;">
+
+<button type="button"  data-toggle="modal" data-target="#mediumModal" class="graceperiod_extension btn btn-primary btn-sm">{{datalabel.listform[0].save}}</button>
+
+</div>
+<div class="clearfix"></div>  
+</div>  
+</div>  
+
+</div>  
+
+
+
+
+
+<div class="tab-pane fade" id="nav-quiz" role="tabpanel" aria-labelledby="nav-quiz-tab">
+  <div class="col-lg-12">
+  <div class="card">
+  <div class="card-body card-block search_criteria_body">
+  <form method="post"  id="quiz_search_criteria_form" >
+  <div class="col-lg-4 form-group">
+  <label for="inputSuccess2i" class=" form-control-label">{{datalabel.searchform[0].topic}}</label>
+  <select name="select" id="select" class="form-control form-control-sm">
+  <option value="0">--Select--</option>
+  <option value="1">Topic 1</option>
+  <option value="2">Topic 2</option>
+  <option value="3">Topic 3</option>
+  </select>
+  </div>
+  <div class="col-lg-4 form-group">
+  <label for="inputSuccess2i" class=" form-control-label">{{datalabel.searchform[0].subtopic}}</label>
+  <select name="select" id="select" class="form-control form-control-sm">
+  <option value="0">--Select--</option>
+  <option value="1">Sub Topic 1</option>
+  <option value="2">Sub Topic 2</option>
+  <option value="3">Sub Topic 3</option>
+  </select>
+  </div>
+  <div class="col-lg-4 form-group">
+  <label for="inputSuccess2i" class=" form-control-label">{{datalabel.searchform[0].quiz_name}}</label>
+  <input type="text" id="inputSuccess2i" class="form-control-success form-control form-control-sm" placeholder="{{datalabel.searchform[0].quiz_namepc}}">
+  </div>
+  
+  <div class="form-actions form-group" style="text-align:center;">
+  <button type="submit" class="btn btn-primary btn-sm">{{datalabel.searchform[0].bsearch}}</button>&nbsp;
+  <button type="reset" class="btn btn-primary btn-sm quiz_removelist" style="background: #c50f1f;">{{datalabel.searchform[0].breset}}</button>
+  </div>
+  
+  </form>  
+  </div>
+  </div>
+  <div class="col-md-12 quiz_search_criteria_list" style="display:none;">
+    <span><b>{{datalabel.heading[0].quiz_list}}</b></span>
+    <div class="table-responsive">
+  <table id="mytable" class="table table-bordred table-striped">
+  <thead class="table_header" style="background-color: #c0ebf9;"> 
+  <tr><th>{{datalabel.listform[0].action}}</th>
+  <th>{{datalabel.listform[0].quiz_number}}</th>
+  <th>{{datalabel.listform[0].topicq}}</th>
+  <th>{{datalabel.listform[0].sub_topic}}</th>
+  <th>{{datalabel.listform[0].quiz_name}}</th>
+  <th>{{datalabel.listform[0].numberofquestions}}</th>
+  </tr></thead>
+  <tbody class="table_body" style="background-color:#fffff3">
+  
+  <tr>
+  
+  <td>
+  <a href="/spikelet/questionlist" target="_blank" title="Question List">
+  <i class="fa fa-database" style="font-size: 20px;color: #d05f5f;"></i>
+  </a>&nbsp;
+  <i class="fa fa-edit" data-toggle="modal" data-target="#editquizModal" style="cursor:pointer;font-size: 20px;color: darkcyan;"></i>
+  &nbsp;
+  <i class="fa fa-remove" title="close" data-toggle="modal" data-target="#deleteq" style="cursor:pointer;font-size: 20px;color: red;"></i>
+  </td>
+  <td>QN00001</td>
+  <td>Topic 1</td>
+  <td>Sub Topic 1</td>
+  <td>Computer Awareness</td>
+  <td><a href="#" class="quwstion_count">20</a></td>
+  </tr><tr>
+  <td>
+  <a href="/spikelet/questionlist" target="_blank" title="Question List">
+  <i class="fa fa-database" style="font-size: 20px;color: #d05f5f;"></i>
+  </a>&nbsp;
+  <i class="fa fa-edit" data-toggle="modal" data-target="#editquizModal" style="cursor:pointer;font-size: 20px;color: darkcyan;"></i>
+  &nbsp;
+  <i class="fa fa-remove" title="close" data-toggle="modal" data-target="#delete" style="cursor:pointer;font-size: 20px;color: red;"></i>
+  </td>
+  <td>QN00002</td>
+  <td>Topic 2</td>
+  <td>Sub Topic 2</td>
+  <td>General Awareness</td>
+  <td>30</td>
+  </tr><tr>
+  <td>
+  <a href="/spikelet/questionlist" target="_blank" title="Question List">
+  <i class="fa fa-database" style="font-size: 20px;color: #d05f5f;"></i>
+  </a>&nbsp;
+  <i class="fa fa-edit" data-toggle="modal" data-target="#editquizModal" style="cursor:pointer;font-size: 20px;color: darkcyan;"></i>
+  &nbsp;
+  <i class="fa fa-remove" title="close" data-toggle="modal" data-target="#deleteq" style="cursor:pointer;font-size: 20px;color: red;"></i>
+  </td>
+  <td>QN00003</td>
+  <td>Topic 1</td>
+  <td>Sub Topic 1</td>
+  <td>Indian Geography</td>
+  <td>20</td>
+  </tr><tr>
+  <td>
+  <a href="/spikelet/questionlist" target="_blank" title="Question List">
+  <i class="fa fa-database" style="font-size: 20px;color: #d05f5f;"></i>
+  </a>&nbsp;
+  <i class="fa fa-edit" data-toggle="modal" data-target="#editquizModal" style="cursor:pointer;font-size: 20px;color: darkcyan;"></i>
+  &nbsp;
+  <i class="fa fa-remove" title="close" data-toggle="modal" data-target="#deleteq" style="cursor:pointer;font-size: 20px;color: red;"></i>
+  </td>
+  <td>QN00004</td>
+  <td>Topic 3</td>
+  <td>Sub Topic 3</td>
+  <td>Indian History</td>
+  <td>10</td>
+  </tr><tr>
+  <td>
+  <a href="/spikelet/questionlist" target="_blank" title="Question List">
+  <i class="fa fa-database" style="font-size: 20px;color: #d05f5f;"></i>
+  </a>&nbsp;
+  <i class="fa fa-edit" data-toggle="modal" data-target="#editquizModal" style="cursor:pointer;font-size: 20px;color: darkcyan;"></i>
+  &nbsp;
+  <i class="fa fa-remove" title="close" data-toggle="modal" data-target="#deleteq" style="cursor:pointer;font-size: 20px;color: red;"></i>
+  </td>
+  <td>QN00005</td>
+  <td>Topic 2</td>
+  <td>Sub Topic 2</td>
+  <td>Indain Polity And Constitution</td>
+  <td>25</td>
+  </tr></tbody>
+  
+  </table>
+  
+  <div class="clearfix"></div>
+  
+  </div>
+  </div>  
+  </div>
+  </div>
+
+
+</div>
+<!--tab End-->  
+</div> 
+</div> 
+</div> 
+</div>   
+</div>  
+<div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="smallmodalLabel">Homework Instruction</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<p>
+There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
+and the mountain zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus
+Dolichohippus. The latter resembles an ass, to which it is closely related, while the former two are more
+horse-like. All three belong to the genus Equus, along with other living equids.
+</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-body popupboxmodal">
+<span>
+
+{{datalabel.heading[0].del_msgh}}
+</span>
+</div>
+<div class="modal-footer popupboxmodal">
+<button type="button" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-ok-sign"></span>{{datalabel.heading[0].yes}}</button>
+<button type="button" class="btn btn-sm" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>{{datalabel.heading[0].no}}</button>
+</div>
+</div>
+<!-- /.modal-content --> 
+</div>
+<!-- /.modal-dialog --> 
+</div>  
+
+<div class="modal fade" id="deleteq" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+  <div class="modal-body popupboxmodal">
+  <span>
+    {{datalabel.heading[0].del_msgq}}
+  </span>
+  </div>
+  <div class="modal-footer popupboxmodal">
+  <button type="button" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-ok-sign"></span>{{datalabel.heading[0].yes}}</button>
+  <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>{{datalabel.heading[0].no}}</button>
+  </div>
+  </div>
+  <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+  </div>
+
+<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<div class="col-lg-6">
+<h6 class="modal-title" id="mediumModalLabel">{{datalabel.module[0].re_duedate}}</h6>
+</div>
+<div class="col-lg-6">
+<h6 class="modal-title" id="modalnumberofquestion"></h6>
+</div>
+
+</div>
+<div class="modal-body" style="background-color: #ffe7e7;">
+<div class="row form-group">
+<div class="col-lg-12">
+<table class="table">
+<thead>
+<tr>
+<th scope="col">{{datalabel.module[0].hmId}}</th>
+<th scope="col">{{datalabel.module[0].topic}}</th>
+<th scope="col">{{datalabel.module[0].start_date}}</th>
+<th scope="col">{{datalabel.module[0].extension_due_date}}</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td >HM00001</td>
+<td>AMT 1 </td>
+<td>2012-12-19 03:14:07</td>
+<td>2012-12-19 03:14:07</td>
+</tr>
+<tr>
+<td >HM00002</td>
+<td>AMT 2 </td>
+<td>2012-12-19 03:14:07</td>
+<td>2012-12-19 03:14:07</td>
+</tr>
+<tr>
+<td >HM00003</td>
+<td>AMT 3 </td>
+<td>2012-12-19 03:14:07</td>
+<td>2012-12-19 03:14:07</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<div class="col-lg-12" style="text-align:center;">
+
+<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">{{datalabel.module[0].cancel}}</button> &nbsp;
+<button type="button" class="btn btn-primary btn-sm">{{datalabel.module[0].confirm}}</button>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header" style="background-color: aliceblue;">
+<img src="assets/images/logo/studentpermission.png" alt="See the source image" style="width: 30px;height: 25px;">&nbsp;
+<h5>Student Records</h5>&nbsp; <i><b>(Alllow Single Attempt)</b></i>
+
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body" style="background-color: beige;">
+<!--  <div class="col-lg-12"> -->
+
+<div class="row form-group">
+<div class="col-md-4">
+<label class=" form-control-label">Student Number / Name  : </label> 
+</div>
+<div class="col-md-7">
+<div class="input-group">
+<input type="text" id="input1-group2" name="input1-group2" placeholder="Search with Student Number or Name" class="form-control">
+<div class="input-group-btn">
+<button class="btn btn-info">
+<i class="fa fa-search"></i> Search
+</button>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped">
+<thead>
+<tr>
+<th scope="col">
+Select All<br><input type="checkbox">
+</th>
+<th scope="col">Student Number</th>
+<th scope="col">First Name</th>
+<th scope="col">Last Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"> <input type="checkbox"></th>
+<td>STN0001</td>
+<td>Johan</td>
+<td>ANT</td>
+</tr>
+<tr>
+<th scope="row"> <input type="checkbox"></th>
+<td>STN0002</td>
+<td>Mike</td>
+<td>Kbg</td>
+</tr>
+<tr>
+<th scope="row"> <input type="checkbox"></th>
+<td>STN0003</td>
+<td>Kumar</td>
+<td>SDC</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!--    </div> -->
+
+<div class="modal-footer" style="background-color: beige;"> 
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+<button type="button" class="btn btn-primary">Allowed</button>
+
+</div>
+
+</div>
+</div>
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>
