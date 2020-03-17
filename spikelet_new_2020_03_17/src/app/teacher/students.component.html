@@ -1,0 +1,107 @@
+<body>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+<!-- Right Panel -->
+ 
+
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>Students</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+                          <li class="breadcrumb-item" aria-current="page">Students</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+    <div class="col-lg-12" style="background-color: white;">
+            <div class="col-lg-12" style="margin-top: 10px">
+                    <div class="card">
+                    <div class="card-header search_criteria_header">
+                    <div class="col-lg-12">
+                      Add Students
+                    </div>
+                    </div>
+                    <div class="card-body card-block search_criteria_body">
+                   
+                    <div class="col-lg-12" > 
+                    <div class="col-lg-4"> </div> 
+                    <div class="col-lg-4">    
+                    <input type="radio" name="submit_type" class="submit_type" value="individual">Individual &nbsp;
+                    <input type="radio" name="submit_type" class="submit_type" value="bulktype">Bulk Upload
+                    </div>  
+                    <div class="col-lg-4"> </div> 
+                    </div>
+                    <div class="col-lg-12 individual" style="margin-top: 10px;display: none;" > 
+                            <div class="col-lg-12" >
+                            <div class="col-lg-4">    
+                                    <label for="disabled-input" class=" form-control-label">Name</label>
+                                    <input type="text" class="form-control-sm form-control" placeholder="Enter The Name">
+                                   
+                            </div>  
+                            <div class="col-lg-4">    
+                                    <label for="disabled-input" class=" form-control-label">Email</label>
+                                    <input type="text" class="form-control-sm form-control" placeholder="Enter The Email">
+                                   
+                            </div>  
+                            <div class="col-lg-4">    
+                                    <label for="disabled-input" class=" form-control-label">Address</label>
+                                    <input type="text" class="form-control-sm form-control" placeholder="Enter The Address">
+                                   
+                            </div>   
+                        </div>  
+                        <div class="col-lg-12" style="text-align:center;margin-top: 10px;">  
+                        <div class="form-actions form-group ">
+                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                        &nbsp;
+                        <button type="reset" class="btn btn-primary btn-sm" style="background: #c50f1f;">Reset</button>
+                        </div>
+                        </div>
+                    </div>   
+                    <div class="col-lg-12 bulktype" style="margin-top: 10px; display: none;"> 
+                            <div class="col-lg-4"> </div> 
+                            <div class="col-lg-4"> 
+                            <input type="file" class="form-control-sm form-control">
+                        </div>
+                        <div class="col-lg-4"> </div>
+                        
+                        <div class="col-lg-12" style="text-align:center;margin-top: 10px;">  
+                        <div class="form-actions form-group ">
+                        <button type="submit" class="btn btn-primary btn-sm">Upload</button>
+                        &nbsp;
+                        <button type="reset" class="btn btn-primary btn-sm" style="background: #c50f1f;">Cancel</button>
+                        </div>
+                        </div>
+                    </div>    
+                    
+                    
+                    </div>
+                    </div>
+                    </div>
+    </div>
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

@@ -1,0 +1,80 @@
+
+    <div class="sufee-login d-flex align-content-center flex-wrap" style="background-color: white;height: 100%;
+    color: black;">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                   <!-- <img class="align-content" src="assets/images/staff.png" alt="" style="height: 100px;"> -->
+                    <h6>Teacher Register</h6>
+                </div>
+                <div class="login-form"  style="background-color: white;">
+                  <span *ngIf="errorMessage!=null" class="login100-form-title p-t-20 p-b-45 ">
+                          {{ errorMessage }}
+                      </span>
+                <form class="form-signin" method="POST" action="#" role="form">
+                  <!-- <form #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)" class="form-horizontal" method="post"> -->
+                  
+                    <div class="form-group">
+                  <label style="color: black;">First Name</label>
+                  <input id="signupName" type="text" maxlength="50" class="form-control"
+                  [(ngModel)]="registrationUser.name" [ngModelOptions]="{standalone: true}" placeholder="Enter The First Name">
+                  </div>
+                  <div class="form-group">
+                    <label style="color: black;">Last Name</label>
+                    <input id="lastname" type="text" maxlength="50" class="form-control"
+                    placeholder="Enter The Last Name"></div>
+                <div class="form-group">
+                    <label style="color: black;">School Url(Domain names)</label>
+                    <select class="form-control">
+                        <option value="">--Select School Domain--</option>
+                        <option value="">School1.com</option>
+                        <option value="">School2.com</option>
+                    </select>
+                </div>
+                  <div class="form-group">
+                  <label style="color: black;">Email (Note: School Host Email Ids )</label>
+                  <input id="signupEmail" type="email" maxlength="50" class="form-control"
+               [(ngModel)]="registrationUser.email" [ngModelOptions]="{standalone: true}" placeholder="Enter The Email Ids">
+                  
+                  </div>
+                  <div class="form-group">
+                    <label style="color: black;">Phone Number</label>
+                    <input id="signupPhone" type="text" maxlength="13" class="form-control"
+               [(ngModel)]="registrationUser.phone_number" [ngModelOptions]="{standalone: true}" placeholder="Enter The Phone Number">
+                    
+                    </div>
+                    <div class="form-group">
+                        <label style="color: black;">Password</label>
+                        <input id="signupPassword" type="password" maxlength="25" class="form-control"
+                        placeholder="Enter The Password" length="40" [(ngModel)]="registrationUser.password"
+                        [ngModelOptions]="{standalone: true}">
+                        
+                        </div>
+                        <div class="form-group">
+                            <label style="color: black;">Confirm Password</label>
+                            <input  type="password" maxlength="25" class="form-control"
+                            placeholder="Enter The Confirm Password" >
+                            
+                            </div>
+                  <div class="checkbox">
+                  <label style="color: black;">
+                    <a [routerLink]="['/spquizes']" style="color: black;"> Sign In</a>&nbsp;<input type="checkbox" > Remember Me
+                  </label>
+                  <label class="pull-right" style="color: black;">
+                   
+                  </label>
+                  
+                  </div>
+                  <!--<a [routerLink]="['/student/dashboard']" >-->
+                <button (click)="onRegister()" id="signupSubmit" type="submit" class="btn btn-danger btn-flat m-b-30 m-t-30">
+                    Create your account
+                </button>
+                  <!--</a>-->
+                  </form>    
+                  </div>
+            </div>
+        </div>
+    </div>
+
+
+

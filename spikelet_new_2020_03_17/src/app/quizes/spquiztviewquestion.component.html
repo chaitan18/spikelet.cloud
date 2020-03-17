@@ -1,0 +1,237 @@
+
+<body >
+    <style>
+     .panel {
+        border: 1px solid #deb00e; 
+        border-radius:0 !important;
+        transition: box-shadow 0.5s;
+      }
+      .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+      }
+      .panel-footer .btn:hover {
+        border: 1px solid #deb00e;
+        background-color: #fff !important;
+        color: #deb00e;
+      }
+      .panel-heading {
+        color: #fff !important;
+        background-color: #deb00e !important;
+        padding: 25px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      .panel-footer {
+        background-color: white !important;
+      }
+      .panel-footer h3 {
+        font-size: 32px;
+      }
+      .panel-footer h4 {
+        color: #aaa;
+        font-size: 14px;
+      }
+      .panel-footer .btn {
+        margin: 15px 0;
+        background-color: #deb00e;
+        color: #fff;
+      }
+      .tfa{
+        font-size: 75px;
+        color: #deb00e;
+      }
+      .fcstyle {
+    background: #d486ae1c;
+    color: black;
+}
+</style>    
+<div id="right-panel" class="right-panel" style="background-color: #efefef;">
+  <!-- Header-->
+<header id="header" class="header header-admain spbg-dblue">
+<div class="header-menu">
+ <app-spquizestheader></app-spquizestheader>
+</div>
+</header><!-- /header -->
+<div class="col-lg-12 bg-white" style="margin-top: -5px;">
+        <div class="col-lg-12">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-11">
+         <ul class="list-inline" style="margin-right: 3.5rem;padding-top: 8px;">    
+          <li class="list-inline-item"> 
+              <a href="#"  [routerLink]="['/dashboard']">Dashboard</a>
+          </li>
+          <li class="list-inline-item"> 
+              <a href="#"  [routerLink]="['/spquizt-addquestion']">Add Questions</a>
+          </li>
+          <li class="list-inline-item"> 
+            <a href="#"  [routerLink]="['/spquizt-bulkquestion']">Bulk Questions</a>
+        </li>
+          <li class="list-inline-item  list-inline-item-select "> 
+              <a href="#"  [routerLink]="['/spquizt-viewquestion']">View Questions</a>
+          </li>
+         </ul>
+         </div>
+        </div>
+     </div> 
+     <div class="col-lg-12 bg-white">
+        <!-- Container (Pricing Section) -->
+        <div id="pricing" class="container-fluid">
+        <br>
+        <br>
+        <div class="row slideanim">
+            <div class="col-lg-12">
+               
+                <div class="col-lg-12">
+                  <div class="col-sm-3">
+                      <label>Class</label>
+                      <select class="form-control fcstyle" id="class" name="class">
+                        <option value="">--Select Class--</option>
+                        <option value="12">Class 12</option>
+                        <option value="11">Class 11</option>
+                        <option value="10">Class 10</option>
+                        <option value="9">Class 09</option>
+                        <option value="8">Class 08</option>
+                        <option value="7">Class 07</option>
+                        <option value="6">Class 06</option>
+                        <option value="5">Class 05</option>
+                        <option value="4">Class 04</option>
+                        <option value="3">Class 03</option>
+                        <option value="2">Class 02</option>
+                        <option value="1">Class 01</option>
+                      </select>
+                    <span class="error"></span>
+                  </div>
+                  <div class="col-sm-3">
+                      <label>Subject</label>
+                      <select class="form-control fcstyle" id="subject" name="subject">
+                        <option value="">--Select Subject--</option>
+                        <option value="12">Mathematics</option>
+                        <option value="11">Science</option>
+                        <option value="10">Social</option>
+                      </select>
+                    <span class="error"></span>
+                  </div>
+                  <div class="col-sm-3">
+                      <label>Topic</label>
+                      <select class="form-control fcstyle" id="subject" name="subject">
+                        <option value="">--Select Topic--</option>
+                        <option value="12">Topic 1</option>
+                        <option value="11">Topic 2</option>
+                        <option value="10">Topic 3</option>
+                      </select>
+                    <span class="error"></span>
+                  </div>
+                  <div class="col-sm-3">
+                      <label>Sub Topic</label>
+                      <select class="form-control fcstyle" id="subject" name="subject">
+                        <option value="">--Select Sub Topic--</option>
+                        <option value="12">Sub Topic 1</option>
+                        <option value="11">Sub Topic 2</option>
+                        <option value="10">Sub Topic 3</option>
+                      </select>
+                    <span class="error"></span>
+                  </div>
+                </div>
+                <div class="col-lg-12">&nbsp;&nbsp;</div>
+                  <div class="col-lg-12">
+                      <div class="col-sm-12 text-center">   
+                  <input class="btn btn-danger btn-sm" type="submit" value="Search" name="save_question">     
+                </div>
+              </div> 
+        </div>
+        <div class="col-lg-12">&nbsp;&nbsp;</div>
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+               
+                    <div class="col-sm-6 text-left">    
+                    <button class="btn btn-danger btn-sm" type="button" >Export</button>     
+                  </div>
+               
+                <div class="col-sm-6 text-right">
+                    <label class="btn btn-danger btn-sm">Total Questions : 2</label>
+                </div>
+                <p>
+                <br>
+                <br></p>
+                <div class="col-sm-12">
+                    <label >1) Mention the chemical change that proinsulin undergoes, to be able to act as mature insulin.?</label>&nbsp;
+                    <button class="btn btn-danger btn-sm">Edit</button>
+                    <div class="col-sm-12">
+                       A) Option 1
+                    </div> 
+                    <div class="col-sm-12">
+                        B) Option 1
+                     </div>  
+                     <div class="col-sm-12">
+                        C) Option 1
+                     </div>  
+                     <div class="col-sm-12">
+                        D) Option 1
+                     </div>  
+                     <div class="col-sm-12">
+                        <b>Answer:</b> A,B
+                     </div>    
+                    
+                </div>
+                <div class="col-sm-12">
+                    <label >2) Mention the chemical change that proinsulin undergoes, to be able to act as mature insulin.?
+                      </label>&nbsp;
+                    <button class="btn btn-danger btn-sm">Edit</button>
+                    <div class="col-sm-12">
+                        A) Option 1
+                     </div> 
+                     <div class="col-sm-12">
+                         B) Option 1
+                      </div>  
+                      <div class="col-sm-12">
+                         C) Option 1
+                      </div>  
+                      <div class="col-sm-12">
+                         D) Option 1
+                      </div>  
+                      <div class="col-sm-12">
+                         <b>Answer:</b> A,B
+                      </div>  
+                    
+                </div>
+                <div class="col-sm-12">
+                    <label >3) Mention the chemical change that proinsulin undergoes, to be able to act as mature insulin.?
+                      </label>&nbsp;
+                    <button class="btn btn-danger btn-sm">Edit</button>
+                    <div class="col-sm-12">
+                        A) Option 1
+                     </div> 
+                     <div class="col-sm-12">
+                         B) Option 1
+                      </div>  
+                      <div class="col-sm-12">
+                         C) Option 1
+                      </div>  
+                      <div class="col-sm-12">
+                         D) Option 1
+                      </div>  
+                      <div class="col-sm-12">
+                         <b>Answer:</b> A,B
+                      </div>  
+                    
+                </div>
+                
+            </div>
+        </div>
+        </div>
+        <div class="row slideanim">
+        <div class="col-lg-12">&nbsp;</div>
+        </div>
+        <div class="row slideanim">
+        <div class="col-lg-12">&nbsp;</div>
+        </div>
+        </div>
+        </div>    
+<!-- Container (Services Section) -->
+   
+</div><!-- /#right-panel -->
+ 
+</body>

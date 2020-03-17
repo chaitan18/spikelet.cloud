@@ -1,0 +1,171 @@
+
+<body >
+<style>
+.panel {
+border: 1px solid #deb00e; 
+border-radius:0 !important;
+transition: box-shadow 0.5s;
+}
+.panel:hover {
+box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+.panel-footer .btn:hover {
+border: 1px solid #deb00e;
+background-color: #fff !important;
+color: #deb00e;
+}
+.panel-heading {
+color: #fff !important;
+background-color: #deb00e !important;
+padding: 25px;
+border-bottom: 1px solid transparent;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+}
+.panel-footer {
+background-color: white !important;
+}
+.panel-footer h3 {
+font-size: 32px;
+}
+.panel-footer h4 {
+color: #aaa;
+font-size: 14px;
+}
+.panel-footer .btn {
+margin: 15px 0;
+background-color: #deb00e;
+color: #fff;
+}
+</style>    
+<div id="right-panel" class="right-panel" style="background-color: #efefef;">
+<!-- Header-->
+<header id="header" class="header header-admain spbg-dblue">
+<div class="header-menu">
+<app-spquizesheader></app-spquizesheader>
+</div>
+</header><!-- /header -->
+<div class="col-lg-12 bg-white" style="margin-top: -5px;">
+<div class="col-lg-12">
+<div class="col-lg-1"></div>
+<div class="col-lg-11">
+  <ul class="list-inline" style="margin-right: 3.5rem;padding-top: 8px;">    
+  <li class="list-inline-item"> 
+      <a href="#"  [routerLink]="['/spquiz-dashboard']">Dashboard</a>
+  </li>
+  <li class="list-inline-item "> 
+      <a href="#"  [routerLink]="['/spquiz-quiz']">Quiz Page</a>
+  </li>
+  </ul>
+  </div>
+</div>
+</div> 
+<div class="col-lg-12 bg-white">
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid">
+<div class="text-center">
+  <br>
+<h2>Choose Quiz</h2>
+</div>
+<br>
+<br>
+<div class="row slideanim">
+<div class="col-sm-6">
+<div class="panel panel-default text-center">
+<div class="panel-heading">
+<h5>Hyderabad School</h5>
+</div>
+<div class="panel-body">
+  <p></p>
+    <table width="100%" class="text-center">
+        <tr>
+          <th>Subject</th>
+          <th>No.of Quizs	</th>
+          <th>No.of Quizs remaining</th>
+        </tr>
+        <tr>
+          <td>English</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+          
+      </table>
+      <p></p>
+<p>
+<select class="form-control text-center">
+  <option value="">--Select Topic--</option>
+  <option value="english">Topic 1</option>
+  <option value="maths">Topic 2</option>
+</select></p>  
+<p></p>
+<p>
+    <select class="form-control text-center">
+      <option value="">--Select Sub Topic--</option>
+      <option value="english">Sub Topic 1</option>
+      <option value="maths">Sub Topic 2</option>
+    </select></p>  
+    <p></p>
+    <p>
+        <select class="form-control text-center">
+          <option value="">--Select Quiz--</option>
+          <option value="english">Quiz 1</option>
+          <option value="maths">Quiz 2</option>
+        </select></p>  
+        <p></p>
+</div>
+<div class="panel-footer" >
+<button class="btn btn-lg" style="width:100%">Take Test</button>
+</div>
+</div>      
+</div>     
+<div class="col-sm-6">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h5>Question No : 1 </h5>
+</div>
+<div class="panel-body">
+<div class="col-lg-12">
+  <label>Which of the following is true about php variables?
+  </label>
+  <div class="col-lg-12">
+    <input type="radio"/>&nbsp;Variables can, but do not need, to be declared before assignment
+  </div>
+  <div class="col-lg-12">
+      <input type="radio"/>&nbsp;Variables in PHP do not have intrinsic types - a variable does not know in advance whether it will be used to store a number or a string of characters.
+
+
+  </div>
+  <div class="col-lg-12">
+      <input type="radio"/>&nbsp;Variables used before they are assigned have default values.
+  </div>
+  <div class="col-lg-12">
+    <input type="radio"/>&nbsp;All of the above.
+
+
+  </div>
+  <p>&nbsp;</p>
+</div>
+ </div>
+    <div class="panel-footer">
+    <button class="btn btn-lg" style="width:100%;">Next</button>
+    </div>
+</div>      
+</div>       
+  
+</div>
+<div class="row slideanim">
+<div class="col-lg-12">&nbsp;</div>
+</div>
+
+<div class="row slideanim">
+<div class="col-lg-12">&nbsp;</div>
+</div>
+</div>
+</div>    
+<!-- Container (Services Section) -->
+
+</div><!-- /#right-panel -->
+
+</body>

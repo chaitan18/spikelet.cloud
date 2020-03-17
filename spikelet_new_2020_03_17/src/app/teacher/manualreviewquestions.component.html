@@ -1,0 +1,263 @@
+<body>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+<!-- Right Panel -->
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<div class="breadcrumbs">
+<div class="col-sm-4">
+<div class="page-header float-left">
+<div class="page-title breadcrumb">
+
+<span>Review Manual Questions</span>
+</div>
+</div>
+</div>
+<div class="col-sm-8">
+<div class="page-header float-right">
+<div class="page-title">
+<ol class="breadcrumb">
+<li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+<li class="breadcrumb-item" aria-current="page">Review Manual Questions</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+<div class="content mt-3">
+
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body">
+<div class="right">
+<div class="col-lg-4">
+<strong>Manual </strong> Questions
+</div>
+<div class="col-lg-4">
+<strong>Number Of Questions [ <b style="color:blue;">3</b>/<span style="color:red;">5 </span>]</strong>
+</div>
+<div class="col-lg-4">
+<strong>Total Marks [ <span class="totalmanualmarks" style="color:blue;">10</span>/ <span style="color:red;">20 </span>]</strong>
+
+</div>         
+<br>
+<br>
+<br>
+<div class="col-lg-12" style="text-align: right;">
+<img src="assets/images/storage.jpg"  data-toggle="modal" data-target="#pushquestion" style="height: 40px;width: 40px;cursor:pointer;" title="Send to storage">
+
+</div>
+<div class="col-lg-12" style="text-align:center;">
+<span><b>Home Work Id - </b> HM00001</span>
+</div>
+<div class="col-lg-12" style="text-align:center;">
+<span><b>Topic -  </b> Assegnment 1</span>
+</div>
+<div class="col-lg-12">
+<div class="col-lg-12">
+<b>Date : </b> 2019-01-01
+</div> 
+
+</div>
+<div class="col-lg-12">
+&nbsp;
+</div>
+<div class="col-lg-12">
+<div class="col-lg-8">
+<b>1)</b>  Mention the chemical change that proinsulin undergoes, to be able to act as mature insulin.?
+</div>
+<div class="col-lg-2">
+<h3>5 Marks </h3>
+</div>
+<div class="col-lg-2">
+<h5><a href="#" data-toggle="modal" data-target="#EditModal"><b style="color:blue;"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i> </b></a> <a href="#" data-toggle="modal" data-target="#closequestion"><b style="color:red;"><i class="fa fa-times" style="font-size: 30px;color: red;"></i></b></a></h5>
+</div>
+<div class="col-lg-8">
+&nbsp;&nbsp;<img src="assets/images/manual_images/Human-Respiratory-system.jpg" style="height:245px">
+</div>
+<div class="col-lg-2">
+
+</div>
+</div>
+<div class="col-lg-12">
+<div class="col-lg-8">
+<b>2)</b>  Mention the chemical change that proinsulin undergoes, to be able to act as mature insulin.?
+</div>
+<div class="col-lg-2">
+<h3>4 Marks </h3>
+</div>
+<div class="col-lg-2">
+<h5><a href="#" data-toggle="modal" data-target="#EditModal"><b style="color:blue;"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i> </b></a> <a href="#" data-toggle="modal" data-target="#closequestion"><b style="color:red;"><i class="fa fa-times" style="font-size: 30px;color: red;"></i></b></a></h5>
+</div>
+<div class="col-lg-8">
+&nbsp;&nbsp;<img src="assets/images/manual_images/images%20(1).jpg" style="height:245px">
+</div>
+<div class="col-lg-2">
+
+</div>
+</div>
+<div class="col-lg-12">
+<div class="col-lg-8">
+<b>3)</b>  Mention the chemical change that proinsulin undergoes, to be able to act as mature insulin.?
+</div>
+<div class="col-lg-2">
+<h3>1 Mark </h3>
+</div>
+<div class="col-lg-2">
+<h5><a href="#" data-toggle="modal" data-target="#EditModal"><b style="color:blue;"><i class="fa fa-pencil-square-o" style="font-size: 30px;color: darkslateblue;"></i> </b></a> <a href="#" data-toggle="modal" data-target="#closequestion"><b style="color:red;"><i class="fa fa-times" style="font-size: 30px;color: red;"></i></b></a></h5>
+</div>
+<div class="col-lg-8">
+&nbsp;&nbsp;<img src="assets/images/manual_images/7832365da87ae06240c3893abb058d2a--dwarfism-health-tips.jpg" style="height:245px">
+</div>
+<div class="col-lg-2">
+
+</div>
+</div>
+<div class="col-lg-12" style="text-align:center;">
+
+<a href="#" title="Question Info"> <button type="button" class="btn btn-info btn-sm" style="margin-bottom: 4px">
+<span>Submit</span>
+</button></a>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="pushquestion" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-body popupboxmodal">
+<span style="font-size: 28px;">
+Are you sure you want to push your questions in  storage?
+</span>
+</div>
+<div class="modal-footer popupboxmodal">
+<button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Send</button>
+<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+</div>
+
+</div>
+<!-- /.modal-content --> 
+</div>
+<!-- /.modal-dialog --> 
+</div>
+
+<div class="modal fade" id="closequestion" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-body popupboxmodal">
+<span style="font-size: 28px;">
+Are you sure you want to delete question?
+</span>
+</div>
+<div class="modal-footer popupboxmodal">
+<button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+</div>
+
+</div>
+<!-- /.modal-content --> 
+</div>
+<!-- /.modal-dialog --> 
+</div>
+
+<div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="scrollmodalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header" style="border-radius: 15px;background-color: #fdf8f1;">
+<div class="col-lg-12">
+<div class="col-lg-3" >
+<strong>Update Question </strong> 
+</div>
+<div class="col-lg-4" >  
+
+<strong>Number Of Questions [ <span class="totalmanualmarks" style="color:blue;">3</span>/ <span style="color:red;">5</span>]</strong>
+
+</div>
+<div class="col-lg-4" >
+
+<strong>Total Marks [ <span class="totalmanualmarks" style="color:blue;">3</span>/ <span style="color:red;">20</span>]</strong>    
+
+</div>
+<div class="col-lg-1" >
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+</div>    
+
+</div>
+<div class="modal-body" >
+<div class="col-sm-12" style="border: 2px solid #e89d9d;padding: 10px;border-radius: 25px;">
+<div class="col-sm-12">
+<div class="col-sm-1">
+<div class="form-group" style="text-align: center;">
+<label for="cc-payment" class="control-label mb-1"><b>Q.Id</b></label>
+1
+</div>
+</div>
+<div class="col-sm-11">
+<div class="form-group" style="text-align: center;">
+<label for="cc-payment" class="control-label mb-1"><b>Question</b> </label>
+<div id="preview_editor_1" class="save_button_enabled" style="height: 230px;" ></div>
+</div>
+</div>
+
+</div>
+<div class="col-sm-12">
+<div class="col-sm-1">
+</div>
+<div class="col-sm-9">
+<div class="form-group" style="text-align: center;">
+<label for="cc-payment" class="control-label mb-1" title="you can upload  image for question">
+<b>Image</b> </label>
+<div onclick="$(#filePhoto).click()" style="background-color: #dfc8ca;">
+<input type="file" name="userprofile_picture" id="filePhoto" style="display:block;width:185px;">
+</div>
+<div class="uploader">
+<img src="assets/images/manual_images/Human-Respiratory-system.jpg" style="width: 100%;height: 186px;">
+</div>
+</div>
+
+</div>
+<div class="col-sm-2">
+<div class="form-group" style="text-align: center;">
+<label for="cc-payment" class="control-label mb-1"><b>Max Marks :</b> <i>5</i></label>
+
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-12" >
+&nbsp;
+</div>
+<div class="col-sm-12" style="text-align:center;">
+
+<button type="button" class="btn btn-primary btn-sm">Update</button>
+&nbsp;
+<button type="button" class="btn btn-secondary btn-sm">&nbsp; Cancel</button>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

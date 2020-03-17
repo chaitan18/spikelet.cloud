@@ -1,0 +1,387 @@
+<body>
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+<!-- Right Panel -->
+<style type="text/css">
+#container { 
+display: block; 
+width: 100%; 
+background: #fff; 
+padding: 14px 20px; 
+-webkit-border-radius: 4px; 
+-moz-border-radius: 4px; 
+border-radius: 4px; 
+-webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+-moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+
+/* comments area */
+#comments { display: block; }
+
+#comments .cmmnt, ul .cmmnt, ul ul .cmmnt { display: block; position: relative; padding-left: 65px; border-top: 1px solid #ddd; }
+
+#comments .cmmnt .avatar  { position: absolute; top: 8px; left: 0; }
+#comments .cmmnt .avatar img { 
+-webkit-border-radius: 3px; 
+-moz-border-radius: 3px; 
+border-radius: 3px; 
+-webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.44);
+-moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.44);
+box-shadow: 1px 1px 2px rgba(0,0,0,0.44);
+-webkit-transition: all 0.4s linear;
+-moz-transition: all 0.4s linear;
+-ms-transition: all 0.4s linear;
+-o-transition: all 0.4s linear;
+transition: all 0.4s linear;
+}
+
+#comments .cmmnt .avatar a:hover img { opacity: 0.77; }
+
+#comments .cmmnt .cmmnt-content { padding: 0px 3px; padding-bottom: 12px; padding-top: 8px; }
+
+#comments .cmmnt .cmmnt-content header { font-size: 1.3em; display: block; margin-bottom: 8px; }
+#comments .cmmnt .cmmnt-content header .pubdate { color: #777; }
+#comments .cmmnt .cmmnt-content header .userlink { font-weight: bold; } 
+
+#comments .cmmnt .replies { margin-bottom: 7px; }
+.modal_add {
+    background-color: aliceblue;
+}
+
+</style>
+
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>{{datalabel?.heading && datalabel?.heading[0].discussion}}</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">{{datalabel?.heading && datalabel?.heading[0].dashboard}}</a></li>
+                          <li class="breadcrumb-item" aria-current="page">{{datalabel?.heading && datalabel?.heading[0].discussion}}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+<div class="animated fadeIn">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body">
+<div class="row">
+
+<div class="col-lg-12">
+<div class="card">
+<div class="card-header search_criteria_header">
+<div class="col-lg-4">
+    {{datalabel.searchform[0].search_criteria}}
+</div>
+<div class="col-lg-6">
+</div>
+<div class="col-lg-2">
+<button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#adddiscussion">{{datalabel.searchform[0].add_descussion}}</button>
+</div>
+</div>
+<div class="card-body card-block search_criteria_body">
+<form #searchform="ngForm" (ngSubmit)="OnSearchSubmit(searchform)" class="form-horizontal" method="post">      
+<div class="col-lg-12">  
+<!-- <div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">{{datalabel.searchform[0].topic_number}}</label>
+<input type="text" id="inputSuccess2i" class="form-control-sm form-control-success form-control" placeholder="{{datalabel.searchform[0].topic_numberpc}}">
+</div> -->
+<div class="col-lg-4">    
+<label for="disabled-input" class=" form-control-label">Role Search Type</label>
+<select  class="form-control-sm form-control">
+<option value="">--Select--</option>
+<option value="1">Me</option>
+<option value="2">Students</option>
+</select>
+</div>   
+<div class="col-lg-4 form-group">
+<label for="inputSuccess2i" class=" form-control-label">{{datalabel.searchform[0].topic_name}}</label>
+<input type="text" id="inputSuccess2i" name="topicname" #topicname="ngModel" [(ngModel)]="user.topicname"  class="form-control-sm form-control-success form-control" placeholder="{{datalabel.searchform[0].topic_namepc}}">
+</div>
+</div>
+<div class="col-lg-12" style="text-align:center;">  
+<div class="form-actions form-group ">
+<button type="submit" class="btn btn-primary btn-sm">{{datalabel.searchform[0].bsearch}}</button>
+&nbsp;
+<button type="reset" class="btn btn-primary btn-sm" style="background: #c50f1f;">{{datalabel.searchform[0].breset}}</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<div class="col-lg-12">     
+ <div class="col-lg-6">       
+<p><b>{{datalabel.listform[0].discussion_list}}</b></p>
+ </div>
+<div class="col-lg-6" *ngIf="topiccout;" style="text-align:right;">       
+<p>Count:&nbsp;<b>{{topiccout}}</b></p>
+</div>
+<div class="col-lg-12">    
+<div class="alert alert-danger alert-dismissible fade show" *ngIf="delmsgsucess;">
+<strong>{{delmsgsucess}}</strong>
+<button #closealertmsg type="button" class="close" data-dismiss="alert">&times;</button>
+</div> 
+</div> 
+<div class="table-responsive">
+        <!-- id="mytable"-->
+<table id="mytable" class="table table-bordred table-striped">
+<thead class="table_header" style="background-color: #c0ebf9;"> 
+<!--   <th><input type="checkbox" id="checkall" /></th> -->
+<th>{{datalabel.listform[0].daction}}</th>
+<th>{{datalabel.listform[0].topic_number}}</th>
+<th>{{datalabel.listform[0].topic_name}}</th>
+<th>Publish</th>
+</thead>
+<tbody class="table_body"  style="background-color:#fffff3">
+<tr *ngFor="let Items of pagedItems">
+<td>
+    <span  title="close" (click)="deleteselectItem(Items)" data-toggle="modal" tle="delete" data-target="#delete" style="cursor:pointer;">
+    <i class="fa fa-remove" style="font-size:20px;color:red;"></i>
+    </span>  &nbsp;
+    <span  data-toggle="modal" (click)="showForEdit(Items)" data-target="#editdiscussion" style="font-size:20px;color: darkcyan;" title="edit" style="cursor:pointer;">
+    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </span>
+    
+    </td>
+    <td>TN000{{Items.id}}</td>
+    <td><a href="#" data-toggle="modal" data-target="#largeModalDiscussion">{{Items.topicname}}</a></td>
+    <td><a href="#" data-toggle="modal" data-target="#largeModalDiscussion">{{Items.publish}}</a></td>
+</tr>
+</tbody>
+
+</table>
+
+<div class="clearfix"></div>         
+</div>
+<div class="col-lg-12" style="text-align: center;">    
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div> 
+
+
+</div> 
+
+
+<div class="modal fade"  id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-body popupboxmodal">
+<span >
+Are you sure you want to close Discussion?
+</span>
+</div>
+<div class="modal-footer popupboxmodal">
+<button type="button" (click)="deleteItem()" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+<button #deleteClick  type="button"  class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="editdiscussion" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<form #topiceditform="ngForm" (ngSubmit)="OnEditSubmit(topiceditform)" class="form-horizontal" method="post">    
+<div class="modal-header ">
+<h5 class="modal-title" id="largeModalLabel">Edit Discussion</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body modal_add" >
+<div class="alert alert-primary alert-dismissible fade show" *ngIf="updatemsgsucess;">
+<strong>{{updatemsgsucess}}</strong>
+<button #closealertmsg type="button" class="close" data-dismiss="alert">&times;</button>
+</div> 
+<div class="row form-group">
+<div class="col col-md-3"><label for="disabled-input" class=" form-control-label">Topic</label></div>
+<div class="col-12 col-md-9"><input type="text" name="topicname" #topicname="ngModel" [(ngModel)]="user.topicname" required placeholder="Please Enter Topic" class="form-control" value="{{editdetails && editdetails?.topicname}}"></div>
+</div>
+
+
+</div>
+<div class="modal-footer modal_add">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+<button type="submit" class="btn btn-primary" [disabled]="!topiceditform.valid">Update</button>
+
+</div>
+</form>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="adddiscussion" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">    
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="largeModalLabel">Add Discussion</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+<form #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)" class="form-horizontal" method="post">
+<div class="modal-body modal_add">
+<div class="alert alert-primary alert-dismissible fade show" *ngIf="addmsgsucess;">
+<strong>{{addmsgsucess}}</strong>
+<button #closealertmsg type="button" class="close" data-dismiss="alert">&times;</button>
+</div>    
+<div class="row form-group">
+<div class="col-lg-12"><label for="disabled-input" class=" form-control-label">Topic</label>
+<input type="text" id="disabled-input" name="topicname" #topicname="ngModel" [(ngModel)]="user.topicname" required placeholder="Please Enter Topic" class="form-control-sm form-control">
+<label data-error="Required field!"></label>
+<input type="hidden"   value="2" name="topicid" #topicid="ngModel" [(ngModel)]="user.topicid" >
+</div>
+
+</div>
+
+<div class="row form-group">
+    <div class="col-lg-12"><label for="disabled-input" class=" form-control-label">Publish</label>
+        <select name="publish"  #topicname="ngModel" [(ngModel)]="user.publish" class="form-control-sm form-control">
+            <option [selected]="user.publish == 'NO'" value="NO">NO</option>
+            <option [selected]="user.publish == 'YES'" value="YES">YES</option>
+        </select>
+    <label data-error="Required field!"></label>
+    </div>
+ </div>
+
+
+</div>
+<div class="modal-footer modal_add">
+<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+<!-- <button type="button" class="btn btn-secondary btn-sm">Save & Publish</button> -->
+<button [disabled]="!userRegistrationForm.valid" type="submit" class="btn btn-primary btn-sm">Save</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="largeModalDiscussion" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="largeModalLabel">What is the real relationship between food, fitness, and weight? 
+<br>
+<button type="button" class="btn btn-sm" style="background-color: lightgreen;">Comment</button>&nbsp;
+</h5>
+
+
+
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body modal_add" style="text-align: justify;">
+<div class="col-lg-12">
+<ul id="comments">
+<li class="cmmnt">
+<div class="avatar"><a href="javascript:void(0);"><img src="assets/images/avatar/men.jpg" width="55" height="55" alt="DarkCubes photo avatar"></a></div>
+<div class="cmmnt-content">
+<header><a href="javascript:void(0);" class="userlink">Johan</a> - <span class="pubdate">posted 1 week ago</span></header>
+<p>One of the most challenging teaching methods, leading discussions can also be one of the most rewarding. Using discussions as a primary teaching method allows you to stimulate critical thinking. As you establish a rapport with your students, you can demonstrate that you appreciate their contributions at the same time that you challenge them to think more deeply and to articulate their ideas more clearly.</p>
+
+</div>
+
+
+</li>
+
+<li class="cmmnt">
+<div class="avatar"><a href="javascript:void(0);"><img src="assets/images/avatar/4.jpg" width="55" height="55" alt="pikabob photo avatar"></a></div>
+<div class="cmmnt-content">
+<header><a href="javascript:void(0);" class="userlink">Pikabob</a> - <span class="pubdate">posted 6 days ago</span></header>
+<p>Listen you are going to get a kick out of this one. I've got to tell one of the funniest jokes of all time.</p>
+
+</div>
+</li>
+
+<li class="cmmnt">
+<div class="avatar"><a href="javascript:void(0);"><img src="assets/images/avatar/6.jpg" width="55" height="55" alt="default avatar"></a></div>
+<div class="cmmnt-content">
+<header><a href="javascript:void(0);" class="userlink">MyUsername</a> - <span class="pubdate">posted 5 days ago</span></header>
+<p>This is another anonymous comment. Maybe we can place <strong>some bold text</strong>. Then afterwards we can do some <u>underlined text</u>. And even a <a href="http://www.google.com/">link to Google</a>.</p>
+
+</div>
+<ul class="replies">
+<li class="cmmnt">
+<div class="avatar"><a href="javascript:void(0);"><img src="assets/images/avatar/6.jpg" width="55" height="55" alt="Maximus photo avatar"></a></div>
+<div class="cmmnt-content">
+<header><a href="javascript:void(0);" class="userlink">Maximus</a> - <span class="pubdate">posted 5 days ago</span></header>
+<p>Hey man, just another sub-reply. Okay bye.</p>
+
+</div>              
+</li>
+</ul>          
+</li>
+
+<li class="cmmnt">
+<div class="avatar"><a href="javascript:void(0);"><img src="assets/images/avatar/men.jpg" width="55" height="55" alt="default avatar"></a></div>
+<div class="cmmnt-content">
+<header><a href="javascript:void(0);" class="userlink">FreddieFantastic</a> - <span class="pubdate">posted 11 hours ago</span></header>
+<p>So this is neat.</p>
+
+<p>Hello, world!</p>
+
+</div>  
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>

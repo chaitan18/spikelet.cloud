@@ -1,0 +1,152 @@
+<body>
+        <!-- <script src="http://visjs.org/dist/vis.js"></script>
+        <link href="http://visjs.org/dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />     -->
+<aside id="left-panel" class="left-panel">
+ <nav class="navbar navbar-expand-sm navbar-default"> 
+<app-sidebarheader></app-sidebarheader>
+<!-- /.navbar-collapse -->
+</nav>
+</aside><!-- /#left-panel -->
+<!-- Right Panel -->
+
+<div id="right-panel" class="right-panel" style="background-color: #f9f9f9;">
+  <!-- Header-->
+<header id="header" class="header">
+<div class="header-menu">
+<app-header></app-header>
+</div>
+</header><!-- /header -->
+<div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title breadcrumb">
+                        <span>Test</span>
+                    </div>
+                </div>
+            </div>
+           <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item active"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+                          <li class="breadcrumb-item" aria-current="page">Test</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="content mt-3">
+        <!-- <div id="toolbar"></div> -->
+        <div id="htmlEditor" contenteditable="true">Try me!</div>
+
+        <div class="col-lg-12">
+            <div class="menu-edit unselectable">
+              <b class="frmttxt-mn-it" data-frmt="ngrto" title="Bold">B</b>
+              <i class="frmttxt-mn-it fa" data-frmt="itlco" title="Italic" style="font-style: italic;">I</i>
+              <u class="frmttxt-mn-it" data-frmt="sblnhdo" title="Underline">U</u>
+              &nbsp;&nbsp;❘&nbsp;&nbsp;
+              <div class="frmttxt-mn-gp extra-frmt" title="Extra">
+                <span><s>S</s>²</span>
+                <div class="frmttxt-mn-drpdn">
+                  <s class="frmttxt-mn-it" data-frmt="rscdo" title="strikethrough">S</s>
+                  <span class="frmttxt-mn-it" data-frmt="sbrlnhdo" data-val="overline" title="overline" style="text-decoration: overline;">O</span>
+                  <span class="frmttxt-mn-it sobrescrito" data-frmt="sbrscrto" title="superscript"><span>X</span>²</span>
+                  <span class="frmttxt-mn-it subscrito" data-frmt="sbscrto" title="subscript"><span>X</span>₂</span>
+                </div>
+              </div>
+              &nbsp;&nbsp;
+              <div class="frmttxt-mn-gp insere-crctr" title="Symbols">
+                <span>Ω∫</span>
+                <div class="frmttxt-mn-drpdn">
+                  <span class="frmttxt-mn-it" data-frmt="insrcrctr">×</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">÷</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">√</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">±</span>
+                  <span class="frmttxt-mn-it" data-frmt="insrcrctr">≤</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">≥</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">≈</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">≠</span>
+                  <span class="frmttxt-mn-it" data-frmt="insrcrctr">⇒</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">⇔</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">→</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">¬</span>
+                  <span class="frmttxt-mn-it" data-frmt="insrcrctr">⊂</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">⊃</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">∑</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">∃</span>
+                  <span class="frmttxt-mn-it" data-frmt="insrcrctr">α</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">β</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">γ</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">∆</span>
+                  <span class="frmttxt-mn-it" data-frmt="insrcrctr">Θ</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">λ</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">μ</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">ξ</span>
+                  <span class="frmttxt-mn-it" data-frmt="insrcrctr">π</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">σ</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">Ψ</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">Ω</span>
+                  <span class="frmttxt-mn-it" data-frmt="insrcrctr">δ</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">∂</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">∞</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">∫</span>
+                  <span class="frmttxt-mn-it" data-frmt="insrcrctr">∮</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">∪</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">∩</span>
+                  <span class="frmttxt-mn-it" data-frmt="insrcrctr">£</span><span class="frmttxt-mn-it" data-frmt="insrcrctr">€</span>
+                </div>
+              </div>
+              &nbsp;&nbsp;
+              <div class="frmttxt-mn-gp tipo-lista fa fa-list" title="List">
+                <div class="frmttxt-mn-drpdn">
+                  <span class="frmttxt-mn-it fa fa-list-ul" data-frmt="tplist1" title="unordered"><span></span></span>
+                  <span class="frmttxt-mn-it fa fa-list-ol" data-frmt="tplist2" title="ordered"><span></span></span>
+                </div>
+              </div>
+              <div id="toolbar" style="width: 40px"></div>
+              &nbsp;&nbsp;&nbsp;❘&nbsp;&nbsp;
+              <div class="frmttxt-mn-gp fonte-tmnho" title="Font size">
+                <span>T<small>↕</small></span>
+                <ul class="frmttxt-mn-drpdn">
+                  <li class="frmttxt-mn-it" data-frmt="fnttmnho" data-val="12px">12px</li>
+                  <li class="frmttxt-mn-it" data-frmt="fnttmnho" data-val="14px">14px</li>
+                  <li class="frmttxt-mn-it" data-frmt="fnttmnho" data-val="16px">16px</li>
+                  <li class="frmttxt-mn-it" data-frmt="fnttmnho" data-val="18px">18px</li>
+                  <li class="frmttxt-mn-it" data-frmt="fnttmnho" data-val="20px">20px</li>
+                  <li class="frmttxt-mn-it" data-frmt="fnttmnho" data-val="22px">22px</li>
+                  <li class="frmttxt-mn-it" data-frmt="fnttmnho" data-val="24px">24px</li>
+                  <li class="frmttxt-mn-it" data-frmt="fnttmnho" data-val="26px">26px</li>
+                  <li class="frmttxt-mn-it" data-frmt="fnttmnho" data-val="28px">28px</li>
+                </ul>
+              </div>
+              &nbsp;&nbsp;
+              <div class="frmttxt-mn-gp texto-cor fa fa-tint" title="Color">
+                <div class="frmttxt-mn-drpdn">
+                  <span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(255, 255, 255)" style="background: #FFFFFF;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(247, 218, 100)" style="background: #F7DA64;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(250, 197, 28)" style="background: #FAC51C;"></span>
+                  <span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(251, 160, 38)" style="background: #FBA026;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(243, 121, 52)" style="background: #F37934;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(209, 213, 216)" style="background: #D1D5D8;"></span>
+                  <span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(213, 170, 170)" style="background: #D5AAAA;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(235, 107, 86)" style="background: #EB6B56;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(226, 80, 65)" style="background: #E25041;"></span>
+                  <span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(184, 49, 47)" style="background: #B8312F;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(170, 213, 170)" style="background: #AAD5AA;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(97, 189, 109)" style="background: #61BD6D;"></span>
+                  <span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(0, 168, 133)" style="background: #00A885;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(128, 110, 128)" style="background: #806E80;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(149, 64, 129)" style="background: #954081;"></span>
+                  <span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(84, 172, 210)" style="background: #54ACD2;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(44, 130, 201)" style="background: #2C82C9;"></span><span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(71, 85, 119)" style="background: #475577;"></span>
+                  <span class="frmttxt-mn-it" data-frmt="txtcor" data-val="rgb(0, 0, 0)" style="background: #000000;"></span>
+                  <span class="frmttxt-mn-it rmv" data-frmt="txtcor" data-val="#888888" style="background: #F1F1F1;">×</span><!-- Usado como remoção de cor de texto ou fundo -->
+                  <div class="frmttxt-mn-mp" data-mnpl="txtcortp">
+                    <input id="tipo-cor1" type="radio" name="tipo-cor" value="1" checked><label for="tipo-cor1">Text</label>
+                    <input id="tipo-cor2" type="radio" name="tipo-cor" value="2"><label for="tipo-cor2">Background</label>
+                  </div>
+                </div>
+              </div>
+              &nbsp;&nbsp;
+              <div class="frmttxt-mn-gp frmttxt-mn-mp insere-link fa fa-link" data-mnpl="insrlnkvl" title="Link">
+                <div class="frmttxt-mn-drpdn">
+                  <input type="text" placeholder="Enter an address"><span class="frmttxt-mn-it" data-frmt="insrlnk">ok</span>
+                  <input type="file" id="imgInp"  placeholder="Enter an address">
+                </div>
+        
+              </div>
+        
+              &nbsp;&nbsp;
+              <span class="frmttxt-mn-it remove-link fa fa-chain-broken" data-frmt="rmvlnk" title="Unlink">&nbsp;</span>
+              &nbsp;&nbsp;❘&nbsp;&nbsp;
+              <span class="frmttxt-mn-it fa fa-ban" data-frmt="lmpfrmt" title="Clear formatting"></span>
+            </div>
+            <!-- Text box -->
+            <div id="box-txt-input" class="changeable box-txt" contenteditable="true" placeholder="Enter text here...">
+              
+            </div>
+          </div>
+        <!-- <div id="content" name="question" cols="25" rows="12" class="form-control" ></div> -->
+        <!-- ///https://stackblitz.com/edit/bootstrap-ngx-alert-visjf-demo?file=app%2Fapp%2Fvistimeline%2Fvistimeline.component.html -->
+        <!-- <div class="col-lg-12" style="background-color:white;"> 
+            <div class="form-group has-feedback" 
+            [ngClass]="{ 'has-error': myckeditor.invalid && myckeditor.touched }">
+          <ckeditor [(ngModel)]="mycontent" 
+                  #myckeditor="ngModel"
+                  name="myckeditor"
+                  required
+                  [config]="ckeConfig" 
+                  debounce="500" 
+                  (change)="onChange($event)">
+          </ckeditor>
+        <div *ngIf="myckeditor.invalid && myckeditor.touched" class="help-block">Required field.</div>
+      </div>
+    </div> -->
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+</body>
